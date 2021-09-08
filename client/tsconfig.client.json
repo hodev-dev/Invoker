@@ -1,0 +1,39 @@
+{
+  "include": [
+    ".",
+  ],
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "es6", // generate ES modules
+    "jsx": "react-jsx", // compile JSX to React.createElement statements for browser
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "skipLibCheck": false,
+    "resolveJsonModule": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "noImplicitAny": false
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "shared-config"
+    ],
+    "rules": {
+      "additional-rule": ""
+    },
+    "overrides": [
+      {
+        "files": [
+          "**/*.ts?(x)"
+        ],
+        "rules": {
+          "additional-typescript-only-rule": "warn"
+        }
+      }
+    ]
+  }
+}
