@@ -1,0 +1,992 @@
+[
+	{
+		"version": "6505de35-f3a9-44af-b369-72b441871f7e",
+		"time": "9/27/2021, 3:10 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/6505de35-f3a9-44af-b369-72b441871f7e.sql"
+	},
+	{
+		"version": "b44e2649-d59e-417e-9d04-460c8a0d9a97",
+		"time": "9/27/2021, 3:11 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/b44e2649-d59e-417e-9d04-460c8a0d9a97.sql"
+	},
+	{
+		"version": "c3cd257c-a72a-4ad1-b192-2992472ad220",
+		"time": "9/27/2021, 3:11 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/c3cd257c-a72a-4ad1-b192-2992472ad220.sql"
+	},
+	{
+		"version": "f89bdadb-9daf-4138-be9b-fecaeff2113b",
+		"time": "9/27/2021, 3:12 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/f89bdadb-9daf-4138-be9b-fecaeff2113b.sql"
+	},
+	{
+		"version": "aca566c0-cceb-4a7e-9822-ab35a3223bd3",
+		"time": "9/27/2021, 3:13 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/aca566c0-cceb-4a7e-9822-ab35a3223bd3.sql"
+	},
+	{
+		"version": "9fe62b40-5061-4310-acac-8c0f74827977",
+		"time": "9/27/2021, 3:14 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/9fe62b40-5061-4310-acac-8c0f74827977.sql"
+	},
+	{
+		"version": "957b42e9-e0ac-48dc-ad30-da9a7a649e99",
+		"time": "9/27/2021, 3:15 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/957b42e9-e0ac-48dc-ad30-da9a7a649e99.sql"
+	},
+	{
+		"version": "c65a0bb4-43cd-4285-87ac-635d77bdc167",
+		"time": "9/27/2021, 3:15 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/c65a0bb4-43cd-4285-87ac-635d77bdc167.sql"
+	},
+	{
+		"version": "004daacb-f9a6-428a-ae20-4c69d6db069a",
+		"time": "9/27/2021, 3:16 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/004daacb-f9a6-428a-ae20-4c69d6db069a.sql"
+	},
+	{
+		"version": "b7dd514b-2b91-4e13-9d89-deaaf1bf7002",
+		"time": "9/27/2021, 3:17 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/b7dd514b-2b91-4e13-9d89-deaaf1bf7002.sql"
+	},
+	{
+		"version": "d288c936-cc6c-44ae-b01a-ea030172b631",
+		"time": "9/27/2021, 3:18 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/d288c936-cc6c-44ae-b01a-ea030172b631.sql"
+	},
+	{
+		"version": "1b5390d7-1a04-40eb-b966-9eca84090c01",
+		"time": "9/27/2021, 3:19 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/1b5390d7-1a04-40eb-b966-9eca84090c01.sql"
+	},
+	{
+		"version": "9c8ca8e5-d02e-4829-8636-5bb3b01887f4",
+		"time": "9/27/2021, 3:19 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/9c8ca8e5-d02e-4829-8636-5bb3b01887f4.sql"
+	},
+	{
+		"version": "10e6f9c9-5966-4bdd-868d-a7eb9134dbc9",
+		"time": "9/27/2021, 3:20 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/10e6f9c9-5966-4bdd-868d-a7eb9134dbc9.sql"
+	},
+	{
+		"version": "d57e2802-e79e-4ec0-866d-ac9a9ecd84c2",
+		"time": "9/27/2021, 3:20 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/d57e2802-e79e-4ec0-866d-ac9a9ecd84c2.sql"
+	},
+	{
+		"version": "883d688e-2a36-4328-a2f1-a8a3d8da49f3",
+		"time": "9/27/2021, 3:21 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/883d688e-2a36-4328-a2f1-a8a3d8da49f3.sql"
+	},
+	{
+		"version": "95e7ec70-0b34-4a3e-90f9-8ba60705044e",
+		"time": "9/27/2021, 3:22 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/95e7ec70-0b34-4a3e-90f9-8ba60705044e.sql"
+	},
+	{
+		"version": "b1cd43de-310a-42bf-bee0-11972cdc669a",
+		"time": "9/27/2021, 3:23 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/b1cd43de-310a-42bf-bee0-11972cdc669a.sql"
+	},
+	{
+		"version": "07949923-21b5-4e7c-83cf-e8885771852c",
+		"time": "9/27/2021, 3:34 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/07949923-21b5-4e7c-83cf-e8885771852c.sql"
+	},
+	{
+		"version": "901cef86-0ef1-4fa8-990c-aaae4cb6bc17",
+		"time": "9/27/2021, 3:35 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/901cef86-0ef1-4fa8-990c-aaae4cb6bc17.sql"
+	},
+	{
+		"version": "e1957f64-5eec-4920-87f3-b1f42c8c409a",
+		"time": "9/27/2021, 3:36 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/e1957f64-5eec-4920-87f3-b1f42c8c409a.sql"
+	},
+	{
+		"version": "90b2b21d-7899-4069-be1d-156eb081db14",
+		"time": "9/27/2021, 3:36 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/90b2b21d-7899-4069-be1d-156eb081db14.sql"
+	},
+	{
+		"version": "a0307730-1f30-4522-91df-8e8c5af1e3bd",
+		"time": "9/27/2021, 3:37 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/a0307730-1f30-4522-91df-8e8c5af1e3bd.sql"
+	},
+	{
+		"version": "b4a9bdbb-6164-44b5-96a5-e18941791523",
+		"time": "9/27/2021, 3:37 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/b4a9bdbb-6164-44b5-96a5-e18941791523.sql"
+	},
+	{
+		"version": "655ceefc-790e-4d01-9b73-5a14d52ca175",
+		"time": "9/27/2021, 3:39 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/655ceefc-790e-4d01-9b73-5a14d52ca175.sql"
+	},
+	{
+		"version": "860a1ad7-75f4-4dd7-8584-472b3b3d67d2",
+		"time": "9/27/2021, 3:39 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/860a1ad7-75f4-4dd7-8584-472b3b3d67d2.sql"
+	},
+	{
+		"version": "d99033cf-3662-4652-8ab6-87fbbe32f743",
+		"time": "9/27/2021, 3:42 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/d99033cf-3662-4652-8ab6-87fbbe32f743.sql"
+	},
+	{
+		"version": "41f34f6a-cd43-42aa-9c87-0dfa21047f69",
+		"time": "9/27/2021, 3:42 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/41f34f6a-cd43-42aa-9c87-0dfa21047f69.sql"
+	},
+	{
+		"version": "65107691-956f-4c77-bd4b-be9cb8ac331f",
+		"time": "9/27/2021, 3:43 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/65107691-956f-4c77-bd4b-be9cb8ac331f.sql"
+	},
+	{
+		"version": "eb0be6cb-dcae-4bf7-a90c-8359b4881ead",
+		"time": "9/27/2021, 3:43 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/eb0be6cb-dcae-4bf7-a90c-8359b4881ead.sql"
+	},
+	{
+		"version": "d5c7cbe2-4ce8-422b-9357-2ea4c6878254",
+		"time": "9/27/2021, 3:45 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/d5c7cbe2-4ce8-422b-9357-2ea4c6878254.sql"
+	},
+	{
+		"version": "821a24ef-b446-4073-ad65-22d9a219ee34",
+		"time": "9/27/2021, 3:46 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/821a24ef-b446-4073-ad65-22d9a219ee34.sql"
+	},
+	{
+		"version": "8c2bde4a-9876-4af2-8de4-756781f3955e",
+		"time": "9/27/2021, 3:47 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/8c2bde4a-9876-4af2-8de4-756781f3955e.sql"
+	},
+	{
+		"version": "90d275e3-d3e7-4e68-aad6-30bbb66518d4",
+		"time": "9/27/2021, 3:48 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/90d275e3-d3e7-4e68-aad6-30bbb66518d4.sql"
+	},
+	{
+		"version": "76b7e85a-3c0d-468b-801e-de3461603a35",
+		"time": "9/27/2021, 3:49 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/76b7e85a-3c0d-468b-801e-de3461603a35.sql"
+	},
+	{
+		"version": "beb325dc-a25e-41c4-956f-2b847c24d584",
+		"time": "9/27/2021, 3:50 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/beb325dc-a25e-41c4-956f-2b847c24d584.sql"
+	},
+	{
+		"version": "ce1b1e8f-4315-4be0-83cb-29e33d465000",
+		"time": "9/27/2021, 3:51 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/ce1b1e8f-4315-4be0-83cb-29e33d465000.sql"
+	},
+	{
+		"version": "fe697fd1-7db2-408d-99b3-883ceb363aac",
+		"time": "9/27/2021, 3:52 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/fe697fd1-7db2-408d-99b3-883ceb363aac.sql"
+	},
+	{
+		"version": "68b04143-6aed-41c4-bd5c-3c30eb5cd908",
+		"time": "9/27/2021, 3:53 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/68b04143-6aed-41c4-bd5c-3c30eb5cd908.sql"
+	},
+	{
+		"version": "1c3dc998-56f2-4a6d-baa6-c474555b26ff",
+		"time": "9/27/2021, 3:53 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/1c3dc998-56f2-4a6d-baa6-c474555b26ff.sql"
+	},
+	{
+		"version": "183042ff-db86-4c7b-b71e-c680972a0797",
+		"time": "9/27/2021, 3:54 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/183042ff-db86-4c7b-b71e-c680972a0797.sql"
+	},
+	{
+		"version": "36d69769-3ca3-4915-b89c-5666c3c61c52",
+		"time": "9/27/2021, 3:55 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/36d69769-3ca3-4915-b89c-5666c3c61c52.sql"
+	},
+	{
+		"version": "6cdbbaff-12a7-4d6b-983a-730b4e77f3d9",
+		"time": "9/27/2021, 3:55 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/6cdbbaff-12a7-4d6b-983a-730b4e77f3d9.sql"
+	},
+	{
+		"version": "d73d1047-ce5d-47c8-a2ca-74d048ae26f6",
+		"time": "9/27/2021, 3:55 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/d73d1047-ce5d-47c8-a2ca-74d048ae26f6.sql"
+	},
+	{
+		"version": "649b9366-1b23-4a35-b3e2-305211cb7ff6",
+		"time": "9/27/2021, 3:57 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/649b9366-1b23-4a35-b3e2-305211cb7ff6.sql"
+	},
+	{
+		"version": "008db279-dc56-49c0-ae1a-5ac64cbf32fe",
+		"time": "9/27/2021, 3:58 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/008db279-dc56-49c0-ae1a-5ac64cbf32fe.sql"
+	},
+	{
+		"version": "9e88ed95-6f2b-4091-82ae-07374ad2f1d6",
+		"time": "9/27/2021, 3:58 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/9e88ed95-6f2b-4091-82ae-07374ad2f1d6.sql"
+	},
+	{
+		"version": "e116fa6e-600b-4352-86a6-5713d4f73577",
+		"time": "9/27/2021, 3:58 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/e116fa6e-600b-4352-86a6-5713d4f73577.sql"
+	},
+	{
+		"version": "cd222bee-7ca2-40c4-a1f0-ee5f01cfef98",
+		"time": "9/27/2021, 3:59 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/cd222bee-7ca2-40c4-a1f0-ee5f01cfef98.sql"
+	},
+	{
+		"version": "97593c43-6979-4d77-a998-0fa565609f6a",
+		"time": "9/27/2021, 4:02 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/97593c43-6979-4d77-a998-0fa565609f6a.sql"
+	},
+	{
+		"version": "8802e074-8ec2-42af-9025-404955bb96c2",
+		"time": "9/27/2021, 4:02 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/8802e074-8ec2-42af-9025-404955bb96c2.sql"
+	},
+	{
+		"version": "fd0af743-4f14-4259-b712-25e723be189b",
+		"time": "9/27/2021, 4:03 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/fd0af743-4f14-4259-b712-25e723be189b.sql"
+	},
+	{
+		"version": "638a7ce7-a403-48c9-9f50-88947fa58779",
+		"time": "9/27/2021, 4:06 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/638a7ce7-a403-48c9-9f50-88947fa58779.sql"
+	},
+	{
+		"version": "51785b11-82cb-414c-b3ef-f4a9c7b753b9",
+		"time": "9/27/2021, 4:06 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/51785b11-82cb-414c-b3ef-f4a9c7b753b9.sql"
+	},
+	{
+		"version": "7826a8ee-6d63-4101-988a-7d3f367b241e",
+		"time": "9/27/2021, 4:07 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/7826a8ee-6d63-4101-988a-7d3f367b241e.sql"
+	},
+	{
+		"version": "f789388f-fba2-4944-b4a3-808ef087c0ae",
+		"time": "9/27/2021, 4:07 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/f789388f-fba2-4944-b4a3-808ef087c0ae.sql"
+	},
+	{
+		"version": "6c494f85-f6b7-44e2-bf44-c94d2c442d58",
+		"time": "9/27/2021, 4:09 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/6c494f85-f6b7-44e2-bf44-c94d2c442d58.sql"
+	},
+	{
+		"version": "adea0ca0-aab2-4cdf-8ac5-ecaae332378b",
+		"time": "9/27/2021, 4:09 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/adea0ca0-aab2-4cdf-8ac5-ecaae332378b.sql"
+	},
+	{
+		"version": "95acf1b5-7671-4528-a497-08486d067087",
+		"time": "9/27/2021, 4:10 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/95acf1b5-7671-4528-a497-08486d067087.sql"
+	},
+	{
+		"version": "b29f7326-946a-4931-9f32-f03dace57869",
+		"time": "9/27/2021, 4:10 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/b29f7326-946a-4931-9f32-f03dace57869.sql"
+	},
+	{
+		"version": "2812f60b-2f94-4f26-aac7-9fbb21b1c8ec",
+		"time": "9/27/2021, 4:10 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/2812f60b-2f94-4f26-aac7-9fbb21b1c8ec.sql"
+	},
+	{
+		"version": "15b08804-dfcc-437f-b431-2e1e6b5ef1cb",
+		"time": "9/27/2021, 4:12 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/15b08804-dfcc-437f-b431-2e1e6b5ef1cb.sql"
+	},
+	{
+		"version": "e08c799c-d82a-454d-91d6-14d6fe7ef0da",
+		"time": "9/27/2021, 4:12 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/e08c799c-d82a-454d-91d6-14d6fe7ef0da.sql"
+	},
+	{
+		"version": "4361de0e-6c63-4bde-9871-bba502638d40",
+		"time": "9/27/2021, 4:13 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/4361de0e-6c63-4bde-9871-bba502638d40.sql"
+	},
+	{
+		"version": "3bbaadac-df7e-49e0-b5f5-553d2b00d8fd",
+		"time": "9/27/2021, 4:14 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/3bbaadac-df7e-49e0-b5f5-553d2b00d8fd.sql"
+	},
+	{
+		"version": "eea3fc24-6d7b-464c-a7eb-33fca408f4ab",
+		"time": "9/27/2021, 4:14 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/eea3fc24-6d7b-464c-a7eb-33fca408f4ab.sql"
+	},
+	{
+		"version": "ed3dc4b7-a3c7-43c7-b105-cc6c12c68869",
+		"time": "9/27/2021, 4:15 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/ed3dc4b7-a3c7-43c7-b105-cc6c12c68869.sql"
+	},
+	{
+		"version": "34783b22-b516-4ec5-aa87-50cb0b3d8c75",
+		"time": "9/27/2021, 4:15 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/34783b22-b516-4ec5-aa87-50cb0b3d8c75.sql"
+	},
+	{
+		"version": "dff3dc28-6d4e-43d1-8781-804b3f989b68",
+		"time": "9/27/2021, 4:16 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/dff3dc28-6d4e-43d1-8781-804b3f989b68.sql"
+	},
+	{
+		"version": "ac32871d-ed65-4a3d-915a-622a7b16135a",
+		"time": "9/27/2021, 4:16 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/ac32871d-ed65-4a3d-915a-622a7b16135a.sql"
+	},
+	{
+		"version": "aa041517-5979-4772-8e29-5ad8c6d53c81",
+		"time": "9/27/2021, 4:17 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/aa041517-5979-4772-8e29-5ad8c6d53c81.sql"
+	},
+	{
+		"version": "ed955985-5212-4923-8ae7-d1daef3b6065",
+		"time": "9/27/2021, 4:18 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/ed955985-5212-4923-8ae7-d1daef3b6065.sql"
+	},
+	{
+		"version": "5b282e33-fca5-4b67-ba27-a980e739f2fe",
+		"time": "9/27/2021, 4:19 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/5b282e33-fca5-4b67-ba27-a980e739f2fe.sql"
+	},
+	{
+		"version": "fdec609a-69f6-4f24-8ea7-4aa59129a2e3",
+		"time": "9/27/2021, 4:19 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/fdec609a-69f6-4f24-8ea7-4aa59129a2e3.sql"
+	},
+	{
+		"version": "5eaac5da-6fe0-49fc-9bfa-315645bb2a8d",
+		"time": "9/27/2021, 4:19 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/5eaac5da-6fe0-49fc-9bfa-315645bb2a8d.sql"
+	},
+	{
+		"version": "00bcdb54-888d-4b60-a166-e5a7eb361d7a",
+		"time": "9/27/2021, 4:20 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/00bcdb54-888d-4b60-a166-e5a7eb361d7a.sql"
+	},
+	{
+		"version": "b33d5c98-49ba-4772-8eec-67da33c6ccb9",
+		"time": "9/27/2021, 4:20 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/b33d5c98-49ba-4772-8eec-67da33c6ccb9.sql"
+	},
+	{
+		"version": "0495c82c-12b4-4290-9b51-22f650588c8e",
+		"time": "9/27/2021, 4:21 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/0495c82c-12b4-4290-9b51-22f650588c8e.sql"
+	},
+	{
+		"version": "f0ccb3da-bdad-445b-b96f-10748bcc029b",
+		"time": "9/27/2021, 4:22 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/f0ccb3da-bdad-445b-b96f-10748bcc029b.sql"
+	},
+	{
+		"version": "3ecaee64-0c0e-4ac4-9903-353be0d89e40",
+		"time": "9/27/2021, 4:23 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/3ecaee64-0c0e-4ac4-9903-353be0d89e40.sql"
+	},
+	{
+		"version": "428b51f1-5741-4ec0-8bfa-41ff77330a82",
+		"time": "9/27/2021, 4:24 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/428b51f1-5741-4ec0-8bfa-41ff77330a82.sql"
+	},
+	{
+		"version": "769ecde4-3471-431a-991f-86938f841e4a",
+		"time": "9/27/2021, 4:26 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/769ecde4-3471-431a-991f-86938f841e4a.sql"
+	},
+	{
+		"version": "077c7b21-6975-4ba0-9cee-43823324f72b",
+		"time": "9/27/2021, 4:26 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/077c7b21-6975-4ba0-9cee-43823324f72b.sql"
+	},
+	{
+		"version": "4585e092-3120-435d-a8a1-048bc77daf1c",
+		"time": "9/27/2021, 4:27 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/4585e092-3120-435d-a8a1-048bc77daf1c.sql"
+	},
+	{
+		"version": "a3c91955-add8-4c12-b495-0bd81594b367",
+		"time": "9/27/2021, 4:27 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/a3c91955-add8-4c12-b495-0bd81594b367.sql"
+	},
+	{
+		"version": "e52114b8-b2ad-4d9f-baea-f7bceb511748",
+		"time": "9/27/2021, 4:28 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/e52114b8-b2ad-4d9f-baea-f7bceb511748.sql"
+	},
+	{
+		"version": "c4e71be2-9a46-48c5-9bf9-91e0f47a3eab",
+		"time": "9/27/2021, 4:28 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/c4e71be2-9a46-48c5-9bf9-91e0f47a3eab.sql"
+	},
+	{
+		"version": "1e272662-9acc-46e8-a770-e1b0110537ab",
+		"time": "9/27/2021, 4:28 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/1e272662-9acc-46e8-a770-e1b0110537ab.sql"
+	},
+	{
+		"version": "3394ed7f-5823-4078-84d5-536978dffe69",
+		"time": "9/27/2021, 4:29 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/3394ed7f-5823-4078-84d5-536978dffe69.sql"
+	},
+	{
+		"version": "4cdd8649-64f4-4465-b479-a642d535859e",
+		"time": "9/27/2021, 4:30 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/4cdd8649-64f4-4465-b479-a642d535859e.sql"
+	},
+	{
+		"version": "a9eb2d79-843b-4d0f-aeaa-8824f468c91f",
+		"time": "9/27/2021, 4:30 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/a9eb2d79-843b-4d0f-aeaa-8824f468c91f.sql"
+	},
+	{
+		"version": "262c6306-74fa-42e8-ba31-6c8c6209bffc",
+		"time": "9/27/2021, 4:30 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/262c6306-74fa-42e8-ba31-6c8c6209bffc.sql"
+	},
+	{
+		"version": "576a4004-75ac-4fdf-b575-c07ec89d3d26",
+		"time": "9/27/2021, 4:31 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/576a4004-75ac-4fdf-b575-c07ec89d3d26.sql"
+	},
+	{
+		"version": "7ff4b814-4e92-4398-b6bd-e7119850208f",
+		"time": "9/27/2021, 4:31 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/7ff4b814-4e92-4398-b6bd-e7119850208f.sql"
+	},
+	{
+		"version": "d324092a-5b4d-443c-b234-c0ed62b44466",
+		"time": "9/27/2021, 4:32 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/d324092a-5b4d-443c-b234-c0ed62b44466.sql"
+	},
+	{
+		"version": "08e7720d-313e-4ac9-a77a-b4fb9014f7db",
+		"time": "9/27/2021, 4:32 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/08e7720d-313e-4ac9-a77a-b4fb9014f7db.sql"
+	},
+	{
+		"version": "ab5ee855-9ea8-4d77-8e40-9da02cfdb744",
+		"time": "9/27/2021, 4:33 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/ab5ee855-9ea8-4d77-8e40-9da02cfdb744.sql"
+	},
+	{
+		"version": "4e1052c5-8f44-439a-9dae-8cd04bc2b78e",
+		"time": "9/27/2021, 4:33 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/4e1052c5-8f44-439a-9dae-8cd04bc2b78e.sql"
+	},
+	{
+		"version": "ad2407f1-db12-4932-89d8-44b75b110eaf",
+		"time": "9/27/2021, 4:35 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/ad2407f1-db12-4932-89d8-44b75b110eaf.sql"
+	},
+	{
+		"version": "e96a7dda-ace5-496c-8299-4db70c64aa79",
+		"time": "9/27/2021, 4:35 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/e96a7dda-ace5-496c-8299-4db70c64aa79.sql"
+	},
+	{
+		"version": "5a1c4adf-53ba-4b89-ac14-b21053966a3f",
+		"time": "9/27/2021, 4:36 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/5a1c4adf-53ba-4b89-ac14-b21053966a3f.sql"
+	},
+	{
+		"version": "d26802b6-3e11-449a-a871-e022a0994c1e",
+		"time": "9/27/2021, 4:38 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/d26802b6-3e11-449a-a871-e022a0994c1e.sql"
+	},
+	{
+		"version": "e0459e4d-7d57-4e96-9a23-a31aa9d88887",
+		"time": "9/27/2021, 4:38 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/e0459e4d-7d57-4e96-9a23-a31aa9d88887.sql"
+	},
+	{
+		"version": "580177df-39d4-482a-b63b-197df4810fcc",
+		"time": "9/27/2021, 4:38 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/580177df-39d4-482a-b63b-197df4810fcc.sql"
+	},
+	{
+		"version": "86d77cbd-5ea9-4358-ab96-29c9a9c83d07",
+		"time": "9/27/2021, 4:39 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/86d77cbd-5ea9-4358-ab96-29c9a9c83d07.sql"
+	},
+	{
+		"version": "225d6b28-663d-46bb-b5fc-ab0ec0767edc",
+		"time": "9/27/2021, 4:39 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/225d6b28-663d-46bb-b5fc-ab0ec0767edc.sql"
+	},
+	{
+		"version": "2c177434-ed8b-410e-95f7-13a415d4cb79",
+		"time": "9/27/2021, 4:39 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/2c177434-ed8b-410e-95f7-13a415d4cb79.sql"
+	},
+	{
+		"version": "56a18024-02d7-4e3b-ab99-4a1e93220cff",
+		"time": "9/27/2021, 4:39 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/56a18024-02d7-4e3b-ab99-4a1e93220cff.sql"
+	},
+	{
+		"version": "305678a8-ca8a-4e6d-b6e6-8cf4ed9129b9",
+		"time": "9/27/2021, 4:40 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/305678a8-ca8a-4e6d-b6e6-8cf4ed9129b9.sql"
+	},
+	{
+		"version": "3e16bb1e-1e2a-4314-9ce9-d39e716fd295",
+		"time": "9/27/2021, 4:40 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/3e16bb1e-1e2a-4314-9ce9-d39e716fd295.sql"
+	},
+	{
+		"version": "5af7aa58-6d82-4f0e-b420-0929f6f7cc24",
+		"time": "9/27/2021, 4:41 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/5af7aa58-6d82-4f0e-b420-0929f6f7cc24.sql"
+	},
+	{
+		"version": "30a7832e-4873-45dd-a226-2b7b2e2e4c9e",
+		"time": "9/27/2021, 4:42 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/30a7832e-4873-45dd-a226-2b7b2e2e4c9e.sql"
+	},
+	{
+		"version": "6b547d2d-febf-4c8d-9af8-9e1c7ed2f2bc",
+		"time": "9/27/2021, 4:42 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/6b547d2d-febf-4c8d-9af8-9e1c7ed2f2bc.sql"
+	},
+	{
+		"version": "aa07223f-23ea-48d7-abbd-ef18e37088fc",
+		"time": "9/27/2021, 4:42 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/aa07223f-23ea-48d7-abbd-ef18e37088fc.sql"
+	},
+	{
+		"version": "3d11e05b-ef39-4d25-92a4-2318d935d86a",
+		"time": "9/27/2021, 4:43 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/3d11e05b-ef39-4d25-92a4-2318d935d86a.sql"
+	},
+	{
+		"version": "bc87f9cb-21f5-43c9-80bb-7d1d044567c0",
+		"time": "9/27/2021, 4:44 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/bc87f9cb-21f5-43c9-80bb-7d1d044567c0.sql"
+	},
+	{
+		"version": "a745fa41-eb1c-4088-9507-443457b6ba48",
+		"time": "9/27/2021, 4:46 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/a745fa41-eb1c-4088-9507-443457b6ba48.sql"
+	},
+	{
+		"version": "b9c644dd-69b6-4069-9a68-c89116360749",
+		"time": "9/27/2021, 4:46 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/b9c644dd-69b6-4069-9a68-c89116360749.sql"
+	},
+	{
+		"version": "a806079d-ddae-42b7-a611-0cd35b8d13f2",
+		"time": "9/27/2021, 4:46 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/a806079d-ddae-42b7-a611-0cd35b8d13f2.sql"
+	},
+	{
+		"version": "7ffe8fb3-7191-449a-8a77-8d08bafe6b2b",
+		"time": "9/27/2021, 4:47 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/7ffe8fb3-7191-449a-8a77-8d08bafe6b2b.sql"
+	},
+	{
+		"version": "ff8dc437-a737-4a8b-9a86-4317e87e8d00",
+		"time": "9/27/2021, 4:47 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/ff8dc437-a737-4a8b-9a86-4317e87e8d00.sql"
+	},
+	{
+		"version": "bdface48-501f-4ca2-9b51-abf733dbe86d",
+		"time": "9/27/2021, 4:48 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/bdface48-501f-4ca2-9b51-abf733dbe86d.sql"
+	},
+	{
+		"version": "52d73169-eac0-4dd0-8f8f-0c8257c1e8fc",
+		"time": "9/27/2021, 4:48 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/52d73169-eac0-4dd0-8f8f-0c8257c1e8fc.sql"
+	},
+	{
+		"version": "0cba8da3-15d6-4232-a1c7-3fc53fca663a",
+		"time": "9/27/2021, 4:49 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/0cba8da3-15d6-4232-a1c7-3fc53fca663a.sql"
+	},
+	{
+		"version": "ba9934e1-9d28-4797-997c-9f7af3a18c65",
+		"time": "9/27/2021, 5:03 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/ba9934e1-9d28-4797-997c-9f7af3a18c65.sql"
+	},
+	{
+		"version": "e9bbc0ab-660a-4438-b6d8-42004a73868a",
+		"time": "9/27/2021, 5:03 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/e9bbc0ab-660a-4438-b6d8-42004a73868a.sql"
+	},
+	{
+		"version": "aea11a4b-c174-49df-b28a-0d8ced344083",
+		"time": "9/27/2021, 5:04 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/aea11a4b-c174-49df-b28a-0d8ced344083.sql"
+	},
+	{
+		"version": "d1a9a82b-2d3f-4692-a2c7-93bb52b50768",
+		"time": "9/27/2021, 5:05 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/d1a9a82b-2d3f-4692-a2c7-93bb52b50768.sql"
+	},
+	{
+		"version": "d1cd23b3-ea07-4b4c-a859-7e6c50aca4c3",
+		"time": "9/27/2021, 5:05 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/d1cd23b3-ea07-4b4c-a859-7e6c50aca4c3.sql"
+	},
+	{
+		"version": "6795d229-17f5-4e44-9bed-cc99bcb76222",
+		"time": "9/27/2021, 5:06 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/6795d229-17f5-4e44-9bed-cc99bcb76222.sql"
+	},
+	{
+		"version": "73af5146-9129-415c-ad3f-f977f4c34af9",
+		"time": "9/27/2021, 5:06 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/73af5146-9129-415c-ad3f-f977f4c34af9.sql"
+	},
+	{
+		"version": "9b050025-8a4a-48fa-8d34-27b0c466edd6",
+		"time": "9/27/2021, 5:06 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/9b050025-8a4a-48fa-8d34-27b0c466edd6.sql"
+	},
+	{
+		"version": "e00e0935-de80-4261-b1cb-f3e622b2e552",
+		"time": "9/27/2021, 5:21 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/e00e0935-de80-4261-b1cb-f3e622b2e552.sql"
+	},
+	{
+		"version": "f7cc90b5-f66a-444c-8fd9-4f741de61e17",
+		"time": "9/27/2021, 5:21 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/f7cc90b5-f66a-444c-8fd9-4f741de61e17.sql"
+	},
+	{
+		"version": "9e2f77c6-7bda-4c45-b867-7dc81def6c32",
+		"time": "9/27/2021, 5:21 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/9e2f77c6-7bda-4c45-b867-7dc81def6c32.sql"
+	},
+	{
+		"version": "c3ad1287-a961-4bc2-909a-6626408b24ec",
+		"time": "9/27/2021, 5:22 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/c3ad1287-a961-4bc2-909a-6626408b24ec.sql"
+	},
+	{
+		"version": "e578bbe4-d33b-4bc4-a6b2-93506ab5d411",
+		"time": "9/27/2021, 5:22 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/e578bbe4-d33b-4bc4-a6b2-93506ab5d411.sql"
+	},
+	{
+		"version": "f395a0e6-197f-445c-9dca-181e8644eddf",
+		"time": "9/27/2021, 5:23 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/f395a0e6-197f-445c-9dca-181e8644eddf.sql"
+	},
+	{
+		"version": "f5e29e35-cb9a-46c1-b649-c652e2674ebc",
+		"time": "9/27/2021, 5:23 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/f5e29e35-cb9a-46c1-b649-c652e2674ebc.sql"
+	},
+	{
+		"version": "3eadf38e-95e4-452e-9a73-1d091895d587",
+		"time": "9/27/2021, 5:24 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/3eadf38e-95e4-452e-9a73-1d091895d587.sql"
+	},
+	{
+		"version": "c82dd924-3971-4f55-8ebb-5aef66f96ef2",
+		"time": "9/27/2021, 5:24 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/c82dd924-3971-4f55-8ebb-5aef66f96ef2.sql"
+	},
+	{
+		"version": "94263419-3c8e-4014-b866-b09aef99f562",
+		"time": "9/27/2021, 5:25 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/94263419-3c8e-4014-b866-b09aef99f562.sql"
+	},
+	{
+		"version": "1497ef38-6d4d-46af-9386-ec4a6095ba60",
+		"time": "9/27/2021, 5:26 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/1497ef38-6d4d-46af-9386-ec4a6095ba60.sql"
+	},
+	{
+		"version": "03352840-7d62-4940-9cc1-f0736b11114b",
+		"time": "9/27/2021, 5:27 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/03352840-7d62-4940-9cc1-f0736b11114b.sql"
+	},
+	{
+		"version": "3737db27-a7c8-4dfc-947c-753da57b0e66",
+		"time": "9/27/2021, 5:28 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/3737db27-a7c8-4dfc-947c-753da57b0e66.sql"
+	},
+	{
+		"version": "15358f55-892c-442a-bbc7-73bd318125dd",
+		"time": "9/27/2021, 5:28 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/15358f55-892c-442a-bbc7-73bd318125dd.sql"
+	},
+	{
+		"version": "ff15a28c-820c-4c0e-aa7b-7baa78f27b53",
+		"time": "9/27/2021, 5:29 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/ff15a28c-820c-4c0e-aa7b-7baa78f27b53.sql"
+	},
+	{
+		"version": "9d76e3ce-83e1-4b24-8d4e-dfa3e5cdd693",
+		"time": "9/27/2021, 5:30 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/9d76e3ce-83e1-4b24-8d4e-dfa3e5cdd693.sql"
+	},
+	{
+		"version": "bfc0b3d5-89fb-40de-a9b2-2becf7e4c8f2",
+		"time": "9/27/2021, 5:31 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/bfc0b3d5-89fb-40de-a9b2-2becf7e4c8f2.sql"
+	},
+	{
+		"version": "926d6094-3d48-4add-b212-620a8fc239c2",
+		"time": "9/27/2021, 5:31 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/926d6094-3d48-4add-b212-620a8fc239c2.sql"
+	},
+	{
+		"version": "7be1ae57-2e96-4a78-84f7-d494c980a4bf",
+		"time": "9/27/2021, 5:33 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/7be1ae57-2e96-4a78-84f7-d494c980a4bf.sql"
+	},
+	{
+		"version": "5e5bc34a-bf88-40c9-b2a3-0d2826c5cf9c",
+		"time": "9/27/2021, 5:33 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/5e5bc34a-bf88-40c9-b2a3-0d2826c5cf9c.sql"
+	},
+	{
+		"version": "859cd0a1-1706-46b3-ad93-221c6f4130b7",
+		"time": "9/27/2021, 5:34 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/859cd0a1-1706-46b3-ad93-221c6f4130b7.sql"
+	},
+	{
+		"version": "22a301f3-6640-4714-ba1a-b86e5c099572",
+		"time": "9/27/2021, 5:34 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/22a301f3-6640-4714-ba1a-b86e5c099572.sql"
+	},
+	{
+		"version": "1fac02f5-a6fc-4876-9b7a-74749ee2e66d",
+		"time": "9/27/2021, 5:35 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/1fac02f5-a6fc-4876-9b7a-74749ee2e66d.sql"
+	},
+	{
+		"version": "ce853b53-b557-4783-b6dc-b2a4195ab07c",
+		"time": "9/27/2021, 5:35 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/ce853b53-b557-4783-b6dc-b2a4195ab07c.sql"
+	},
+	{
+		"version": "345698b1-3287-4e37-aa02-8ce7a216bc0a",
+		"time": "9/27/2021, 5:35 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/345698b1-3287-4e37-aa02-8ce7a216bc0a.sql"
+	},
+	{
+		"version": "4d8c0069-2edc-4ed8-8989-50604acc2e96",
+		"time": "9/27/2021, 5:37 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/4d8c0069-2edc-4ed8-8989-50604acc2e96.sql"
+	},
+	{
+		"version": "b6059e23-40a2-434e-ae09-f6cfd31c3b73",
+		"time": "9/27/2021, 5:38 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/b6059e23-40a2-434e-ae09-f6cfd31c3b73.sql"
+	},
+	{
+		"version": "b1f1620d-2302-4e69-96a6-6db0f2467a5a",
+		"time": "9/27/2021, 5:38 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/b1f1620d-2302-4e69-96a6-6db0f2467a5a.sql"
+	},
+	{
+		"version": "a3acf739-221c-439c-9946-878e2f28ecde",
+		"time": "9/27/2021, 5:38 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/a3acf739-221c-439c-9946-878e2f28ecde.sql"
+	},
+	{
+		"version": "1f3be238-440b-4aa4-9178-0389f170e77f",
+		"time": "9/27/2021, 5:39 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/1f3be238-440b-4aa4-9178-0389f170e77f.sql"
+	},
+	{
+		"version": "78763e05-7f57-4bd2-a342-1779ff9fe61f",
+		"time": "9/27/2021, 5:41 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/78763e05-7f57-4bd2-a342-1779ff9fe61f.sql"
+	},
+	{
+		"version": "ecb01ef1-0803-4c86-b6f4-e108857e8e16",
+		"time": "9/27/2021, 5:41 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/ecb01ef1-0803-4c86-b6f4-e108857e8e16.sql"
+	},
+	{
+		"version": "f538b484-ce6b-4115-bf21-ecadaa4f9406",
+		"time": "9/27/2021, 5:42 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/f538b484-ce6b-4115-bf21-ecadaa4f9406.sql"
+	},
+	{
+		"version": "5c293c67-c575-4e84-a4d1-d78da3d67b3c",
+		"time": "9/27/2021, 5:42 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/5c293c67-c575-4e84-a4d1-d78da3d67b3c.sql"
+	},
+	{
+		"version": "d78a6940-8032-4880-85b8-a12526be8b53",
+		"time": "9/27/2021, 5:43 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/d78a6940-8032-4880-85b8-a12526be8b53.sql"
+	},
+	{
+		"version": "2fab556b-54f8-49ee-bc0c-47983646585a",
+		"time": "9/27/2021, 5:44 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/2fab556b-54f8-49ee-bc0c-47983646585a.sql"
+	},
+	{
+		"version": "4aaae0f9-b885-47a5-b2cb-edd9abf9cd56",
+		"time": "9/27/2021, 5:44 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/4aaae0f9-b885-47a5-b2cb-edd9abf9cd56.sql"
+	},
+	{
+		"version": "3d6480f4-f5c6-43e7-864b-f9bf13bcb2fd",
+		"time": "9/27/2021, 5:44 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/3d6480f4-f5c6-43e7-864b-f9bf13bcb2fd.sql"
+	},
+	{
+		"version": "e42fe502-1161-4c4a-a4af-102611045aaf",
+		"time": "9/27/2021, 5:45 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/e42fe502-1161-4c4a-a4af-102611045aaf.sql"
+	},
+	{
+		"version": "0621a736-5173-4c86-8e76-d9eeb6ed1455",
+		"time": "9/27/2021, 5:46 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/0621a736-5173-4c86-8e76-d9eeb6ed1455.sql"
+	},
+	{
+		"version": "dd4c21a3-98c5-453e-aee7-88450af529c4",
+		"time": "9/27/2021, 5:46 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/dd4c21a3-98c5-453e-aee7-88450af529c4.sql"
+	},
+	{
+		"version": "185c7d2e-f54b-47a3-a2ee-51400426f6cb",
+		"time": "9/27/2021, 5:47 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/185c7d2e-f54b-47a3-a2ee-51400426f6cb.sql"
+	},
+	{
+		"version": "5e34cf5c-cc17-40ba-b0cd-05eb608c8551",
+		"time": "9/27/2021, 5:47 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/5e34cf5c-cc17-40ba-b0cd-05eb608c8551.sql"
+	},
+	{
+		"version": "581e200f-af11-449a-992d-822306058760",
+		"time": "9/27/2021, 5:48 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/581e200f-af11-449a-992d-822306058760.sql"
+	},
+	{
+		"version": "1d6b305a-5dc8-4bd6-8843-cb3ffa4c6f38",
+		"time": "9/27/2021, 5:50 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/1d6b305a-5dc8-4bd6-8843-cb3ffa4c6f38.sql"
+	},
+	{
+		"version": "731985aa-9611-4d64-9c5b-786dbd394e1c",
+		"time": "9/27/2021, 5:50 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/731985aa-9611-4d64-9c5b-786dbd394e1c.sql"
+	},
+	{
+		"version": "9eb8727c-4b9a-4d61-971f-bdad3f9d1773",
+		"time": "9/27/2021, 5:51 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/9eb8727c-4b9a-4d61-971f-bdad3f9d1773.sql"
+	},
+	{
+		"version": "3bbd9edc-4b3b-477f-b78f-7042631dd578",
+		"time": "9/27/2021, 5:52 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/3bbd9edc-4b3b-477f-b78f-7042631dd578.sql"
+	},
+	{
+		"version": "be700713-4020-478b-9270-68f94ae8e505",
+		"time": "9/27/2021, 5:53 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/be700713-4020-478b-9270-68f94ae8e505.sql"
+	},
+	{
+		"version": "3fb7a324-3fcf-4858-9149-ecabfebc41d5",
+		"time": "9/27/2021, 5:53 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/3fb7a324-3fcf-4858-9149-ecabfebc41d5.sql"
+	},
+	{
+		"version": "bdf85897-5291-4ee3-8336-741eead9cd7e",
+		"time": "9/27/2021, 5:54 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/bdf85897-5291-4ee3-8336-741eead9cd7e.sql"
+	},
+	{
+		"version": "f02f6a24-38f4-4785-a329-0ec977a70dfd",
+		"time": "9/27/2021, 5:54 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/f02f6a24-38f4-4785-a329-0ec977a70dfd.sql"
+	},
+	{
+		"version": "60a0c078-b004-4878-a6e3-da1bd5b7652a",
+		"time": "9/27/2021, 5:56 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/60a0c078-b004-4878-a6e3-da1bd5b7652a.sql"
+	},
+	{
+		"version": "5dd0aafd-c0d3-44b0-9f88-f66881ff19cd",
+		"time": "9/27/2021, 5:57 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/5dd0aafd-c0d3-44b0-9f88-f66881ff19cd.sql"
+	},
+	{
+		"version": "99eab7e7-2e4a-43a3-9063-3ff9467667fa",
+		"time": "9/27/2021, 5:57 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/99eab7e7-2e4a-43a3-9063-3ff9467667fa.sql"
+	},
+	{
+		"version": "116ecef4-d917-41a9-ab4c-aa7d5d1c08e2",
+		"time": "9/27/2021, 5:58 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/116ecef4-d917-41a9-ab4c-aa7d5d1c08e2.sql"
+	},
+	{
+		"version": "acddef1f-4b5f-4854-8c97-ea41ed79d58d",
+		"time": "9/27/2021, 5:58 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/acddef1f-4b5f-4854-8c97-ea41ed79d58d.sql"
+	},
+	{
+		"version": "df1d933e-74a0-4895-b9b7-5598f1370d54",
+		"time": "9/27/2021, 6:00 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/df1d933e-74a0-4895-b9b7-5598f1370d54.sql"
+	},
+	{
+		"version": "94839bf2-322f-4254-b937-aa924539c967",
+		"time": "9/27/2021, 6:03 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/94839bf2-322f-4254-b937-aa924539c967.sql"
+	},
+	{
+		"version": "df0c0fcd-e5cc-4d8b-bcae-c423e098505d",
+		"time": "9/27/2021, 6:03 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/df0c0fcd-e5cc-4d8b-bcae-c423e098505d.sql"
+	},
+	{
+		"version": "2ab696b7-b337-4d19-9d58-26c327d19e0e",
+		"time": "9/27/2021, 6:03 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/2ab696b7-b337-4d19-9d58-26c327d19e0e.sql"
+	},
+	{
+		"version": "3a03663c-764e-49e6-9fa7-f7cf86450033",
+		"time": "9/27/2021, 6:08 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/3a03663c-764e-49e6-9fa7-f7cf86450033.sql"
+	},
+	{
+		"version": "36243133-21fb-46c3-b3e8-49c7a21d1cc6",
+		"time": "9/27/2021, 6:11 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/36243133-21fb-46c3-b3e8-49c7a21d1cc6.sql"
+	},
+	{
+		"version": "a40367dd-f5d8-4340-a181-17992ab81c09",
+		"time": "9/27/2021, 6:11 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/a40367dd-f5d8-4340-a181-17992ab81c09.sql"
+	},
+	{
+		"version": "773f905d-4662-4030-b2b4-b889ae49a071",
+		"time": "9/27/2021, 6:11 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/773f905d-4662-4030-b2b4-b889ae49a071.sql"
+	},
+	{
+		"version": "d0adb832-d52b-427f-84af-1446e686b9a1",
+		"time": "9/27/2021, 6:18 PM",
+		"path": "/home/hodev/rustjs/core/database/migration/.versions/d0adb832-d52b-427f-84af-1446e686b9a1.sql"
+	}
+]

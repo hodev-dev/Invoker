@@ -1,0 +1,33 @@
+{
+    "include": [
+        "./server/database/migration/*.ts"
+    ],
+    "compilerOptions": {
+        "jsx": "react-jsx", // compile JSX to React.createElement statements for SSR
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "moduleResolution": "Node",
+        "skipLibCheck": true, // only check types we refer to from our code
+        "baseUrl": ".",
+        "paths": {
+            "@core/*": [
+                "core/*",
+            ],
+            "@controller/*": [
+                "server/controller/*",
+            ],
+            "@config/*": [
+                "server/config/*",
+            ],
+            "@middleware/*": [
+                "server/middleware/*",
+            ],
+            "@server/*": [
+                "server/*",
+            ],
+            "@client/*": [
+                "client/*",
+            ],
+        },
+    }
+}

@@ -3,6 +3,8 @@ const path = require("path");
 const webpack = require("webpack");
 const webpackConfigClient = require("./webpack.config.client");
 const webpackConfigServer = require("./webpack.config.server");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const compiler = webpack([
   {
@@ -13,7 +15,7 @@ const compiler = webpack([
       ...webpackConfigClient.output,
       filename: "[name].js",
     },
-    stats: { warnings: false },
+    stats: { warnings: true },
   },
   {
     ...webpackConfigServer,

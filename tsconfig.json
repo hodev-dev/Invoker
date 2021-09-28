@@ -1,22 +1,29 @@
 {
     "compilerOptions": {
-        "esModuleInterop": true,
+        "jsx": "react-jsx", // compile JSX to React.createElement statements for SSR
         "baseUrl": ".",
+        "esModuleInterop": true,
         "paths": {
             "@core/*": [
-                "./core/*",
+                "core/*",
             ],
             "@controller/*": [
-                "./server/controller/*",
+                "server/controller/*",
+            ],
+            "@migration/*": [
+                "server/database/migration/*",
+            ],
+            "@config/*": [
+                "server/config/*",
             ],
             "@middleware/*": [
-                "./server/middleware/*",
+                "server/middleware/*",
             ],
             "@server/*": [
-                "./server/*",
+                "server/*",
             ],
             "@client/*": [
-                "./client/*",
+                "client/*",
             ],
         },
     }

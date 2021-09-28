@@ -4,12 +4,13 @@ import ReactDOM from "react-dom";
 import { isBrowser } from "./isBrowser";
 
 class Invoker {
-  static get(callback: any) {
-    if (isBrowser()) {
-      var rawData: any = Cookies.get("server");
-      var parsedData = JSON.parse(rawData);
-      callback(parsedData);
-    }
+  static get() {
+    return new Promise((resolve) => {
+      if (isBrowser()) {
+        var rawData: any = Cookies.get("server");
+        resolve(JSON.parse(rawData));
+      }
+    });
   }
 
   static init() {
@@ -21,6 +22,7 @@ class Invoker {
     let container: any = document.getElementById("root");
     // @ts-ignore
     const root = ReactDOM.createRoot(container);
+    console.log(data);
     root.render(
       React.createElement(Component, {
         ...data,

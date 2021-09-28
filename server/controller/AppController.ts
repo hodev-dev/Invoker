@@ -1,26 +1,27 @@
-import Validator from '@core/validator';
-import { Request, Response } from 'express';
+import App3 from "@client/App3";
+import { Render } from "@core/render";
+import { User } from "@server/model/User";
+import { Request, Response } from "express";
+const AppController: IappController = () => {
+  const login = async (request: Request, response: Response) => {
+    try {
+      const users = await User().findById();
+      console.log(users);
+      Render.react(App3, response, { data: [] });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-var AppController = {
-	test: (request: Request, response: Response) => {
-		var rules = {
-			name: ["min:5"],
-			family: ["required"],
-		};
+  return {
+    login,
+  };
+};
 
-		var body = {
-			"name": '',
-		}
-
-		const v = Validator.useValidation(rules, body);
-		v.then((data) => {
-			response.json({ data });
-		}).catch((err) => {
-			response.json({ error: err });
-		});
-	},
+interface IappController {
+  (): {
+    login: (Request, Response) => void;
+  };
 }
-
-
 
 export default AppController;

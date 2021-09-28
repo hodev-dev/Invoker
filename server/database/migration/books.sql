@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS books (
+    id SERIAL NOT NULL,
+    book_name TEXT NOT NULL,
+    PRIMARY KEY (id)
+);

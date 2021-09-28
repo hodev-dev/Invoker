@@ -92,7 +92,6 @@ var Validator: V = {
     min: (key, params, rule) => {
         return rule;
     }
-
 }
 
 interface V {

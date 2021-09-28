@@ -1,34 +1,25 @@
-import { Invoker } from '@core/invoker';
-import React, { useEffect } from 'react';
+import { Invoker } from "@core/invoker";
+import React, { useEffect } from "react";
+import "./css/index.css";
+import Header from "./Header";
 
 export const App = (props: any) => {
+  useEffect(() => {
+    props.init();
+  }, [props]);
 
-	useEffect(() => {
-		props.init();
-		console.log('run');
-	}, []);
-
-	const render = () => {
-		return props.server && props.server.map((user: any) => {
-			return (
-				<h1 key={user.name}>{user.name}</h1>
-			)
-		});
-	}
-	return (
-		<div suppressHydrationWarning={true}>
-			{render()}
-			<a href={'/2'}>Click</a>
-		</div>
-	);
+  return (
+    <div
+      className={"w-full h-screen bg-blue-700"}
+      suppressHydrationWarning={true}
+    >
+      <Header />
+      <h1>page 1</h1>
+      <a href={"/test2"}>go to page2</a>
+    </div>
+  );
 };
 
-Invoker.get((serverData: any) => {
-	console.log(serverData);
-	Invoker.render(App, serverData);
+Invoker.get().then((serverData) => {
+  Invoker.render(App, serverData);
 });
-
-
-
-
-

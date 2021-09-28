@@ -9,12 +9,14 @@ class Render {
   };
 
   static react(Component: any, Response: any, Data: any = {}) {
-    Response.cookie("server", JSON.stringify(Data), this.options);
+    var stringify = JSON.stringify(Data);
+    Response.cookie("server", stringify, this.options);
     var render = ReactDOMServer.renderToString(
       React.createElement(Component, { ...Data })
     );
     let page = Component.name + ".js";
-    Response.render("app", { render, page });
+    let css = "App" + ".css"
+    Response.render("app", { render, page, css });
   }
 }
 
