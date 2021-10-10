@@ -2,9 +2,9 @@ var useSequence = () => {
     async function runSync(sequence) {
         const seq: any = sequence();
         var next;
-        const resolve = [];
+        const resolve: any = [];
         while (!(next = seq.next()).done) {
-            const response = await next.value();
+            const response: any = await next.value();
             resolve.push(response);
         }
         return resolve;
@@ -12,9 +12,9 @@ var useSequence = () => {
     async function runAsync(sequence) {
         const seq: any = sequence();
         var next: any;
-        const resolve = [];
+        const resolve: any = [];
         while (!(next = seq.next()).done) {
-            const response = next.value();
+            const response: any = next.value();
             resolve.push(response);
         }
         return resolve;

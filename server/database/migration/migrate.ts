@@ -4,15 +4,18 @@ import useRawQuery from '@core/database/query/useRawQuery';
 import useSequence from '@core/utility/useSequence';
 const chalk = require('chalk');
 
+console.log(process.argv);
+
 const [pg] = useDatabase();
 const query = useRawQuery();
 const sequence = useSequence();
 const migration = useMigration();
 
-async function createTable(table: string, isBackup: boolean = false) {
+async function createTable(table: string, isBackup: boolean) {
     try {
+        const messege = await migration.getMessege(process.argv);
         if (isBackup) {
-            await migration.backupPostgreSql(table);
+            await migration.backupPostgreSql(__dirname, messege, 6);
         }
         const raw = await query.getMigrationQeury(table);
         await pg.query({ name: table, text: raw });
@@ -25,7 +28,7 @@ async function createTable(table: string, isBackup: boolean = false) {
 
 function* tasks() {
     yield () => createTable('books', true);
-    yield () => createTable('covers');
+    yield () => createTable('covers', false);
 }
 
 async function taskRunner() {

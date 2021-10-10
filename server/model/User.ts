@@ -1,5 +1,5 @@
 import useDatabase from '@config/database';
-import { useRawQuery } from '@core/database/query/useRawQuery';
+import useRawQuery from '@core/database/query/useRawQuery';
 
 var User = () => {
     const [pg] = useDatabase();
@@ -18,7 +18,6 @@ var User = () => {
             console.log({ error });
         }
     };
-    rawQuery;
 
     return {
         findById,

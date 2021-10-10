@@ -8,21 +8,34 @@ const fse = require('fs-extra');
 const chalk = require('chalk');
 
 var useMigration = () => {
-    async function addToHistory(data, version, backupPath, historyPath) {
-        const parse = JSON.parse(data);
-        parse.push({
-            version: version,
-            time: new Date(Date.now()).toLocaleDateString([], {
-                year: 'numeric',
-                month: 'numeric',
-                day: 'numeric',
-                hour: 'numeric',
-                minute: 'numeric',
-            }),
-            path: backupPath,
-        });
-        console.log('migration snapshot:', chalk.yellow(version));
+    async function addToHistory(
+        data,
+        version,
+        backupPath,
+        historyPath,
+        messege,
+        limit,
+    ) {
         try {
+            const parse = JSON.parse(data);
+            if (parse.length >= limit) {
+                const removed = parse.shift();
+                const response = await fsPromises.unlink(removed.path);
+            }
+            parse.push({
+                version: version,
+                messege: messege,
+                time: new Date(Date.now()).toLocaleDateString([], {
+                    year: 'numeric',
+                    month: 'numeric',
+                    day: 'numeric',
+                    hour: 'numeric',
+                    minute: 'numeric',
+                }),
+                database: 'postgres',
+                path: backupPath,
+            });
+            console.log('migration snapshot:', chalk.yellow(version));
             await fsPromises.writeFile(
                 historyPath,
                 JSON.stringify(parse, null, '\t'),
@@ -32,7 +45,7 @@ var useMigration = () => {
         }
     }
 
-    async function backupPostgreSql(name) {
+    async function backupPostgreSql(__dirname, messege, limit) {
         const version = uuidv4();
         const fileName = version + '.sql';
         const backupPath = path.join(__dirname, `/.versions/${fileName}`);
@@ -43,9 +56,23 @@ var useMigration = () => {
             await fse.ensureDir(versionsPath);
             try {
                 const data = await fsPromises.readFile(historyPath, 'utf8');
-                await addToHistory(data, version, backupPath, historyPath);
+                await addToHistory(
+                    data,
+                    version,
+                    backupPath,
+                    historyPath,
+                    messege,
+                    limit,
+                );
             } catch (error) {
-                await addToHistory('[]', version, backupPath, historyPath);
+                await addToHistory(
+                    '[]',
+                    version,
+                    backupPath,
+                    historyPath,
+                    messege,
+                    limit,
+                );
             }
         } catch (error) {
             console.log(error);
@@ -60,8 +87,14 @@ var useMigration = () => {
         }
     }
 
+    async function getMessege(arr) {
+        const start = arr.indexOf('start_messege');
+        const end = arr.indexOf('end_messege');
+        return arr.slice(start + 1, end).join();
+    }
     return {
         backupPostgreSql,
+        getMessege,
     };
 };
 
