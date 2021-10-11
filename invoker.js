@@ -7,6 +7,8 @@ const chalk = require('chalk');
 const spawn = require('child_process').spawn;
 const fs = require('fs');
 const fsPromises = fs.promises;
+const usePublish = require('./core/utility/usePublish');
+const publish = usePublish();
 
 program
     .command('migrate')
@@ -158,7 +160,7 @@ program
                 'template',
                 'view.jsx',
             );
-            const viewPath = path.join(__dirname, 'client', name + '.jsx');
+            const viewPath = path.join(__dirname, 'client', name + '.tsx');
             const data = await fsPromises.readFile(viewTemplatePath, 'utf8');
             const newView = data.replaceAll('VIEW_NAME', name);
             try {
@@ -180,29 +182,35 @@ program
     .description('make controller in server/controller directory')
     .action(async (name, options) => {
         try {
-            const viewTemplatePath = path.join(
+            const source = path.join(
                 __dirname,
                 'core',
                 'template',
                 'controller.ts',
             );
-            const viewPath = path.join(
+            const destination = path.join(
                 __dirname,
                 'server',
                 'controller',
-                name + '.ts',
+                name,
             );
-            const data = await fsPromises.readFile(viewTemplatePath, 'utf8');
-            const newView = data
-                .replaceAll('CONTROLLER', name)
-                .replaceAll('ICONTROLLER', 'I' + name);
-            try {
-                await fsPromises.access(viewPath);
-                console.log(chalk.yellow(`controller ${name} already exists!`));
-            } catch (error) {
-                await fsPromises.writeFile(viewPath, newView);
-                console.log(chalk.green(`controller ${name} created`));
-            }
+            const replace = [
+                {
+                    key: 'CONTROLLER',
+                    value: name,
+                },
+                {
+                    key: 'ICONTROLLER',
+                    value: name,
+                },
+            ];
+            await publish.makeTemplate(
+                source,
+                destination,
+                replace,
+                name,
+                'ts',
+            );
         } catch (error) {
             console.log(error);
         }
@@ -215,27 +223,21 @@ program
     .description('make model in server/model directory')
     .action(async (name, options) => {
         try {
-            const viewTemplatePath = path.join(
-                __dirname,
-                'core',
-                'template',
-                'model.ts',
+            const source = path.join(__dirname, 'core', 'template', 'model.ts');
+            const destination = path.join(__dirname, 'server', 'model', name);
+            const replace = [
+                {
+                    key: 'MODEL_NAME',
+                    value: name,
+                },
+            ];
+            await publish.makeTemplate(
+                source,
+                destination,
+                replace,
+                name,
+                'ts',
             );
-            const viewPath = path.join(
-                __dirname,
-                'server',
-                'model',
-                name + '.ts',
-            );
-            const data = await fsPromises.readFile(viewTemplatePath, 'utf8');
-            const newView = data.replaceAll('MODEL_NAME', name);
-            try {
-                await fsPromises.access(viewPath);
-                console.log(chalk.yellow(`model ${name} already exists!`));
-            } catch (error) {
-                await fsPromises.writeFile(viewPath, newView);
-                console.log(chalk.green(`model ${name} created`));
-            }
         } catch (error) {
             console.log(error);
         }

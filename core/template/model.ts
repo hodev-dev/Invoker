@@ -12,4 +12,4 @@ var MODEL_NAME = () => {
     };
 };
 
-export { MODEL_NAME };
+export default MODEL_NAME;
