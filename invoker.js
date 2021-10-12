@@ -55,6 +55,32 @@ program
     });
 
 program
+    .command('seed')
+    .alias('sd')
+    .description('run seeder.ts in server/database/seed')
+    .action(async (options) => {
+        const seedPath = path.join(
+            __dirname,
+            'server',
+            'database',
+            'seed',
+            'seeder.ts',
+        );
+        try {
+            const ts = spawn(
+                `ts-node`,
+                ['-r', 'tsconfig-paths/register', seedPath],
+                { stdio: 'inherit' },
+            );
+            ts.on('close', (code) => {
+                console.log(`child process exited with code ${code}`);
+            });
+        } catch (error) {
+            console.error(error);
+        }
+    });
+
+program
     .command('migrate:history')
     .alias('mig:h')
     .description('show diffrent version of database for rollback')

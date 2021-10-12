@@ -21,6 +21,17 @@ var useRawQuery = () => {
             throw error;
         }
     };
+    const getSeedQuery = async (seederName: string) => {
+        try {
+            return await fs.readFile(
+                path.join('server', 'database', 'seed', seederName) + '.sql',
+                'utf8',
+            );
+        } catch (error: any) {
+            console.log(error);
+            throw error;
+        }
+    };
     const getWithPath = async (path: string) => {
         try {
             const data = await fs.readFile(path, 'utf8');
@@ -35,6 +46,7 @@ var useRawQuery = () => {
         get,
         getWithPath,
         getMigrationQeury,
+        getSeedQuery,
     };
 };
 
