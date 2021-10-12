@@ -18,9 +18,23 @@ var User = () => {
             console.log({ error });
         }
     };
-
+    const findUserByEmailPassword = async (username, password) => {
+        try {
+            const queryRaw = await rawQuery.get('FindUserByEmailPassword');
+            const results = await pg.query({
+                name: 'FindByUsernamePassword',
+                text: queryRaw,
+                values: [username, password],
+            });
+            return results.rows[0];
+        } catch (error) {
+            return false;
+            console.log({ error });
+        }
+    };
     return {
         findById,
+        findUserByEmailPassword,
     };
 };
 

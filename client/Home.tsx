@@ -12,14 +12,14 @@ export const Home = (props: any) => {
             className={'w-full h-screen bg-white'}
             suppressHydrationWarning={true}
         >
-            <a className={'h-2 ml-10 text-xl text-yellow-600'} href="/login">
+            <a className={'h-2 ml-10 text-xl text-yellow-600'} href="login">
                 Login
             </a>
-            <a className={'h-2 ml-10 text-xl text-yellow-600'} href="/logout">
+            <a className={'h-2 ml-10 text-xl text-yellow-600'} href="logout">
                 Logout
             </a>
-            <a className={'h-2 ml-10 text-xl text-yellow-600'} href="/logout">
-                dashboard
+            <a className={'h-2 ml-10 text-xl text-yellow-600'} href="/">
+                landing
             </a>
         </div>
     );
