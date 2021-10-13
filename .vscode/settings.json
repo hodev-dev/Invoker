@@ -2,32 +2,6 @@
     "sqltools.connections": [
         {
             "previewLimit": 50,
-            "driver": "SQLite",
-            "database": "\\\\wsl.localhost\\Ubuntu\\home\\hodev\\rustjs\\test.db",
-            "name": "test"
-        },
-        {
-            "previewLimit": 50,
-            "driver": "SQLite",
-            "name": "test",
-            "database": "\\\\wsl.localhost\\Ubuntu\\home\\hodev\\rustjs\\test.db"
-        },
-        {
-            "mysqlOptions": {
-                "authProtocol": "default"
-            },
-            "previewLimit": 50,
-            "server": "localhost",
-            "port": 3306,
-            "driver": "MySQL",
-            "name": "test",
-            "group": "mysql",
-            "database": "test",
-            "username": "hodev",
-            "password": "668523"
-        },
-        {
-            "previewLimit": 50,
             "server": "localhost",
             "port": 5432,
             "driver": "PostgreSQL",

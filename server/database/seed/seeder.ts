@@ -3,11 +3,21 @@ import useRawQuery from '@core/database/query/useRawQuery';
 import useSequence from '@core/utility/useSequence';
 const chalk = require('chalk');
 
-console.log(process.argv);
-
 const [pg] = useDatabase();
 const query = useRawQuery();
 const sequence = useSequence();
+
+async function truncate(table: string) {
+    try {
+        const seedQuery = `Delete from ${table}`;
+        await pg.query({ name: table, text: seedQuery });
+        console.log(`truncate ${table}:`, chalk.green('successfull'));
+    } catch (error) {
+        console.log(error);
+        console.log(`truncate ${table}:`, chalk.red('failed'));
+        throw error;
+    }
+}
 
 async function seedTable(table: string) {
     try {
@@ -22,7 +32,14 @@ async function seedTable(table: string) {
 }
 
 function* tasks() {
+    yield () => truncate('users');
+    yield () => truncate('roles');
+    yield () => truncate('user_role');
     yield () => seedTable('users_seeder');
+    yield () => seedTable('roles_seeder');
+    yield () => seedTable('user_role_seeder');
+    yield () => seedTable('permissions_seeder');
+    yield () => seedTable('role_permission_seeder');
 }
 
 async function taskRunner() {

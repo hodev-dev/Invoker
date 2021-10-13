@@ -56,6 +56,10 @@ function* tasks() {
     yield () => dropSchema();
     yield () => createSchema();
     yield () => createTable('users_table', false);
+    yield () => createTable('roles_table', false);
+    yield () => createTable('user_role_table', false);
+    yield () => createTable('permissions_table', false);
+    yield () => createTable('role_permission_table', false);
 }
 
 async function taskRunner() {
