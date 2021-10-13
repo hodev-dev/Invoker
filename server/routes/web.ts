@@ -1,5 +1,5 @@
 import UserController from '@controller/UserController';
-import AuthMiddleware from '@middleware/AuthMiddleware';
+import UserMiddleware from '@middleware/UserMiddleware';
 import session from 'express-session';
 import express from 'express';
 var web = express.Router();
@@ -9,7 +9,7 @@ web.use(
         secret: 'secret',
         saveUninitialized: false,
         resave: false,
-        cookie: { path: '/', httpOnly: true, secure: false },
+        cookie: { path: '/', httpOnly: true, secure: false, sameSite: 'strict' },
     }),
 );
 
@@ -21,8 +21,9 @@ web.post('/login', UserController().post.login);
 web.get('/logout', UserController().get.logout);
 //render
 web.get('/', UserController().render.landing);
-web.get('/dashboard', AuthMiddleware().dashboardRedirect, UserController().render.dashboard);
+web.get('/admin', UserMiddleware().adminProtection, UserController().render.admin);
+web.get('/user', UserMiddleware().userProtection, UserController().render.user);
 
-web.get('/login', AuthMiddleware().loginRedirect, UserController().render.login);
+web.get('/login', UserMiddleware().loginProtection, UserController().render.login);
 
 export default web;

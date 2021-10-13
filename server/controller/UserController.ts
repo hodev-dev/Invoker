@@ -26,15 +26,16 @@ const UserController: IUserController = () => {
     const post = {
         login: async (request: Request | any, response: Response) => {
             const { email, password } = request.body;
-            const user = await User().findUserWithRolePermission(
-                email,
-                password,
-            );
+            const user = await User().findUserWithRolePermission(email, password);
             if (!user || user === undefined) {
                 return response.redirect('/login');
             } else {
                 request.session.user = user;
-                return response.redirect('/dashboard');
+                if (user.roles.includes('admin')) {
+                    return response.redirect('/admin');
+                } else {
+                    return response.redirect('/user');
+                }
             }
         },
     };
@@ -43,13 +44,11 @@ const UserController: IUserController = () => {
         landing: async (request: Request, response: Response) => {
             await Render.react(Landing, response, []);
         },
-        dashboard: async (request: Request | any, response: Response) => {
-            const { user } = request.session;
-            if (user.roles.includes('admin')) {
-                await Render.react(Admin, response, []);
-            } else {
-                await Render.react(UserView, response, []);
-            }
+        admin: async (request: Request | any, response: Response) => {
+            await Render.react(Admin, response, []);
+        },
+        user: async (request: Request | any, response: Response) => {
+            await Render.react(UserView, response, []);
         },
         login: async (request: Request, response: Response) => {
             await Render.react(Login, response, []);
@@ -73,7 +72,8 @@ interface IUserController {
         };
         render: {
             landing: (Request, Response) => void;
-            dashboard: (Request, Response) => void;
+            admin: (Request, Response) => void;
+            user: (Request, Response) => void;
             login: (Request, Response) => void;
         };
     };
