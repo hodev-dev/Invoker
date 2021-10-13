@@ -32,9 +32,24 @@ var User = () => {
             console.log({ error });
         }
     };
+    const findUserWithRolePermission = async (username, password) => {
+        try {
+            const queryRaw = await rawQuery.get('FindUserWIithRolePermissin');
+            const results = await pg.query({
+                name: 'FindByUsernamePassword',
+                text: queryRaw,
+                values: [username, password],
+            });
+            return results.rows[0];
+        } catch (error) {
+            return false;
+            console.log({ error });
+        }
+    };
     return {
         findById,
         findUserByEmailPassword,
+        findUserWithRolePermission,
     };
 };
 

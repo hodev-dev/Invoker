@@ -1,5 +1,5 @@
 import UserController from '@controller/UserController';
-import UserMiddleware from '@middleware/UserMiddleware';
+import AuthMiddleware from '@middleware/AuthMiddleware';
 import session from 'express-session';
 import express from 'express';
 var web = express.Router();
@@ -15,10 +15,14 @@ web.use(
 
 // web.use(function (req, res, next) { setTimeout(next, 1000) });
 
-web.get('/', UserController().render.landing);
-web.get('/home', UserMiddleware().home, UserController().render.home);
-web.get('/login', UserMiddleware().login, UserController().render.login);
-web.post('/login', UserMiddleware().login, UserController().post.login);
+//post
+web.post('/login', UserController().post.login);
+//get
 web.get('/logout', UserController().get.logout);
+//render
+web.get('/', UserController().render.landing);
+web.get('/dashboard', AuthMiddleware().dashboardRedirect, UserController().render.dashboard);
+
+web.get('/login', AuthMiddleware().loginRedirect, UserController().render.login);
 
 export default web;

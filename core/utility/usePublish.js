@@ -5,26 +5,15 @@ const fsPromises = fs.promises;
 const usePublish = () => {
     const makeTemplate = async (source, destination, replace, name, type) => {
         try {
-            const data = await fsPromises.readFile(source, 'utf8');
-
-            let newView = replace.map(async (collection, index) => {
-                const newData = data.replaceAll(
-                    collection.key,
-                    collection.value,
-                );
-                const size =
-                    replace.length >= 2 ? replace.length - 1 : replace.length;
-                if (index === size) {
-                    return '';
-                } else {
-                    return newData;
-                }
+            let data = await fsPromises.readFile(source, 'utf8');
+            replace.forEach(async (collection, index) => {
+                data = data.replaceAll(collection.key, collection.value);
             });
             try {
-                await fsPromises.access(source);
+                await fsPromises.access(destination + '.' + type);
                 console.log(chalk.yellow(`file ${name} already exists!`));
             } catch (error) {
-                await fsPromises.writeFile(destination + '.' + type, newView);
+                await fsPromises.writeFile(destination + '.' + type, data);
                 console.log(chalk.green(`file ${name} created`));
             }
         } catch (error) {

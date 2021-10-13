@@ -25,8 +25,11 @@ export const Landing = (props: any) => {
                     >
                         Regester
                     </a>
-                    <a className={'font-mono text-lg text-white'} href="home">
-                        Home
+                    <a
+                        className={'font-mono text-lg text-white'}
+                        href="dashboard"
+                    >
+                        Dashboard
                     </a>
                 </div>
             </div>

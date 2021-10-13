@@ -2,7 +2,7 @@ import { Invoker } from '@core/invoker';
 import React, { useEffect } from 'react';
 import './css/index.css';
 
-export const Home = (props: any) => {
+export const UserView = (props: any) => {
     useEffect(() => {
         props.init();
     }, [props]);
@@ -26,5 +26,5 @@ export const Home = (props: any) => {
 };
 
 Invoker.get().then((serverData) => {
-    Invoker.render(Home, serverData);
+    Invoker.render(UserView, serverData);
 });

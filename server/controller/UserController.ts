@@ -1,9 +1,10 @@
-import { Home } from '@client/Home';
+import { UserView } from '@client/UserView';
 import { Landing } from '@client/Landing';
 import { Login } from '@client/Login';
 import { Render } from '@core/render';
 import { User } from '@server/model/User';
 import { Request, Response } from 'express';
+import { Admin } from '@client/Admin';
 
 const UserController: IUserController = () => {
     const get = {
@@ -25,13 +26,15 @@ const UserController: IUserController = () => {
     const post = {
         login: async (request: Request | any, response: Response) => {
             const { email, password } = request.body;
-            const user = await User().findUserByEmailPassword(email, password);
+            const user = await User().findUserWithRolePermission(
+                email,
+                password,
+            );
             if (!user || user === undefined) {
-                return response.redirect('/');
+                return response.redirect('/login');
             } else {
-                console.log(user);
                 request.session.user = user;
-                return response.redirect('home');
+                return response.redirect('/dashboard');
             }
         },
     };
@@ -40,8 +43,13 @@ const UserController: IUserController = () => {
         landing: async (request: Request, response: Response) => {
             await Render.react(Landing, response, []);
         },
-        home: async (request: Request, response: Response) => {
-            await Render.react(Home, response, []);
+        dashboard: async (request: Request | any, response: Response) => {
+            const { user } = request.session;
+            if (user.roles.includes('admin')) {
+                await Render.react(Admin, response, []);
+            } else {
+                await Render.react(UserView, response, []);
+            }
         },
         login: async (request: Request, response: Response) => {
             await Render.react(Login, response, []);
@@ -65,7 +73,7 @@ interface IUserController {
         };
         render: {
             landing: (Request, Response) => void;
-            home: (Request, Response) => void;
+            dashboard: (Request, Response) => void;
             login: (Request, Response) => void;
         };
     };

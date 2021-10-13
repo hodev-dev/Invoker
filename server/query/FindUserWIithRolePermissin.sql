@@ -8,4 +8,6 @@ FROM users
     INNER JOIN roles ON roles.id = user_role.role_id
     INNER JOIN role_permission ON roles.id = role_permission.role_id
     INNER JOIN permissions ON permissions.id = role_permission.permission_id
+WHERE users.email = $1 --ARG-1
+    AND users.password = $2 --ARG-2
 GROUP BY users.id;
