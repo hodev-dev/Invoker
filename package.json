@@ -47,6 +47,7 @@
   },
   "dependencies": {
     "@mysql/xdevapi": "^8.0.26",
+    "bcrypt": "^5.0.1",
     "chalk": "^4.1.2",
     "cli-table": "^0.3.6",
     "commander": "^2.20.3",
@@ -63,7 +64,9 @@
     "preact": "^8.5.3",
     "preact-compat": "^3.19.0",
     "react": "^18.0.0-alpha-1314299c7-20210901",
+    "react-country-flag": "^2.3.1",
     "react-dom": "^18.0.0-alpha-1314299c7-20210901",
+    "react-icons": "^4.3.1",
     "sqlite3": "^5.0.2",
     "ts-node": "^10.2.1",
     "uuid": "^3.4.0"

@@ -8,9 +8,4 @@ VALUES (
         DEFAULT,
         'user',
         'can edit everything'
-    ),
-    (
-        DEFAULT,
-        'guest',
-        'can read everything'
     );

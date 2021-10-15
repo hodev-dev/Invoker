@@ -5,6 +5,8 @@ import { Render } from '@core/render';
 import { User } from '@server/model/User';
 import { Request, Response } from 'express';
 import { Admin } from '@client/Admin';
+import { Regester } from '@client/Regester';
+const bcrypt = require('bcrypt');
 
 const UserController: IUserController = () => {
     const get = {
@@ -26,8 +28,9 @@ const UserController: IUserController = () => {
     const post = {
         login: async (request: Request | any, response: Response) => {
             const { email, password } = request.body;
-            const user = await User().findUserWithRolePermission(email, password);
-            if (!user || user === undefined) {
+            const user = await User().findUserWithRolePermission(email);
+            const varify = await bcrypt.compare(password, user.password);
+            if (!varify) {
                 return response.redirect('/login');
             } else {
                 request.session.user = user;
@@ -38,12 +41,23 @@ const UserController: IUserController = () => {
                 }
             }
         },
+        regester: async (request: Request | any, response: Response) => {
+            const { username, email, password } = request.body;
+            const hashed_password = await bcrypt.hash(password, 2);
+            try {
+                const insert = await User().insertUserAndAssignRole(username, email, hashed_password, 2);
+                if (insert) {
+                    return response.redirect('/login');
+                } else {
+                    return response.redirect('/regester');
+                }
+            } catch (error) {
+                return response.redirect('/regester');
+            }
+        },
     };
 
     const render = {
-        landing: async (request: Request, response: Response) => {
-            await Render.react(Landing, response, []);
-        },
         admin: async (request: Request | any, response: Response) => {
             await Render.react(Admin, response, []);
         },
@@ -52,6 +66,9 @@ const UserController: IUserController = () => {
         },
         login: async (request: Request, response: Response) => {
             await Render.react(Login, response, []);
+        },
+        regester: async (request: Request, response: Response) => {
+            await Render.react(Regester, response, []);
         },
     };
 
@@ -69,12 +86,13 @@ interface IUserController {
         };
         post: {
             login: (Request, Response) => void;
+            regester: (Request, Response) => void;
         };
         render: {
-            landing: (Request, Response) => void;
             admin: (Request, Response) => void;
             user: (Request, Response) => void;
             login: (Request, Response) => void;
+            regester: (Request, Response) => void;
         };
     };
 }

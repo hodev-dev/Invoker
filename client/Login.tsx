@@ -1,5 +1,5 @@
-import { Invoker } from '@core/invoker';
-import React, { useEffect } from 'react';
+import { View } from '@core/View';
+import { useEffect } from 'react';
 
 export const Login = (props: any) => {
     useEffect(() => {
@@ -9,9 +9,7 @@ export const Login = (props: any) => {
     return (
         <div className={'w-full bg-gray-50'} suppressHydrationWarning={true}>
             <form
-                className={
-                    'flex flex-col items-center justify-center w-full h-screen shadow-xl'
-                }
+                className={'flex flex-col items-center justify-center w-full h-screen shadow-xl'}
                 method="post"
                 action="/login"
             >
@@ -30,9 +28,7 @@ export const Login = (props: any) => {
                     placeholder={'password'}
                 />
                 <input
-                    className={
-                        'w-4/12 h-12 text-center bg-blue-700 border text-white'
-                    }
+                    className={'w-4/12 h-12 text-center text-white bg-blue-700 border'}
                     type="submit"
                     value="Login"
                 />
@@ -41,6 +37,6 @@ export const Login = (props: any) => {
     );
 };
 
-Invoker.get().then((serverData) => {
-    Invoker.render(Login, serverData);
+View.get().then((serverData) => {
+    View.render(Login, serverData);
 });

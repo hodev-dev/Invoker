@@ -1,13 +1,13 @@
 SELECT users.id,
     users.username,
+    users.password,
     users.email,
     ARRAY_AGG(DISTINCT roles.role_name) as roles,
     ARRAY_AGG(DISTINCT permissions.permission_name) as permissions
 FROM users
-    INNER JOIN user_role ON users.id = user_role.user_id
-    INNER JOIN roles ON roles.id = user_role.role_id
-    INNER JOIN role_permission ON roles.id = role_permission.role_id
-    INNER JOIN permissions ON permissions.id = role_permission.permission_id
+    LEFT JOIN user_role ON users.id = user_role.user_id
+    LEFT JOIN roles ON roles.id = user_role.role_id
+    LEFT JOIN role_permission ON roles.id = role_permission.role_id
+    LEFT JOIN permissions ON permissions.id = role_permission.permission_id
 WHERE users.email = $1 --ARG-1
-    AND users.password = $2 --ARG-2
 GROUP BY users.id;

@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { isBrowser } from './isBrowser';
 
-class Invoker {
+class View {
     static get() {
         return new Promise((resolve) => {
             if (isBrowser()) {
@@ -18,17 +18,19 @@ class Invoker {
     }
 
     static render(Component: any, data) {
-        let container: any = document.getElementById('root');
-        // @ts-ignore
-        const root = ReactDOM.createRoot(container);
-        console.log(data);
-        root.render(
-            React.createElement(Component, {
+        if (isBrowser()) {
+            let container: any = document.getElementById('root');
+            const rawCookie: any = Cookies.get('data');
+            const data: any = JSON.parse(rawCookie);
+            // @ts-ignore
+            let root = ReactDOM.hydrateRoot(container);
+            const rootComponent: any = React.createElement(Component, {
                 ...data,
                 init: this.init,
-            }),
-        );
+            });
+            root.render(rootComponent);
+        }
     }
 }
 
-export { Invoker };
+export { View };

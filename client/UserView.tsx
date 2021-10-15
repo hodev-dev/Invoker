@@ -1,5 +1,5 @@
-import { Invoker } from '@core/invoker';
-import React, { useEffect } from 'react';
+import { View } from '@core/View';
+import { useEffect } from 'react';
 import './css/index.css';
 
 export const UserView = (props: any) => {
@@ -8,10 +8,7 @@ export const UserView = (props: any) => {
     }, [props]);
 
     return (
-        <div
-            className={'w-full h-screen bg-white'}
-            suppressHydrationWarning={true}
-        >
+        <div className={'w-full h-screen bg-white'} suppressHydrationWarning={true}>
             <a className={'h-2 ml-10 text-xl text-yellow-600'} href="login">
                 Login
             </a>
@@ -25,6 +22,6 @@ export const UserView = (props: any) => {
     );
 };
 
-Invoker.get().then((serverData) => {
-    Invoker.render(UserView, serverData);
+View.get().then((serverData) => {
+    View.render(UserView, serverData);
 });

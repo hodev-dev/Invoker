@@ -1,4 +1,4 @@
-import { Invoker } from '@core/invoker';
+import { View } from '@core/View';
 import React, { useEffect } from 'react';
 
 export const VIEW_NAME = (props) => {
@@ -9,6 +9,6 @@ export const VIEW_NAME = (props) => {
     return <div suppressHydrationWarning={true}>// render</div>;
 };
 
-Invoker.get().then((serverData) => {
-    Invoker.render(VIEW_NAME, serverData);
+View.get().then((serverData) => {
+    View.render(VIEW_NAME, serverData);
 });

@@ -1,0 +1,3 @@
+INSERT INTO users
+VALUES (DEFAULT, $1, $2, $3)
+RETURNING id;

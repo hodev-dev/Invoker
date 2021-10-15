@@ -1,0 +1,2 @@
+INSERT INTO user_role
+VALUES (DEFAULT, $1, $2);

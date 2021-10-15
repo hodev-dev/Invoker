@@ -1,4 +1,4 @@
-import { Invoker } from '@core/invoker';
+import { View } from '@core/View';
 import React, { useEffect } from 'react';
 
 export const Admin = (props) => {
@@ -13,6 +13,6 @@ export const Admin = (props) => {
     );
 };
 
-Invoker.get().then((serverData) => {
-    Invoker.render(Admin, serverData);
+View.get().then((serverData) => {
+    View.render(Admin, serverData);
 });

@@ -22,7 +22,7 @@ const UserMiddleware: IUserMiddleware = () => {
             if (user.roles.includes('admin')) {
                 next();
             } else {
-                return response.redirect('/login');
+                return response.redirect('/');
             }
         }
     };
@@ -35,11 +35,7 @@ const UserMiddleware: IUserMiddleware = () => {
             if (user.roles.includes('user')) {
                 next();
             } else {
-                if (user.roles.includes('admin')) {
-                    return response.redirect('/admin');
-                } else {
-                    return response.redirect('/user');
-                }
+                return response.redirect('/');
             }
         }
     };

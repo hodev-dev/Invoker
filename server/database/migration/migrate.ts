@@ -4,8 +4,6 @@ import useRawQuery from '@core/database/query/useRawQuery';
 import useSequence from '@core/utility/useSequence';
 const chalk = require('chalk');
 
-console.log(process.argv);
-
 const [pg] = useDatabase();
 const query = useRawQuery();
 const sequence = useSequence();
