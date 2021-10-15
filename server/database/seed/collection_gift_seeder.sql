@@ -1,0 +1,16 @@
+INSERT INTO collection_gift
+VALUES (DEFAULT, 1, 1),
+    (DEFAULT, 1, 2),
+    (DEFAULT, 1, 3),
+    (DEFAULT, 1, 4),
+    (DEFAULT, 1, 5),
+    (DEFAULT, 1, 6),
+    (DEFAULT, 1, 7),
+    (DEFAULT, 1, 8),
+    (DEFAULT, 1, 9),
+    (DEFAULT, 1, 10),
+    (DEFAULT, 2, 6),
+    (DEFAULT, 2, 7),
+    (DEFAULT, 2, 8),
+    (DEFAULT, 2, 9),
+    (DEFAULT, 2, 10);

@@ -99,7 +99,19 @@ var User = () => {
             return false;
         }
     };
-
+    const getCollectionWithGifts = async () => {
+        try {
+            const queryRaw = await rawQuery.get('GetCollectionWithGifts');
+            const results = await pg.query({
+                name: 'GetCollectionWithGifts',
+                text: queryRaw,
+            });
+            return results.rows;
+        } catch (error) {
+            console.log({ error });
+            return false;
+        }
+    };
     return {
         findById,
         findUserByEmailPassword,
@@ -107,6 +119,7 @@ var User = () => {
         assignRole,
         insertUser,
         insertUserAndAssignRole,
+        getCollectionWithGifts,
     };
 };
 

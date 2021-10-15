@@ -40,6 +40,9 @@ function* tasks() {
     yield () => seedTable('user_role_seeder');
     yield () => seedTable('permissions_seeder');
     yield () => seedTable('role_permission_seeder');
+    yield () => seedTable('collections_seeder');
+    yield () => seedTable('gifts_seeder');
+    yield () => seedTable('collection_gift_seeder');
 }
 
 async function taskRunner() {

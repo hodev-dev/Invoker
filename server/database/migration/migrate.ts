@@ -58,6 +58,9 @@ function* tasks() {
     yield () => createTable('user_role_table', false);
     yield () => createTable('permissions_table', false);
     yield () => createTable('role_permission_table', false);
+    yield () => createTable('collection_table', false);
+    yield () => createTable('gifts_table', false);
+    yield () => createTable('collection_gift_table', false);
 }
 
 async function taskRunner() {
