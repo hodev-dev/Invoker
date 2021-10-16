@@ -1,0 +1,3 @@
+INSERT INTO currencies
+VALUES (DEFAULT, 'US', 28500),
+    (DEFAULT, 'GB', 32000);

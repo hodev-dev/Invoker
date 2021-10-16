@@ -43,6 +43,7 @@ function* tasks() {
     yield () => seedTable('collections_seeder');
     yield () => seedTable('gifts_seeder');
     yield () => seedTable('collection_gift_seeder');
+    yield () => seedTable('currencies_seeder');
 }
 
 async function taskRunner() {

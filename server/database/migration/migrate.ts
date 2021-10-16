@@ -61,6 +61,7 @@ function* tasks() {
     yield () => createTable('collection_table', false);
     yield () => createTable('gifts_table', false);
     yield () => createTable('collection_gift_table', false);
+    yield () => createTable('currencies_table', false);
 }
 
 async function taskRunner() {

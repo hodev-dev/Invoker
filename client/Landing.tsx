@@ -34,7 +34,7 @@ export const Landing = ({ isLoggedIn, collectionsWithGifts }) => {
                     type={gift.type}
                     label={gift.label}
                     price={gift.price + '$'}
-                    alter_price={'27000'}
+                    alter_price={gift.price * gift.currency}
                 />
             );
         });
