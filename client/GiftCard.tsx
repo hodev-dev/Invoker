@@ -18,8 +18,15 @@ export const GiftCard = (props) => {
     };
     return (
         <section
+            {...props}
             suppressHydrationWarning={true}
-            className={'flex flex-col items-center w-1/6 bg-white rounded-lg shadow-xl h-80' + ' ' + props.className}
+            className={
+                `flex flex-col items-center w-1/6 bg-white rounded-lg shadow-xl h-80 ${
+                    props.isSelected ? 'ring-4 ring-black' : ''
+                }` +
+                ' ' +
+                props.className
+            }
         >
             {renderLogo()}
             <h1 className={'mt-5 text-xl font-semibold'}>{props.label}</h1>

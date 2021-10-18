@@ -5,11 +5,11 @@ export const GiftSeprator = (props) => {
         <div>
             <section className={'flex flex-row items-center w-full h-10 mt-5'} dir={'rtl'}>
                 <ReactCountryFlag
-                    className={'p-1 mr-12 border rounded'}
+                    className={'p-1 mr-12 '}
                     svg
                     style={{
-                        width: '2.2em',
-                        height: '2.2em',
+                        width: '2em',
+                        height: '2em',
                     }}
                     title="US"
                     countryCode="US"
