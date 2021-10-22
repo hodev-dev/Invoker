@@ -22,7 +22,7 @@ export const GiftCard = (props) => {
             suppressHydrationWarning={true}
             className={
                 `flex flex-col items-center w-1/6 bg-white rounded-lg shadow-xl h-80 ${
-                    props.isSelected ? 'ring-4 ring-black' : ''
+                    props.selected ? 'ring-4 ring-black' : ''
                 }` +
                 ' ' +
                 props.className

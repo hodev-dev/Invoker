@@ -105,13 +105,14 @@ program
     .command('make:view')
     .arguments('<name>')
     .alias('mkv')
+    .option('-d, --directory <mode>', 'folder path', 'public')
     .description('make view in client directory')
     .action(async (name, options) => {
         try {
             const viewTemplatePath = path.join(__dirname, 'core', 'template', 'view.tsx');
-            const viewPath = path.join(__dirname, 'client', name + '.tsx');
+            const viewPath = path.join(__dirname, 'client', 'pages', options.directory, name + 'View' + '.tsx');
             const data = await fsPromises.readFile(viewTemplatePath, 'utf8');
-            const newView = data.replaceAll('VIEW_NAME', name);
+            const newView = data.replaceAll('VIEW_NAME', name + 'View');
             try {
                 await fsPromises.access(viewPath);
                 console.log(`view ${name} already exists!`);

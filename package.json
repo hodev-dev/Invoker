@@ -52,6 +52,7 @@
     "chalk": "^4.1.2",
     "cli-table": "^0.3.6",
     "commander": "^2.20.3",
+    "connect-pg-simple": "^7.0.0",
     "cookie-parser": "^1.4.5",
     "ejs": "^3.1.6",
     "express": "^4.17.1",

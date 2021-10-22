@@ -1,13 +1,13 @@
 import { View } from '@core/View';
 import { useEffect, useState } from 'react';
 import { IoBagCheckOutline } from 'react-icons/io5';
-import { GiftCard } from './GiftCard';
-import { GiftSeprator } from './GiftSeprator';
+import { GiftCard } from '../../components/GiftCard';
+import { GiftSeprator } from '../../components/GiftSeprator';
 import { addCommas, digitsEnToFa, numberToWords } from '@persian-tools/persian-tools';
 import ReactCountryFlag from 'react-country-flag';
 import { getCountryName } from '@core/utility/useCountry';
 
-export const Landing = ({ isLoggedIn, collectionsWithGifts }) => {
+export const Landing = ({ isLoggedIn, isAdmin, collectionsWithGifts }) => {
     const [Image, setImage] = useState('');
     const [select, setSelect] = useState(99999999);
     const [collectionID, setCollectionID] = useState(99999999);
@@ -57,7 +57,7 @@ export const Landing = ({ isLoggedIn, collectionsWithGifts }) => {
             return (
                 <>
                     <li className={'ml-5'}>
-                        <a href="/user">Dashboard</a>
+                        {isAdmin ? <a href="/admin">Dashboard</a> : <a href="/user">Dashboard</a>}
                     </li>
                 </>
             );
@@ -77,12 +77,11 @@ export const Landing = ({ isLoggedIn, collectionsWithGifts }) => {
 
     const renderGifts = (collection) => {
         return collection.gifts.map((gift, index) => {
-            console.log(select, index);
             return (
                 <GiftCard
                     onClick={() => handleSelectGift(gift, collection, index)}
                     key={gift.price + index}
-                    isSelected={select === index && collection.id === collectionID}
+                    selected={select === index && collection.id === collectionID}
                     className={`mt-5 mr-10 hover:ring-4 hover:ring-black hover:cursor-pointer`}
                     type={gift.type}
                     label={gift.label}

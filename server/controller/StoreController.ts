@@ -1,4 +1,4 @@
-import { Landing } from '@client/Landing';
+import { Landing } from '@client/pages/public/Landing';
 import { Render } from '@core/render';
 import { User } from '@server/model/User';
 import { Request, Response } from 'express';
@@ -11,7 +11,11 @@ const StorController: IStoreController = () => {
             const collectionsWithGifts = await User().getCollectionWithGifts();
             const { user } = request.session;
             const isLoggedIn = user ? { isLoggedIn: true } : { isLoggedIn: false };
-            await Render.react(Landing, response, { ...isLoggedIn, collectionsWithGifts });
+            let isAdmin = false;
+            if (user && user.roles) {
+                isAdmin = user.roles.includes('admin');
+            }
+            await Render.react(Landing, response, { ...isLoggedIn, isAdmin, collectionsWithGifts });
         },
     };
     return {

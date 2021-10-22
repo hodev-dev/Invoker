@@ -44,6 +44,7 @@ function* tasks() {
     yield () => seedTable('gifts_seeder');
     yield () => seedTable('collection_gift_seeder');
     yield () => seedTable('currencies_seeder');
+    yield () => seedTable('codes_seeder');
 }
 
 async function taskRunner() {
