@@ -5,7 +5,7 @@ import { GiftCard } from '../../components/GiftCard';
 import { GiftSeprator } from '../../components/GiftSeprator';
 import { addCommas, digitsEnToFa, numberToWords } from '@persian-tools/persian-tools';
 import ReactCountryFlag from 'react-country-flag';
-import { getCountryName } from '@core/utility/useCountry';
+import { getCountryName, isoCountries } from '@core/utility/useCountry';
 
 export const Landing = ({ isLoggedIn, isAdmin, collectionsWithGifts }) => {
     const [Image, setImage] = useState('');

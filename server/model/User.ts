@@ -46,7 +46,33 @@ var User = () => {
             console.log({ error });
         }
     };
-
+    const listUserInRange = async (begin, end) => {
+        try {
+            const queryRaw = await rawQuery.get('GetUsersByOffset');
+            const results = await pg.query({
+                name: 'GetUsersByOffset',
+                text: queryRaw,
+                values: [begin, end],
+            });
+            return results.rows;
+        } catch (error) {
+            return false;
+        }
+    };
+    const searchUserByUsernameOrEmail = async (query) => {
+        try {
+            const queryRaw = await rawQuery.get('SearchUserByUsernameOrEmail');
+            const results = await pg.query({
+                name: 'SearchUserByUsernameOrEmail',
+                text: queryRaw,
+                values: [query],
+            });
+            return results.rows;
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
+    };
     const insertUser = async (username, email, password) => {
         try {
             const queryRaw = await rawQuery.get('InsertUsers');
@@ -120,6 +146,8 @@ var User = () => {
         insertUser,
         insertUserAndAssignRole,
         getCollectionWithGifts,
+        listUserInRange,
+        searchUserByUsernameOrEmail,
     };
 };
 

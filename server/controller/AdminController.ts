@@ -6,11 +6,32 @@ import { AdminManageGiftsView } from '@client/pages/admin/AdminManageGiftsView';
 import { AdminManageUsersView } from '@client/pages/admin/AdminManageUsersView';
 import { AdminPaymentsView } from '@client/pages/admin/AdminPaymentsView';
 import { Render } from '@core/render';
+import Collection from '@server/model/Collection';
+import { User } from '@server/model/User';
 import { Request, Response } from 'express';
 
 const AdminController: IAdminController = () => {
-    const get = {};
-    const post = {};
+    const async = {
+        list_users: async (request: Request | any, response: Response) => {
+            const users = await User().listUserInRange(0, 10);
+            return response.json(users);
+        },
+        get_collections: async (request: Request | any, response: Response) => {
+            const collections = await Collection().getAllCollections();
+            return response.json(collections);
+        },
+    };
+    const post = {
+        delete_user: async (request: Request | any, response: Response) => {
+            const { id } = request.params;
+            return response.json(id);
+        },
+        search_user: async (request: Request | any, response: Response) => {
+            const { query } = request.params;
+            const users = await User().searchUserByUsernameOrEmail(query);
+            return response.json(users);
+        },
+    };
     const render = {
         admin: async (request: Request | any, response: Response) => {
             await Render.react(AdminDashboardView, response, []);
@@ -34,13 +55,19 @@ const AdminController: IAdminController = () => {
             await Render.react(AdminManageAccountView, response, []);
         },
     };
-    return { get, post, render };
+    return { async, post, render };
 };
 
 interface IAdminController {
     (): {
-        get: {};
-        post: {};
+        async: {
+            list_users: (Request, Response) => void;
+            get_collections: (Request, Response) => void;
+        };
+        post: {
+            delete_user: (Request, Response) => void;
+            search_user: (Request, Response) => void;
+        };
         render: {
             admin: (Request, Response) => void;
             manage_users: (Request, Response) => void;

@@ -1,4 +1,4 @@
-var isoCountries = {
+export var isoCountries = {
     AF: 'Afghanistan',
     AX: 'Aland Islands',
     AL: 'Albania',

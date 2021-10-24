@@ -34,7 +34,7 @@ web.get('/', StoreController().render.landing);
 web.get('/login', UserMiddleware().loginProtection, AuthController().render.login);
 web.get('/regester', UserMiddleware().loginProtection, AuthController().render.regester);
 
-//render user
+// admin
 web.get('/admin', UserMiddleware().adminProtection, AdminController().render.admin);
 web.get('/admin/manage_users', UserMiddleware().adminProtection, AdminController().render.manage_users);
 web.get('/admin/payments', UserMiddleware().adminProtection, AdminController().render.payments);
@@ -42,8 +42,12 @@ web.get('/admin/manage_collections', UserMiddleware().adminProtection, AdminCont
 web.get('/admin/manage_gifts', UserMiddleware().adminProtection, AdminController().render.gifts);
 web.get('/admin/manage_currencies', UserMiddleware().adminProtection, AdminController().render.currencies);
 web.get('/admin/manage_account', UserMiddleware().adminProtection, AdminController().render.account);
+web.post('/admin/delete_user/:id', UserMiddleware().adminProtection, AdminController().post.delete_user);
+web.post('/admin/search_user/:query', UserMiddleware().adminProtection, AdminController().post.search_user);
+web.get('/admin/list_users', UserMiddleware().adminProtection, AdminController().async.list_users);
+web.get('/admin/get_collections', UserMiddleware().adminProtection, AdminController().async.get_collections);
 
-// render admin
+// user
 web.get('/user', UserMiddleware().userProtection, UserController().render.user);
 
 export default web;

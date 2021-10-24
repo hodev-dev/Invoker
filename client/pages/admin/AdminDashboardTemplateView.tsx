@@ -13,7 +13,7 @@ export const AdminDashboardTemplateView = (props: any) => {
         <div className={'w-full h-auto bg-gray-50'}>
             <header className={'bg-white'}>
                 <nav className={'w-full shadow-sm'}>
-                    <ul className={'flex flex-row items-center w-6/12 h-16'}>
+                    <ul className={'flex flex-row items-center w-6/12 h-12'}>
                         <li className={'ml-10'}>
                             <a href="/logout">خروج</a>
                         </li>
@@ -26,7 +26,7 @@ export const AdminDashboardTemplateView = (props: any) => {
             <div className={'flex flex-row w-full '} dir={'rtl'}>
                 <section className={'w-3/12 h-screen border rounded-md shadow-sm bg-gray-50'}>
                     <ul className={''}>
-                        <li className={'flex items-center w-full h-16 p-4 text-sm text-gray-500 bg-gray-50'}>
+                        <li className={'flex items-center w-full h-12 p-4 text-sm text-gray-500 bg-gray-50'}>
                             منو اصلی
                         </li>
                         <li
@@ -41,7 +41,7 @@ export const AdminDashboardTemplateView = (props: any) => {
                         </li>
                     </ul>
                     <ul className={''}>
-                        <li className={'flex items-center w-full h-16 p-4 text-sm text-gray-500 bg-gray-50'}>
+                        <li className={'flex items-center w-full h-12 p-4 text-sm text-gray-500 bg-gray-50'}>
                             کاربران
                         </li>
                         <li
@@ -56,7 +56,7 @@ export const AdminDashboardTemplateView = (props: any) => {
                         </li>
                     </ul>
                     <ul className={''}>
-                        <li className={'flex items-center w-full h-16 p-4 text-sm text-gray-500 bg-gray-50'}>مالی</li>
+                        <li className={'flex items-center w-full h-12 p-4 text-sm text-gray-500 bg-gray-50'}>مالی</li>
                         <li
                             className={
                                 'flex items-center justify-start  w-full h-12 p-4 bg-white  text-gray-600 text-base font-semibold border border-l-0 border-r-0 border-t-0 '
@@ -69,7 +69,7 @@ export const AdminDashboardTemplateView = (props: any) => {
                         </li>
                     </ul>
                     <ul className={''}>
-                        <li className={'flex items-center w-full h-16 p-4 text-sm text-gray-500 bg-gray-50'}>
+                        <li className={'flex items-center w-full h-12 p-4 text-sm text-gray-500 bg-gray-50'}>
                             محصولات
                         </li>
                         <li
@@ -105,7 +105,7 @@ export const AdminDashboardTemplateView = (props: any) => {
                     </ul>
 
                     <ul className={''}>
-                        <li className={'flex items-center w-full h-16 p-4 text-sm text-gray-500 bg-gray-50'}>
+                        <li className={'flex items-center w-full h-12 p-4 text-sm text-gray-500 bg-gray-50'}>
                             حساب کاربری
                         </li>
                         <li
