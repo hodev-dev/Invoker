@@ -46,6 +46,9 @@ web.post('/admin/delete_user/:id', UserMiddleware().adminProtection, AdminContro
 web.post('/admin/search_user/:query', UserMiddleware().adminProtection, AdminController().post.search_user);
 web.get('/admin/list_users', UserMiddleware().adminProtection, AdminController().async.list_users);
 web.get('/admin/get_collections', UserMiddleware().adminProtection, AdminController().async.get_collections);
+web.get('/admin/get_gifts', UserMiddleware().adminProtection, AdminController().async.get_gifts);
+web.post('/admin/delete_gift/:id', UserMiddleware().adminProtection, AdminController().post.delete_gift);
+web.post('/admin/add_gift/', UserMiddleware().adminProtection, AdminController().post.add_gift);
 
 // user
 web.get('/user', UserMiddleware().userProtection, UserController().render.user);

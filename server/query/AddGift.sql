@@ -1,0 +1,2 @@
+INSERT INTO gifts
+VALUES (DEFAULT, $1, $2, $3);

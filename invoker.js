@@ -27,6 +27,7 @@ program
             );
             ts.on('close', (code) => {
                 console.log(`child process exited with code ${code}`);
+                process.exit();
             });
         } catch (error) {
             console.error(error);

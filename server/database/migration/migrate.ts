@@ -2,6 +2,8 @@ import useDatabase from '@config/database';
 import useMigration from '@core/database/migration/useMigration';
 import useRawQuery from '@core/database/query/useRawQuery';
 import useSequence from '@core/utility/useSequence';
+import { produceWithPatches } from 'immer';
+import { isPropertyAccessChain } from 'typescript';
 const chalk = require('chalk');
 
 const [pg] = useDatabase();
@@ -72,11 +74,14 @@ async function taskRunner() {
         await sequence.runSync(tasks);
         await pg.query('COMMIT');
         console.log('migration:', chalk.green('successfull'));
+        process.exit();
     } catch (error) {
         await pg.query('ROLLBACK');
         console.log('migration:', chalk.magenta('rollback'));
+        process.exit();
     } finally {
         await pg.end();
+        process.exit();
     }
 }
 

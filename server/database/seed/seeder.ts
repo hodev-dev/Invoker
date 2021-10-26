@@ -53,11 +53,14 @@ async function taskRunner() {
         await sequence.runSync(tasks);
         await pg.query('COMMIT');
         console.log('seed:', chalk.green('successfull'));
+        process.exit();
     } catch (error) {
         await pg.query('ROLLBACK');
         console.log('seed:', chalk.magenta('rollback'));
+        process.exit();
     } finally {
         await pg.end();
+        process.exit();
     }
 }
 
