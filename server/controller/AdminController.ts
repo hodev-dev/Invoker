@@ -11,10 +11,10 @@ import Gift from '@server/model/Gift';
 import { User } from '@server/model/User';
 import { Request, Response } from 'express';
 
-const AdminController: IAdminController = () => {
+const AdminController = () => {
     const async = {
-        list_users: async (request: Request | any, response: Response) => {
-            const users = await User().listUserInRange(0, 10);
+        get_users: async (request: Request | any, response: Response) => {
+            const users = await User().getAllAdminUsers();
             return response.json(users);
         },
         get_collections: async (request: Request | any, response: Response) => {
@@ -39,6 +39,22 @@ const AdminController: IAdminController = () => {
         add_gift: async (request: Request | any, response: Response) => {
             const { type, label, price } = request.body;
             const deleted = await Gift().add_gift(type, label, price);
+            return response.redirect('back');
+        },
+        add_collection: async (request: Request | any, response: Response) => {
+            const { title, country } = request.body;
+            const add = await Collection().addCollection(title, country);
+            return response.redirect('back');
+        },
+        delete_collection: async (request: Request | any, response: Response) => {
+            const { id } = request.params;
+            const del = await Collection().deleteCollection(id);
+            return response.redirect('back');
+        },
+        update_collection: async (request: Request | any, response: Response) => {
+            const { id } = request.params;
+            const { title, country } = request.body;
+            const del = await Collection().updateCollection(id, title, country);
             return response.redirect('back');
         },
         search_user: async (request: Request | any, response: Response) => {
@@ -73,29 +89,30 @@ const AdminController: IAdminController = () => {
     return { async, post, render };
 };
 
-interface IAdminController {
-    (): {
-        async: {
-            list_users: (Request, Response) => void;
-            get_collections: (Request, Response) => void;
-            get_gifts: (Request, Response) => void;
-        };
-        post: {
-            delete_user: (Request, Response) => void;
-            delete_gift: (Request, Response) => void;
-            add_gift: (Request, Response) => void;
-            search_user: (Request, Response) => void;
-        };
-        render: {
-            admin: (Request, Response) => void;
-            manage_users: (Request, Response) => void;
-            payments: (Request, Response) => void;
-            collections: (Request, Response) => void;
-            gifts: (Request, Response) => void;
-            currencies: (Request, Response) => void;
-            account: (Request, Response) => void;
-        };
-    };
-}
+// interface IAdminController {
+//     (): {
+//         async: {
+//             list_users: (Request, Response) => void;
+//             get_collections: (Request, Response) => void;
+//             get_gifts: (Request, Response) => void;
+//         };
+//         post: {
+//             delete_user: (Request, Response) => void;
+//             delete_gift: (Request, Response) => void;
+//             add_gift: (Request, Response) => void;
+//             add_collection: (Request, Response) => void;
+//             search_user: (Request, Response) => void;
+//         };
+//         render: {
+//             admin: (Request, Response) => void;
+//             manage_users: (Request, Response) => void;
+//             payments: (Request, Response) => void;
+//             collections: (Request, Response) => void;
+//             gifts: (Request, Response) => void;
+//             currencies: (Request, Response) => void;
+//             account: (Request, Response) => void;
+//         };
+//     };
+// }
 
 export default AdminController;

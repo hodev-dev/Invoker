@@ -20,7 +20,7 @@ export const AdminManageUsersView = (props) => {
     useEffect(() => {
         props.init();
         axios
-            .get('/admin/list_users')
+            .get('/admin/get_users')
             .then((response: any) => {
                 const { data } = response;
                 setUsers(data);

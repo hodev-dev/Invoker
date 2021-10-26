@@ -46,13 +46,13 @@ var User = () => {
             console.log({ error });
         }
     };
-    const listUserInRange = async (begin, end) => {
+    const getAllAdminUsers = async () => {
         try {
-            const queryRaw = await rawQuery.get('GetUsersByOffset');
+            const queryRaw = await rawQuery.get('GetAllAdminUsers');
             const results = await pg.query({
-                name: 'GetUsersByOffset',
+                name: 'GetAllAdminUsers',
                 text: queryRaw,
-                values: [begin, end],
+                values: [],
             });
             return results.rows;
         } catch (error) {
@@ -146,7 +146,7 @@ var User = () => {
         insertUser,
         insertUserAndAssignRole,
         getCollectionWithGifts,
-        listUserInRange,
+        getAllAdminUsers,
         searchUserByUsernameOrEmail,
     };
 };

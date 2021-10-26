@@ -44,11 +44,14 @@ web.get('/admin/manage_currencies', UserMiddleware().adminProtection, AdminContr
 web.get('/admin/manage_account', UserMiddleware().adminProtection, AdminController().render.account);
 web.post('/admin/delete_user/:id', UserMiddleware().adminProtection, AdminController().post.delete_user);
 web.post('/admin/search_user/:query', UserMiddleware().adminProtection, AdminController().post.search_user);
-web.get('/admin/list_users', UserMiddleware().adminProtection, AdminController().async.list_users);
+web.get('/admin/get_users', UserMiddleware().adminProtection, AdminController().async.get_users);
 web.get('/admin/get_collections', UserMiddleware().adminProtection, AdminController().async.get_collections);
+web.post('/admin/add_collection', UserMiddleware().adminProtection, AdminController().post.add_collection);
+web.post('/admin/delete_collection/:id', UserMiddleware().adminProtection, AdminController().post.delete_collection);
+web.post('/admin/update_collection/:id', UserMiddleware().adminProtection, AdminController().post.update_collection);
 web.get('/admin/get_gifts', UserMiddleware().adminProtection, AdminController().async.get_gifts);
 web.post('/admin/delete_gift/:id', UserMiddleware().adminProtection, AdminController().post.delete_gift);
-web.post('/admin/add_gift/', UserMiddleware().adminProtection, AdminController().post.add_gift);
+web.post('/admin/add_gift/', UserMiddleware().adminProtection, AdminController().post.add_collection);
 
 // user
 web.get('/user', UserMiddleware().userProtection, UserController().render.user);

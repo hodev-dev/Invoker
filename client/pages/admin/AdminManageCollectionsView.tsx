@@ -37,7 +37,7 @@ export const AdminManageCollectionsView = (props) => {
         });
     };
 
-    const renderUpdateUi = (index) => {
+    const renderUpdateUi = (index, id) => {
         return (
             <div
                 className={
@@ -45,14 +45,16 @@ export const AdminManageCollectionsView = (props) => {
                 }
             >
                 <div className={'flex items-center w-full h-12 p-4 text-sm text-gray-500 '}>فرم ویرایش</div>
-                <form className={'flex flex-row w-full p-4'} action="" method="post">
+                <form className={'flex flex-row w-full p-4'} action={`/admin/update_collection/${id}`} method="post">
                     <input
+                        name={'title'}
                         className={'w-4/12 text-sm text-center bg-white border'}
                         type="text"
-                        value={collections[index].title}
+                        defaultValue={collections[index].title}
                         placeholder={'عنوان کالکشن'}
                     />
                     <select
+                        name={'country'}
                         defaultValue={collections[index].country}
                         onChange={(event) => setUpdateSelect(event.target.value)}
                         className={'w-4/12 mr-5 text-center bg-white border'}
@@ -72,6 +74,7 @@ export const AdminManageCollectionsView = (props) => {
                         />
                     </div>
                     <button
+                        type={'submit'}
                         className={
                             'w-2/12 ml-5 text-sm text-center text-blue-500 bg-white border rounded-sm shadow-sm h-9'
                         }
@@ -108,25 +111,32 @@ export const AdminManageCollectionsView = (props) => {
                                     countryCode={collection.country}
                                 />
                             </div>
-                            <div className={'w-2/12'}>
-                                <button
+                            <div className={'flex flex-row w-2/12'}>
+                                <form
                                     className={
-                                        'w-16 ml-5 text-sm text-center bg-white text-red-500 border rounded-sm shadow-sm h-9'
+                                        'w-auto  ml-5 text-sm text-center bg-white text-red-500 border rounded-sm shadow-sm h-auto'
                                     }
+                                    method={'post'}
+                                    action={`/admin/delete_collection/${collection.id}`}
                                 >
-                                    حذف
-                                </button>
+                                    <button
+                                        className={'flex items-center justify-center w-12 text-center h-9'}
+                                        type={'submit'}
+                                    >
+                                        حذف
+                                    </button>
+                                </form>
                                 <button
                                     onClick={() => setUpdateID(index)}
                                     className={
-                                        'w-16 ml-5 text-sm text-center bg-white text-yellow-600 border rounded-sm shadow-sm h-9'
+                                        'w-1/2 ml-5 text-sm text-center bg-white text-yellow-600 border rounded-sm shadow-sm h-9'
                                     }
                                 >
                                     ویرایش
                                 </button>
                             </div>
                         </div>
-                        {updateID === index ? renderUpdateUi(index) : null}
+                        {updateID === index ? renderUpdateUi(index, collection.id) : null}
                     </Fragment>
                 );
             });
@@ -149,13 +159,15 @@ export const AdminManageCollectionsView = (props) => {
                         'flex items-center justify-start  w-full h-12 p-4 bg-white  text-gray-600 text-base font-semibold border border-l-0 border-r-0 border-t-0'
                     }
                 >
-                    <form className={'flex flex-row w-full'} action="" method="post">
+                    <form className={'flex flex-row w-full'} action="/admin/add_collection" method="post">
                         <input
+                            name={'title'}
                             className={'w-4/12 text-sm text-center border bg-gray-50'}
                             type="text"
                             placeholder={'عنوان کالکشن'}
                         />
                         <select
+                            name={'country'}
                             defaultValue={'US'}
                             onChange={handleSelect}
                             className={'w-4/12 mr-5 text-center border bg-gray-50'}
