@@ -6,14 +6,16 @@ import { getCountryName, isoCountries } from '@core/utility/useCountry';
 import ReactCountryFlag from 'react-country-flag';
 import { FaChessKnight } from 'react-icons/fa';
 import axios from 'axios';
+import { GiftCard } from '@client/components/GiftCard';
+import { GiftSeprator } from '@client/components/GiftSeprator';
 
-export const AdminManageCollectionsView = (props) => {
+export const AdminManageCollectionsView = ({ collectionsWithGifts, collections, gifts }) => {
     enum STATE {
         LOADING,
         IDLE,
         FAIL,
     }
-    const [collections, setCollections] = useState<any>([]);
+    const [collectionArray, setCollectionArray] = useState<any>([]);
     const [status, setStatus] = useState(STATE.LOADING);
     const [select, setSelect] = useState('US');
     const [updateSelect, setUpdateSelect] = useState('US');
@@ -22,10 +24,10 @@ export const AdminManageCollectionsView = (props) => {
     useEffect(() => {
         axios.get('/admin/get_collections').then((response) => {
             const cols: any = response.data;
-            setCollections(cols);
+            setCollectionArray(cols);
             setStatus(STATE.IDLE);
         });
-    }, [props]);
+    }, [collections]);
 
     const renderCountry = () => {
         return Object.keys(isoCountries).map((key, index) => {
@@ -50,12 +52,12 @@ export const AdminManageCollectionsView = (props) => {
                         name={'title'}
                         className={'w-4/12 text-sm text-center bg-white border'}
                         type="text"
-                        defaultValue={collections[index].title}
+                        defaultValue={collectionArray[index].title}
                         placeholder={'عنوان کالکشن'}
                     />
                     <select
                         name={'country'}
-                        defaultValue={collections[index].country}
+                        defaultValue={collectionArray[index].country}
                         onChange={(event) => setUpdateSelect(event.target.value)}
                         className={'w-4/12 mr-5 text-center bg-white border'}
                     >
@@ -86,11 +88,46 @@ export const AdminManageCollectionsView = (props) => {
         );
     };
 
+    const renderGifts = (collection) => {
+        return (
+            collection &&
+            collection.gifts.map((gift, index) => {
+                return (
+                    <GiftCard
+                        key={gift.price + index}
+                        selected={false}
+                        className={`mt-5 mr-10  w-1/5 hover:ring-4 hover:ring-black hover:cursor-pointer`}
+                        type={gift.type}
+                        label={gift.label}
+                        price={gift.price + '$'}
+                        alter_price={gift.price * gift.currency}
+                    />
+                );
+            })
+        );
+    };
+
+    const renderCollectionsWithGifts = () => {
+        return (
+            collectionsWithGifts &&
+            collectionsWithGifts.map((collection, index) => {
+                return (
+                    <section key={collection.id * index} className={'flex flex-col flex-wrap w-full'} dir={'rtl'}>
+                        <GiftSeprator title={collection.title} />
+                        <div className={'flex flex-row flex-wrap w-full mr-10 content-evenly'}>
+                            {renderGifts(collection)}
+                        </div>
+                    </section>
+                );
+            })
+        );
+    };
+
     const renderCollections = () => {
         if (status === STATE.LOADING) {
             return <h1>LOADING</h1>;
         } else if (status === STATE.IDLE) {
-            return collections.map((collection: any, index: any) => {
+            return collectionArray.map((collection: any, index: any) => {
                 return (
                     <Fragment>
                         <div
@@ -144,6 +181,27 @@ export const AdminManageCollectionsView = (props) => {
             return <h1>FAIL</h1>;
         }
     };
+
+    const renderCollectionOptions = () => {
+        return collections.map((collection: any, index: any) => {
+            return (
+                <option key={collection.id + collection.title + index} value={collection.id}>
+                    {collection.title}
+                </option>
+            );
+        });
+    };
+
+    const renderGiftOptions = () => {
+        return gifts.map((gift: any, index) => {
+            return (
+                <option key={gift.id + gift.label + index} value={gift.id}>
+                    {gift.label + ' ' + gift.price + '$'}
+                </option>
+            );
+        });
+    };
+
     const handleSelect = (event) => {
         setSelect(event.target.value);
     };
@@ -197,6 +255,41 @@ export const AdminManageCollectionsView = (props) => {
                 </div>
                 <div className={'flex items-center w-full h-12 p-4 text-sm text-gray-500 bg-gray-50'}>کالکشن ها</div>
                 {renderCollections()}
+                <div className={'flex items-center w-full h-12 p-4 text-sm text-gray-500 bg-gray-50'}>گیفت کالکشن</div>
+                <div
+                    className={
+                        'flex items-center justify-start  w-full h-12 p-4 bg-white  text-gray-600 text-base font-semibold border border-l-0 border-r-0 border-t-0'
+                    }
+                >
+                    <form className={'flex flex-row w-full'} action="/admin/add_collection" method="post">
+                        <select
+                            name={'country'}
+                            defaultValue={'US'}
+                            onChange={handleSelect}
+                            className={'w-4/12 text-center border bg-gray-50'}
+                        >
+                            {renderCollectionOptions()}
+                        </select>
+                        <select
+                            name={'country'}
+                            defaultValue={'US'}
+                            onChange={handleSelect}
+                            className={'w-4/12 mr-5 text-center border bg-gray-50'}
+                        >
+                            {renderGiftOptions()}
+                        </select>
+                        <div className={'w-2/12'}></div>
+                        <button
+                            className={
+                                'w-2/12 ml-5  text-sm text-center bg-white text-blue-500 h-9 border rounded-sm shadow-sm'
+                            }
+                        >
+                            افزودن
+                        </button>
+                    </form>
+                </div>
+                <div className={'flex items-center w-full h-12 p-4 text-sm text-gray-500 bg-gray-50'}>گیفت کالکشن</div>
+                {renderCollectionsWithGifts()}
             </div>
         </AdminDashboardTemplateView>
     );

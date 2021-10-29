@@ -7,7 +7,9 @@ class View {
     static get() {
         return new Promise((resolve) => {
             if (isBrowser()) {
-                resolve([]);
+                let body: any = document.getElementById('body');
+                const parseData: any = JSON.parse(body.textContent);
+                resolve(parseData);
             }
         });
     }
@@ -18,18 +20,11 @@ class View {
     }
 
     static render(Component: any, data) {
-        if (isBrowser()) {
-            let container: any = document.getElementById('root');
-            const rawCookie: any = Cookies.get('data');
-            const data: any = JSON.parse(rawCookie);
-            // @ts-ignore
-            let root = ReactDOM.hydrateRoot(container);
-            const rootComponent: any = React.createElement(Component, {
-                ...data,
-                init: this.init,
-            });
-            root.render(rootComponent);
-        }
+        let container: any = document.getElementById('root');
+        // @ts-ignore
+        let root = ReactDOM.hydrateRoot(container);
+        const rootComponent: any = React.createElement(Component, data);
+        root.render(rootComponent);
     }
 }
 

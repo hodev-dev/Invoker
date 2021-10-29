@@ -1,3 +1,4 @@
+import { GiftSeprator } from '@client/components/GiftSeprator';
 import { AdminDashboardView } from '@client/pages/admin/AdminDashboardView';
 import { AdminManageAccountView } from '@client/pages/admin/AdminManageAccountView';
 import { AdminManageCollectionsView } from '@client/pages/admin/AdminManageCollectionsView';
@@ -74,7 +75,14 @@ const AdminController = () => {
             await Render.react(AdminPaymentsView, response, []);
         },
         collections: async (request: Request | any, response: Response) => {
-            await Render.react(AdminManageCollectionsView, response, []);
+            const collectionsWithGifts = await User().getCollectionWithGifts();
+            const gifts = await Gift().getAllGifts();
+            const collections = await Collection().getAllCollections();
+            await Render.react(AdminManageCollectionsView, response, {
+                collectionsWithGifts,
+                gifts,
+                collections,
+            });
         },
         gifts: async (request: Request | any, response: Response) => {
             await Render.react(AdminManageGiftsView, response, []);

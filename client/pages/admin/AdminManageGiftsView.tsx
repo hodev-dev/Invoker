@@ -16,7 +16,6 @@ export const AdminManageGiftsView = (props) => {
     const [state, setState] = useState(STATUS.LOADING);
 
     useEffect(() => {
-        props.init();
         axios
             .get('/admin/get_gifts')
             .then((response: any) => {

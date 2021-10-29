@@ -4,9 +4,7 @@ import '@client/css/index.css';
 import { AdminDashboardTemplateView } from './AdminDashboardTemplateView';
 
 export const AdminDashboardView = (props) => {
-    useEffect(() => {
-        props.init();
-    }, [props]);
+    useEffect(() => {}, [props]);
 
     return (
         <AdminDashboardTemplateView select={'dashboard'}>

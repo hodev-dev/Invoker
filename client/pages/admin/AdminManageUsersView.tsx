@@ -18,7 +18,6 @@ export const AdminManageUsersView = (props) => {
     const [queryStatus, setQueryStatus] = useState(STATE.LOADING);
 
     useEffect(() => {
-        props.init();
         axios
             .get('/admin/get_users')
             .then((response: any) => {

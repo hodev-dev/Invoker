@@ -103,7 +103,7 @@ export const Landing = ({ isLoggedIn, isAdmin, collectionsWithGifts }) => {
         });
     };
     return (
-        <div className={'w-full min-h-screen bg-gray-50'} suppressHydrationWarning={true}>
+        <div className={'w-full min-h-screen bg-gray-50 font-shabnam'} suppressHydrationWarning={true}>
             <header>
                 <nav className={'w-full bg-white shadow-sm'}>
                     <ul className={'flex flex-row items-center w-6/12 h-16'}>{renderMenu()}</ul>

@@ -10,7 +10,7 @@ export const AdminDashboardTemplateView = (props: any) => {
     };
 
     return (
-        <div className={'w-full h-auto bg-gray-50'}>
+        <div className={'w-full h-auto bg-gray-50 font-shabnam'}>
             <header className={'bg-white'}>
                 <nav className={'w-full shadow-sm'}>
                     <ul className={'flex flex-row items-center w-6/12 h-12'}>
@@ -120,7 +120,7 @@ export const AdminDashboardTemplateView = (props: any) => {
                         </li>
                     </ul>
                 </section>
-                <section className={'w-9/12 h-screen border border-r-0 rounded-md shadow-sm bg-gray-50'}>
+                <section className={'w-9/12 min-h-screen border border-r-0 rounded-md shadow-sm bg-gray-50'}>
                     {props.children}
                 </section>
             </div>
