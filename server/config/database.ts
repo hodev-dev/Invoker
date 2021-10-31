@@ -14,7 +14,7 @@ var useDatabase = () => {
     };
 
     const connectPgPool = () => {
-        const pg = new Pool({
+        const pg = new Client({
             user: 'hodev2',
             host: '127.0.0.1',
             database: 'test',

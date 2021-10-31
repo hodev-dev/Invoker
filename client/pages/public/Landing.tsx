@@ -96,7 +96,7 @@ export const Landing = ({ isLoggedIn, isAdmin, collectionsWithGifts }) => {
         return collectionsWithGifts.map((collection, index) => {
             return (
                 <section key={collection.id * index} className={'flex flex-col flex-wrap'} dir={'rtl'}>
-                    <GiftSeprator title={collection.title} />
+                    <GiftSeprator title={collection.title} country={collection.country} />
                     <div className={'flex flex-row flex-wrap w-full'}>{renderGifts(collection)}</div>
                 </section>
             );

@@ -52,6 +52,9 @@ web.post('/admin/update_collection/:id', UserMiddleware().adminProtection, Admin
 web.get('/admin/get_gifts', UserMiddleware().adminProtection, AdminController().async.get_gifts);
 web.post('/admin/delete_gift/:id', UserMiddleware().adminProtection, AdminController().post.delete_gift);
 web.post('/admin/add_gift/', UserMiddleware().adminProtection, AdminController().post.add_collection);
+web.post('/admin/assign_gift/', UserMiddleware().adminProtection, AdminController().post.assign_collection_gift);
+web.post('/admin/add_currency/', UserMiddleware().adminProtection, AdminController().post.add_currency);
+web.post('/admin/delete_currency/:id', UserMiddleware().adminProtection, AdminController().post.delete_currency);
 
 // user
 web.get('/user', UserMiddleware().userProtection, UserController().render.user);

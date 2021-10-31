@@ -30,6 +30,8 @@ var User = () => {
         } catch (error) {
             return false;
             console.log({ error });
+        } finally {
+            await pg.end();
         }
     };
     const findUserWithRolePermission = async (username) => {
@@ -44,6 +46,8 @@ var User = () => {
         } catch (error) {
             return false;
             console.log({ error });
+        } finally {
+            await pg.end();
         }
     };
     const getAllAdminUsers = async () => {
@@ -57,6 +61,8 @@ var User = () => {
             return results.rows;
         } catch (error) {
             return false;
+        } finally {
+            await pg.end();
         }
     };
     const searchUserByUsernameOrEmail = async (query) => {
@@ -71,6 +77,8 @@ var User = () => {
         } catch (error) {
             console.log(error);
             return false;
+        } finally {
+            await pg.end();
         }
     };
     const insertUser = async (username, email, password) => {
@@ -85,6 +93,8 @@ var User = () => {
         } catch (error) {
             console.log({ error });
             return false;
+        } finally {
+            await pg.end();
         }
     };
     const assignRole = async (userID, roleID) => {
@@ -99,6 +109,8 @@ var User = () => {
         } catch (error) {
             console.log(error);
             return false;
+        } finally {
+            await pg.end();
         }
     };
     const insertUserAndAssignRole = async (username, email, password, roleID) => {
@@ -123,6 +135,8 @@ var User = () => {
             await pg.query('ROLLBACK');
             console.log(error);
             return false;
+        } finally {
+            await pg.end();
         }
     };
     const getCollectionWithGifts = async () => {
@@ -136,6 +150,8 @@ var User = () => {
         } catch (error) {
             console.log({ error });
             return false;
+        } finally {
+            await pg.end();
         }
     };
     return {

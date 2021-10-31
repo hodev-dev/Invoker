@@ -8,6 +8,7 @@ import { AdminManageUsersView } from '@client/pages/admin/AdminManageUsersView';
 import { AdminPaymentsView } from '@client/pages/admin/AdminPaymentsView';
 import { Render } from '@core/render';
 import Collection from '@server/model/Collection';
+import Currency from '@server/model/Currency';
 import Gift from '@server/model/Gift';
 import { User } from '@server/model/User';
 import { Request, Response } from 'express';
@@ -58,10 +59,26 @@ const AdminController = () => {
             const del = await Collection().updateCollection(id, title, country);
             return response.redirect('back');
         },
+        assign_collection_gift: async (request: Request | any, response: Response) => {
+            const { giftID, collectionID } = request.body;
+            console.log(giftID, collectionID);
+            const del = await Collection().assignGift(giftID, collectionID);
+            return response.redirect('back');
+        },
         search_user: async (request: Request | any, response: Response) => {
             const { query } = request.params;
             const users = await User().searchUserByUsernameOrEmail(query);
             return response.json(users);
+        },
+        add_currency: async (request: Request | any, response: Response) => {
+            const { country, value } = request.body;
+            const currency = await Currency().add_currency(country, value);
+            return response.redirect('back');
+        },
+        delete_currency: async (request: Request | any, response: Response) => {
+            const { id } = request.params;
+            const currency = await Currency().delete_currency(id);
+            return response.redirect('back');
         },
     };
     const render = {
@@ -88,7 +105,8 @@ const AdminController = () => {
             await Render.react(AdminManageGiftsView, response, []);
         },
         currencies: async (request: Request | any, response: Response) => {
-            await Render.react(AdminManageCurrenciesView, response, []);
+            const currencies = await Currency().get_all_currency();
+            await Render.react(AdminManageCurrenciesView, response, { currencies });
         },
         account: async (request: Request | any, response: Response) => {
             await Render.react(AdminManageAccountView, response, []);

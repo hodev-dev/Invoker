@@ -2,9 +2,7 @@ import { View } from '@core/View';
 import { useEffect } from 'react';
 
 export const Login = (props: any) => {
-    useEffect(() => {
-        props.init();
-    }, [props]);
+    useEffect(() => {}, [props]);
 
     return (
         <div className={'w-full bg-gray-50'} suppressHydrationWarning={true}>

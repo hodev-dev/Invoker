@@ -16,6 +16,8 @@ var Gift = () => {
         } catch (error) {
             console.log({ error });
             return false;
+        } finally {
+            await pg.end();
         }
     };
 
@@ -40,6 +42,8 @@ var Gift = () => {
             await pg.query('ROLLBACK');
             console.log({ error });
             return false;
+        } finally {
+            await pg.end();
         }
     };
 
@@ -55,6 +59,8 @@ var Gift = () => {
         } catch (error) {
             console.log({ error });
             return false;
+        } finally {
+            await pg.end();
         }
     };
 

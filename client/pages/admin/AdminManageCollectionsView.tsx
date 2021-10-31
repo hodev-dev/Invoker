@@ -113,7 +113,7 @@ export const AdminManageCollectionsView = ({ collectionsWithGifts, collections, 
             collectionsWithGifts.map((collection, index) => {
                 return (
                     <section key={collection.id * index} className={'flex flex-col flex-wrap w-full'} dir={'rtl'}>
-                        <GiftSeprator title={collection.title} />
+                        <GiftSeprator title={collection.title} country={collection.country} />
                         <div className={'flex flex-row flex-wrap w-full mr-10 content-evenly'}>
                             {renderGifts(collection)}
                         </div>
@@ -261,18 +261,16 @@ export const AdminManageCollectionsView = ({ collectionsWithGifts, collections, 
                         'flex items-center justify-start  w-full h-12 p-4 bg-white  text-gray-600 text-base font-semibold border border-l-0 border-r-0 border-t-0'
                     }
                 >
-                    <form className={'flex flex-row w-full'} action="/admin/add_collection" method="post">
+                    <form className={'flex flex-row w-full'} action="/admin/assign_gift" method="post">
                         <select
-                            name={'country'}
-                            defaultValue={'US'}
+                            name={'collectionID'}
                             onChange={handleSelect}
                             className={'w-4/12 text-center border bg-gray-50'}
                         >
                             {renderCollectionOptions()}
                         </select>
                         <select
-                            name={'country'}
-                            defaultValue={'US'}
+                            name={'giftID'}
                             onChange={handleSelect}
                             className={'w-4/12 mr-5 text-center border bg-gray-50'}
                         >

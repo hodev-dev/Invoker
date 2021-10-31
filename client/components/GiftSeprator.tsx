@@ -11,8 +11,8 @@ export const GiftSeprator = (props) => {
                         width: '2em',
                         height: '2em',
                     }}
-                    title="US"
-                    countryCode="US"
+                    title={props.country}
+                    countryCode={props.country}
                 />
                 <h1 className={'mr-5 text-lg font-medium'}>{props.title}</h1>
             </section>

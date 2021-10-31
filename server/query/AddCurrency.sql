@@ -1,0 +1,2 @@
+INSERT INTO currencies
+VALUES (DEFAULT, $1, $2);
