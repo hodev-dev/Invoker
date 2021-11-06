@@ -4,7 +4,7 @@ import '@client/css/index.css';
 import { AdminDashboardTemplateView } from './AdminDashboardTemplateView';
 import axios from 'axios';
 
-export const AdminManageUsersView = (props) => {
+export const AdminManageUsersView = ({ admins, messages }) => {
     enum STATE {
         LOADING,
         IDLE,
@@ -29,39 +29,25 @@ export const AdminManageUsersView = (props) => {
                 setStatus(STATE.FAIL);
                 console.log(err);
             });
-    }, [props]);
+    }, []);
 
     const renderUsers = () => {
-        if (status === STATE.LOADING) {
-            return <h1>Loading</h1>;
-        } else if (status === STATE.IDLE) {
-            return users.map((user: any) => {
-                return (
-                    <Fragment key={user.username}>
-                        <div
-                            className={
-                                'flex items-center justify-start  w-full h-12 p-4 bg-white  text-gray-600 text-base font-semibold border border-l-0 border-r-0 border-t-0 '
-                            }
-                        >
-                            <div className={'flex flex-row w-8/12'}>
-                                <div className={'m-5'}>{user.username}</div>
-                                <div className={'m-5'}>{user.email}</div>
-                            </div>
-                            <div className={'w-4/12'}>
-                                <button
-                                    onClick={() => handleDelete(user.id)}
-                                    className={'flex items-center justify-center w-16 h-8 p-2 text-white bg-red-500'}
-                                >
-                                    delete
-                                </button>
-                            </div>
+        return admins.map((user: any) => {
+            return (
+                <Fragment key={user.username}>
+                    <div
+                        className={
+                            'flex items-center justify-start  w-full h-12 p-4 bg-white  text-gray-600 text-base font-semibold border border-l-0 border-r-0 border-t-0 '
+                        }
+                    >
+                        <div className={'flex flex-row w-8/12'}>
+                            <div className={'m-5'}>{user.username}</div>
+                            <div className={'m-5'}>{user.email}</div>
                         </div>
-                    </Fragment>
-                );
-            });
-        } else {
-            return <h1>FAIL</h1>;
-        }
+                    </div>
+                </Fragment>
+            );
+        });
     };
 
     const renderSearch = () => {
@@ -79,14 +65,6 @@ export const AdminManageUsersView = (props) => {
                             <div className={'flex flex-row w-8/12'}>
                                 <div className={'m-5'}>{user.username}</div>
                                 <div className={'m-5'}>{user.email}</div>
-                            </div>
-                            <div className={'w-4/12'}>
-                                <button
-                                    onClick={() => handleDelete(user.id)}
-                                    className={'flex items-center justify-center w-16 h-8 p-2 text-white bg-red-500'}
-                                >
-                                    delete
-                                </button>
                             </div>
                         </div>
                     </Fragment>
@@ -113,7 +91,7 @@ export const AdminManageUsersView = (props) => {
     };
 
     return (
-        <AdminDashboardTemplateView select={'manage_users'}>
+        <AdminDashboardTemplateView select={'manage_users'} messages={messages}>
             <div className={'flex flex-col w-full h-auto'}>
                 <div className={'flex items-center w-full h-12 p-4 text-sm text-gray-500 bg-gray-50'}>جست و جو</div>
                 <div

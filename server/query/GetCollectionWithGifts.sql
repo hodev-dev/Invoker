@@ -4,6 +4,8 @@ SELECT collections.id,
     JSON_AGG(
         (
             json_build_object(
+                'id',
+                gifts.id,
                 'type',
                 gifts.type,
                 'price',

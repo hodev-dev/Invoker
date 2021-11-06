@@ -80,13 +80,32 @@ const AdminController = () => {
             const currency = await Currency().delete_currency(id);
             return response.redirect('back');
         },
+        delete_gift_from_collection: async (request: Request | any, response: Response) => {
+            const { id } = request.params;
+            const currency = await Collection().delete_gift(id);
+            return response.redirect('back');
+        },
     };
     const render = {
         admin: async (request: Request | any, response: Response) => {
             await Render.react(AdminDashboardView, response, []);
         },
         manage_users: async (request: Request | any, response: Response) => {
-            await Render.react(AdminManageUsersView, response, []);
+            const admins = await User().getAllAdminUsers();
+            if (!admins) {
+                await Render.react(AdminManageUsersView, response, {
+                    admins: [],
+                    messages: [{ type: 'ERROR', label: 'no admin has found' }],
+                });
+            }
+            await Render.react(AdminManageUsersView, response, {
+                admins,
+                messages: [
+                    { type: 'E', label: 'no admin has found' },
+                    { type: 'W', label: 'no admin has found' },
+                    { type: 'S', label: 'no admin has found' },
+                ],
+            });
         },
         payments: async (request: Request | any, response: Response) => {
             await Render.react(AdminPaymentsView, response, []);
@@ -114,31 +133,5 @@ const AdminController = () => {
     };
     return { async, post, render };
 };
-
-// interface IAdminController {
-//     (): {
-//         async: {
-//             list_users: (Request, Response) => void;
-//             get_collections: (Request, Response) => void;
-//             get_gifts: (Request, Response) => void;
-//         };
-//         post: {
-//             delete_user: (Request, Response) => void;
-//             delete_gift: (Request, Response) => void;
-//             add_gift: (Request, Response) => void;
-//             add_collection: (Request, Response) => void;
-//             search_user: (Request, Response) => void;
-//         };
-//         render: {
-//             admin: (Request, Response) => void;
-//             manage_users: (Request, Response) => void;
-//             payments: (Request, Response) => void;
-//             collections: (Request, Response) => void;
-//             gifts: (Request, Response) => void;
-//             currencies: (Request, Response) => void;
-//             account: (Request, Response) => void;
-//         };
-//     };
-// }
 
 export default AdminController;

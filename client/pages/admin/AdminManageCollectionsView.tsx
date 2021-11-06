@@ -93,15 +93,20 @@ export const AdminManageCollectionsView = ({ collectionsWithGifts, collections, 
             collection &&
             collection.gifts.map((gift, index) => {
                 return (
-                    <GiftCard
-                        key={gift.price + index}
-                        selected={false}
-                        className={`mt-5 mr-10  w-1/5 hover:ring-4 hover:ring-black hover:cursor-pointer`}
-                        type={gift.type}
-                        label={gift.label}
-                        price={gift.price + '$'}
-                        alter_price={gift.price * gift.currency}
-                    />
+                    <div className={'flex flex-col w-1/5 mt-5 mr-10'}>
+                        <GiftCard
+                            key={gift.price + index}
+                            selected={false}
+                            className={` w-full  hover:cursor-pointer`}
+                            type={gift.type}
+                            label={gift.label}
+                            price={gift.price + '$'}
+                            alter_price={gift.price * gift.currency}
+                        />
+                        <form action={`/admin/delete_gift_from_collection/${gift.id}`} method="post">
+                            <button className={'w-full h-12 bg-red-100 hover:bg-red-200'}>حذف</button>
+                        </form>
+                    </div>
                 );
             })
         );

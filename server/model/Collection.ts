@@ -89,10 +89,28 @@ var Collection = () => {
         }
     };
 
+    const delete_gift = async (id: number) => {
+        try {
+            const queryRaw = await rawQuery.get('DeleteGiftFromCollectionGiftWithId');
+            await pg.query({
+                name: 'DeleteGiftFromCollectionGiftWithId',
+                text: queryRaw,
+                values: [id],
+            });
+            return true;
+        } catch (error) {
+            console.log({ error });
+            return false;
+        } finally {
+            await pg.end();
+        }
+    };
+
     return {
         getAllCollections,
         addCollection,
         deleteCollection,
+        delete_gift,
         updateCollection,
         assignGift,
     };
