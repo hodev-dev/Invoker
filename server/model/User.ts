@@ -34,13 +34,13 @@ var User = () => {
             await pg.end();
         }
     };
-    const findUserWithRolePermission = async (username) => {
+    const findUserWithRolePermission = async (phone) => {
         try {
             const queryRaw = await rawQuery.get('FindUserWIithRolePermissin');
             const results = await pg.query({
                 name: 'FindUserWIithRolePermissin',
                 text: queryRaw,
-                values: [username],
+                values: [phone],
             });
             return results.rows[0];
         } catch (error) {

@@ -9,6 +9,7 @@ module.exports = {
         extend: {
             fontFamily: {
                 shabnam: ['Shabnam', 'Helvetica', 'Arial', 'sans-serif'],
+                colors: {},
             },
         },
         screens: {
@@ -19,6 +20,9 @@ module.exports = {
             '2xl': '1536px',
         },
         colors: {
+            newGray: {
+                100: '#f1f1f1f1',
+            },
             transparent: 'transparent',
             current: 'currentColor',
             hosein: '#000',

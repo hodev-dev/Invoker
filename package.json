@@ -70,6 +70,7 @@
     "react-country-flag": "^2.3.1",
     "react-dom": "^18.0.0-alpha-1314299c7-20210901",
     "react-icons": "^4.3.1",
+    "react-password-strength-bar": "^0.4.0",
     "sqlite3": "^5.0.2",
     "ts-node": "^10.2.1",
     "uuid": "^3.4.0"

@@ -21,7 +21,7 @@ export const GiftCard = (props) => {
             {...props}
             suppressHydrationWarning={true}
             className={
-                `flex flex-col items-center w-1/6 bg-white rounded-lg shadow-xl h-80 ${
+                `flex flex-col items-center w-1/6 bg-white  border  rounded-xl h-80 ${
                     props.selected ? 'ring-4 ring-black' : ''
                 }` +
                 ' ' +
@@ -29,7 +29,7 @@ export const GiftCard = (props) => {
             }
         >
             {renderLogo()}
-            <h1 className={'mt-5 text-xl font-semibold'}>{props.label}</h1>
+            <h1 className={'mt-5 font-sans text-xl font-semibold'}>{props.label}</h1>
             <h1 className={'mt-5 text-4xl font-semibold'}>{props.price}</h1>
             <h1 className={'mt-5 text-xl font-semibold text-center text-green-600 '}>
                 {digitsEnToFa(addCommas(props.alter_price)) + ' ' + 'تومان'}

@@ -23,12 +23,25 @@ const AuthController: IAuthController = () => {
     };
     const post = {
         login: async (request: Request | any, response: Response) => {
-            const { email, password } = request.body;
-            const user = await User().findUserWithRolePermission(email);
+            const { phone, password } = request.body;
+            console.log(phone);
+            const user = await User().findUserWithRolePermission(phone);
+            if(user === undefined){
+                await Render.react(Login, response, {messages: [
+                    {type: "E",label: 'کاربری با این شماره موبایل یافت نشد'}
+                ],
+                body: request.body
+            });
+            }
+            console.log(user);
             try {
                 const varify = await bcrypt.compare(password, user.password);
                 if (!varify) {
-                    return response.redirect('/login');
+                    await Render.react(Login, response, {messages: [
+                        {type: "E",label: 'شماره موبایل یا رمز عبور اشتباه است'}
+                    ],
+                    body: request.body
+                });
                 } else {
                     request.session.user = user;
                     if (user.roles.includes('admin')) {

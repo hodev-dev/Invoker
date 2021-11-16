@@ -65,10 +65,10 @@ export const Landing = ({ isLoggedIn, isAdmin, collectionsWithGifts }) => {
             return (
                 <>
                     <li className={'ml-5'}>
-                        <a href="/login">Login</a>
+                        <a href="/login">ورود</a>
                     </li>
                     <li className={'ml-5'}>
-                        <a href="/regester">Regester</a>
+                        <a href="/regester">ثبت نام</a>
                     </li>
                 </>
             );
@@ -112,53 +112,60 @@ export const Landing = ({ isLoggedIn, isAdmin, collectionsWithGifts }) => {
             <main className={'flex flex-col w-full h-auto'}>
                 <section>{renderCollectionsWithGifts()}</section>
                 <section className={'flex flex-row items-center w-full h-10 mt-5'} dir={'rtl'}>
-                    <IoBagCheckOutline size={28} className={'text-lg font-medium text-green-700 fill-current mr-14'} />
-                    <h1 className={'mr-5 text-lg font-medium text-gray-700'}>{'پرداخت هزینه'}</h1>
+                    <IoBagCheckOutline size={28} className={'text-lg font-medium text-blue-700 fill-current mr-14'} />
+                    <h1 className={'mr-5 font-medium text-gray-700 text-md'}>{'پرداخت هزینه'}</h1>
                 </section>
                 <section className={'flex flex-row justify-center w-full content-evenly'}>
-                    <div
-                        className={'flex flex-row w-full h-auto p-4 m-12 mt-5 bg-white divide-x-2 rounded-lg shadow-xl'}
-                    >
+                    <div className={'flex flex-row w-full h-auto p-4 m-12 mt-5 bg-white border divide-x-2 rounded-xl'}>
                         <div className={'w-6/12 h-64'}></div>
                         <div className={'flex flex-col w-6/12 h-auto '} dir={'rtl'}>
                             <div className={'flex items-center w-full h-8'}>
                                 <h1 className={'w-4/12 text-gray-500'}>تعداد</h1>
                                 <select
                                     onChange={handleOption}
-                                    className={'w-8/12 h-8 ml-10 border bg-gray-50'}
+                                    className={'flex items-center justify-center w-8/12 h-10 ml-10 border bg-gray-50 '}
                                     name="count"
                                     id=""
                                 >
-                                    <option className={'p-2 text-lg'} value="1">
+                                    <option className={'h-10 p-2 text-lg text-center'} value="1">
                                         1
                                     </option>
-                                    <option className={'p-2 text-lg'} value="2">
+                                    <option className={'h-10 p-2 text-lg text-center'} value="2">
                                         2
                                     </option>
-                                    <option className={'p-2 text-lg'} value="3">
+                                    <option className={'h-10 p-2 text-lg text-center'} value="3">
                                         3
                                     </option>
-                                    <option className={'p-2 text-lg'} value="4">
+                                    <option className={'h-10 p-2 text-lg text-center'} value="4">
                                         4
                                     </option>
-                                    <option className={'p-2 text-lg'} value="5">
+                                    <option className={'h-10 p-2 text-lg text-center'} value="5">
                                         5
                                     </option>
                                 </select>
                             </div>
-                            <div className={'flex items-center w-full h-8 mt-5 '}>
+                            <div className={'flex items-center w-full h-10 mt-5 '}>
                                 <h1 className={'w-4/12 text-gray-500'}>نام محصول</h1>
-                                <div className={'w-8/12 h-8 ml-10 text-center bg-gray-100 border'} id="count">
+                                <div
+                                    className={
+                                        ' flex justify-center items-center w-8/12 h-10 ml-10 text-center leading-none bg-gray-100 border'
+                                    }
+                                    id="count"
+                                >
                                     {product}
                                 </div>
                             </div>
-                            <div className={'flex items-center w-full h-8 mt-5 '}>
+                            <div className={'flex items-center justify-center w-full h-10 mt-5 '}>
                                 <h1 className={'w-4/12 text-gray-500'}>ریجن محصول</h1>
-                                <div className={'w-8/12 h-8 ml-10 text-center bg-gray-100 border'} id="count">
-                                    {getCountryName(region)}
+                                <div
+                                    className={
+                                        'flex justify-center items-center  w-8/12 h-10 ml-10 text-center bg-gray-100 border'
+                                    }
+                                    id="count"
+                                >
                                     {region !== '' ? (
                                         <ReactCountryFlag
-                                            className={'p-1 '}
+                                            className={'p-1 ml-2'}
                                             svg
                                             style={{
                                                 width: '2em',
@@ -170,17 +177,29 @@ export const Landing = ({ isLoggedIn, isAdmin, collectionsWithGifts }) => {
                                     ) : (
                                         ''
                                     )}
+
+                                    {getCountryName(region)}
                                 </div>
                             </div>
-                            <div className={'flex items-center w-full h-8 mt-5 '}>
+                            <div className={'flex items-center w-full h-10 mt-5 '}>
                                 <h1 className={'w-4/12 text-gray-500'}>قیمت به عدد</h1>
-                                <div className={'w-8/12 h-8 ml-10 text-center bg-gray-100 border'} id="count">
+                                <div
+                                    className={
+                                        'flex justify-center items-center  w-8/12 h-10 ml-10 text-center bg-gray-100 border'
+                                    }
+                                    id="count"
+                                >
                                     {digitsEnToFa(addCommas(finalPrice)) + ' ' + 'تومان'}
                                 </div>
                             </div>
-                            <div className={'flex items-center w-full h-8 mt-5'}>
+                            <div className={'flex items-center w-full h-10 mt-5'}>
                                 <h1 className={'w-4/12 text-gray-500'}>قیمت به حروف</h1>
-                                <div className={'w-8/12 h-8 ml-10 text-center bg-gray-100 border'} id="count">
+                                <div
+                                    className={
+                                        'flex justify-center items-center w-8/12 h-10 ml-10 text-center bg-gray-100 border'
+                                    }
+                                    id="count"
+                                >
                                     {numberToWords(finalPrice) + ' ' + 'تومان'}
                                 </div>
                             </div>
@@ -188,7 +207,7 @@ export const Landing = ({ isLoggedIn, isAdmin, collectionsWithGifts }) => {
                                 <h1 className={'w-4/12 text-gray-500'}>کد امنیتی</h1>
                                 <img className={'w-8/12 h-16 ml-10 text-center bg-white border'} src={Image} alt="" />
                             </div>
-                            <div className={'flex items-center w-full h-8 mt-5'}>
+                            <div className={'flex items-center w-full h-10 mt-5'}>
                                 <h1 className={'w-4/12 text-gray-500'}></h1>
                                 <input
                                     className={
@@ -200,7 +219,7 @@ export const Landing = ({ isLoggedIn, isAdmin, collectionsWithGifts }) => {
                                     placeholder={'کد امنیتی'}
                                 />
                             </div>
-                            <div className={'flex items-center w-full h-8 mt-5'}>
+                            <div className={'flex items-center w-full h-10 mt-5'}>
                                 <h1 className={'w-4/12 text-gray-500'}></h1>
                                 <input
                                     className={

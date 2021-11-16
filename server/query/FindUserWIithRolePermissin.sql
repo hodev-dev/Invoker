@@ -1,7 +1,6 @@
 SELECT users.id,
-    users.username,
+    users.phone,
     users.password,
-    users.email,
     ARRAY_AGG(DISTINCT roles.role_name) as roles,
     ARRAY_AGG(DISTINCT permissions.permission_name) as permissions
 FROM users
@@ -9,5 +8,5 @@ FROM users
     LEFT JOIN roles ON roles.id = user_role.role_id
     LEFT JOIN role_permission ON roles.id = role_permission.role_id
     LEFT JOIN permissions ON permissions.id = role_permission.permission_id
-WHERE users.email = $1 --ARG-1
+WHERE users.phone = CAST($1 AS VARCHAR) --ARG-1
 GROUP BY users.id;
