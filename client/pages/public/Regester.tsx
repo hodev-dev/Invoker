@@ -9,22 +9,23 @@ import { phoneNumberValidator } from "@persian-tools/persian-tools";
 export const Regester = (props) => {
     const [localMesseges, setLocalMesseges] = useState<any>([]);
     const [select, setSelect] = useState<any>([]);
-    const [phone, setPhone] = useState<any>('');
-    const [password, setPassword] = useState<any>('');
-    const [passwordLength, setPasswordLength] = useState<any>(0);
-    const [rpassword, setRpassword] = useState<any>('');
-    const [isEqeual, setIsEqual] = useState<any>(false);
-    const [isValidPhone, setIsValidPhone] = useState<any>(false);
-    const [score, setScore] = useState<any>(0);
+    const [phone, setPhone] = useState<any>(props.body ? props.body.phone : '');
+    const [password, setPassword] = useState<any>(props.body ? props.body.password : '');
+    const [rpassword, setRpassword] = useState<any>(props.body ? props.body.password : '');
+    const [passwordLength, setPasswordLength] = useState<any>(props.body ? props.body.password.length : 0);
+    const [isValidPhone, setIsValidPhone] = useState<any>(props.body ? phoneNumberValidator(props.body.phone) : false);
+    const [score, setScore] = useState<any>(props.body ? props.body.score : 0);
 
     const createMessageClass = (type: string) => {
         switch (type) {
             case 'E':
-                return 'text-black  rounded';
+                return 'text-red-500';
             case 'W':
-                return 'text-red-400';
+                return 'text-blue-500';
             case 'S':
-                return 'text-black';
+                return 'text-green-500';
+            default:
+                return 'text-red-500';
         }
     };
 
@@ -95,24 +96,25 @@ export const Regester = (props) => {
         return (
             props.messages &&
             props.messages.map((messege, index) => {
+                console.log(messege.type);
                 return (
-                    <div
+                    <ul
+                        key={messege.label + index}
                         dir={'rtl'}
                         className={`${select.includes(index) ? 'hidden' : 'flex'
-                            } flex-col h-auto justify-center items-center flex-wrap  w-full `}
+                            } flex-col  flex-wrap items-center w-full list-disc`}
                     >
-                        <div className={`flex  flex-row justify-center items-center w-full h-auto p-5 text-md ${createMessageClass(messege.type)}`}>
-                            <div className={'w-11/12 '}>{messege.label}</div>
-                            <div className={'flex justify-center h-12 w-1/12 ml-5 items-center  '}>
+                        <li className={"w-full h-12 flex flex-row justify-center items-center  p-2 border rounded"} dir={'rtl'}>
+                            <div className={`w-11/12 mr-5 text-sm ${createMessageClass(messege.type)}`}>{messege.label}</div>
+                            <div className={"w-1/12"}>
                                 <div onClick={() => setSelect([...select, index])}>
                                     <VscClose
-                                        size={18}
-                                        className={'text-gray-300 border-2 border-gray-300 rounded-full fill-current hover:cursor-pointer'}
+                                        className={'text-gray-400 border-2 border-gray-300 rounded-full fill-current hover:cursor-pointer'}
                                     />
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        </li>
+                    </ul>
                 );
             })
         );
@@ -129,7 +131,7 @@ export const Regester = (props) => {
                         className={`${select.includes(index) ? 'hidden' : 'flex'
                             } flex-col  flex-wrap items-center w-full list-disc`}
                     >
-                        <li className={"w-full h-12 flex flex-row justify-center items-center  p-2 mt-2 border rounded"} dir={'rtl'}>
+                        <li className={"w-full h-12 flex flex-row justify-center items-center  p-2 border rounded"} dir={'rtl'}>
                             <div className={`w-11/12 mr-5 text-sm ${createMessageClass(messege.type)}`}>{messege.label}</div>
                             <div className={"w-1/12"}>
                                 <div onClick={() => setSelect([...select, index])}>
@@ -152,34 +154,53 @@ export const Regester = (props) => {
                 method="post"
                 action="/Regester"
             >
-                <div className={"flex w-4/12 h-12 mt-5 text-center items-center justify-end  bg-gray-50"}>
-                    <h1 className={"mr-5 text-gray-500"}>ایجاد حساب کابری</h1>
+                <div className={"flex w-4/12 h-12 mt-2 text-center items-center justify-end border border-r-0 border-l-0 border-t-0"}>
+                    <h1 className={" text-gray-500"}>ایجاد حساب کاربری</h1>
                 </div>
+                <label className={'w-4/12 mt-2'} htmlFor="phone">
+                    <h1 className={"text-right text-xs  text-gray-500"}>
+                        : شماره موبایل
+                    </h1>
+                </label>
                 <input
-                    className={`w-4/12 h-12 mt-5 text-center border ${!isValidPhone && phone != '' ? 'border-red-500' : ''} bg-gray-50`}
+                    required
+                    className={`w-4/12 h-12 mt-3 text-center border ${!isValidPhone && phone != '' ? 'border-red-500' : ''} bg-gray-50`}
                     type="phone"
                     name="phone"
                     id="phone"
                     defaultValue={props.body && props.body.phone}
-                    placeholder={'شماره موبایل'}
+                    placeholder={'09390000000 :مثال'}
                     onChange={handlePhone}
                     onBlur={handleBlurPhone}
                 />
+                <label className={'w-4/12 mt-2'} htmlFor="phone">
+                    <h1 className={"text-right text-xs  text-gray-500"}>
+                        : رمز عبور
+                    </h1>
+                </label>
                 <input
-                    className={`w-4/12 h-12 mt-5 text-center border bg-gray-50 ${(passwordLength < 6 || score < 2) && password != '' ? 'border-red-500' : ''}`}
+                    required
+                    className={`w-4/12 h-12 mt-3 text-center border bg-gray-50 ${(passwordLength < 6 || score < 2) && password != '' ? 'border-red-500' : ''}`}
                     type="password"
                     name="password"
                     id="password"
                     defaultValue={props.body && props.body.password}
                     onChange={handlePassword}
-                    onBlur={handleBlurRepeatPassword}
-                    placeholder={'رمز عبور'}
+                    onFocus={() => props.body ? setPassword(props.body.password) : false}
+                    placeholder={'qCTmgL6hfZKH :مثال'}
                 />
-                <div className={"w-4/12 h-12  text-center  bg-gray-50"}>
-                    <PasswordStrengthBar onChangeScore={handleScore} minLength={6} shortScoreWord={'رمز عبور کوتاه'} scoreWords={['خیلی ضعیف', 'ضغیف', 'متوسط', 'خوب', ' قوی']} password={password} />
+                <div className={"w-4/12 h-12  text-center"}>
+                    <PasswordStrengthBar scoreWordStyle={{ "textAlign": "center" }} onChangeScore={handleScore} minLength={6} shortScoreWord={'رمز عبور کوتاه'} scoreWords={['خیلی ضعیف', 'ضغیف', 'متوسط', 'خوب', ' قوی']} password={password} />
+                    <input className={'hidden'} name={'score'} id={'score'} />
                 </div>
+                <label className={'w-4/12'} htmlFor="phone">
+                    <h1 className={"text-right text-xs  text-gray-500"}>
+                        : تکرار رمز عبور
+                    </h1>
+                </label>
                 <input
-                    className={`w-4/12 h-12  text-center border bg-gray-50 ${password !== rpassword ? 'border-red-500' : ''}`}
+                    required
+                    className={`w-4/12 h-12 mt-3  text-center border bg-gray-50 ${password !== rpassword ? 'border-red-500' : ''}`}
                     type="password"
                     name="repeatPassword"
                     id="repeatPassword"
@@ -235,9 +256,9 @@ export const Regester = (props) => {
                     {renderLocalMesseges()}
                 </div>
                 <input
-                    disabled
+                    disabled={(isValidPhone && password === rpassword && score >= 2 && password.length >= 6) ? false : true}
                     className={
-                        'w-4/12  h-12 mt-5 text-center text-gray-700 bg-white hover:bg-gray-100 border rounded-lg cursor-pointer'
+                        `disabled:bg-gray-200 disabled:cursor-not-allowed  w-4/12  h-12 mt-2 text-center text-gray-700 bg-white hover:bg-gray-100 border rounded-lg cursor-pointer`
                     }
                     type="submit"
                     value="ثبت نام"

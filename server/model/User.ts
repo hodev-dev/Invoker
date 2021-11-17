@@ -18,6 +18,26 @@ var User = () => {
             console.log({ error });
         }
     };
+    const exists = async (phone: number) => {
+        try {
+            const queryRaw = await rawQuery.get('UserExists');
+            const results = await pg.query({
+                name: 'UserExists',
+                text: queryRaw,
+                values: [phone],
+            });
+            if (results.rowCount === 0) {
+                return false;
+            } else {
+                return true;
+            }
+        } catch (error) {
+            return false;
+        } finally {
+            await pg.end();
+        }
+    };
+
     const findUserByEmailPassword = async (username, password) => {
         try {
             const queryRaw = await rawQuery.get('FindUserByEmailPassword');
@@ -113,14 +133,14 @@ var User = () => {
             await pg.end();
         }
     };
-    const insertUserAndAssignRole = async (username, email, password, roleID) => {
+    const insertUserAndAssignRole = async (phone, password, roleID) => {
         try {
             await pg.query('BEGIN');
             const insertQuery = await rawQuery.get('InsertUsers');
             const insertResult = await pg.query({
                 name: 'InsertUsers',
                 text: insertQuery,
-                values: [username, email, password],
+                values: [phone, password],
             });
             const insert = insertResult.rows[0];
             const assignUserQuery = await rawQuery.get('AssignRole');
@@ -156,6 +176,7 @@ var User = () => {
     };
     return {
         findById,
+        exists,
         findUserByEmailPassword,
         findUserWithRolePermission,
         assignRole,

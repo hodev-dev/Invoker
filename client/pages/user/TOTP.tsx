@@ -1,9 +1,9 @@
 import { View } from '@core/View';
 import { useEffect, useState } from 'react';
-import { FiLock, FiUser } from 'react-icons/fi';
+import { FiShield, FiUser } from 'react-icons/fi';
 import { VscClose } from 'react-icons/vsc';
 
-export const Login = (props) => {
+export const TOTP = (props) => {
     const [select, setSelect] = useState<any>([]);
 
     const createMessageClass = (type: string) => {
@@ -54,29 +54,21 @@ export const Login = (props) => {
                 method="post"
                 action="/login"
             >
-                <FiUser size={72} className={'p-2 text-blue-700 border-4 rounded-full '} />
+                <FiShield size={72} className={'p-2 text-blue-700 border-4 rounded-full '} />
                 <input
                     className={'w-4/12 h-12 mt-5 text-center border bg-gray-50 '}
                     type="text"
-                    name="phone"
-                    id="phone"
+                    name="totp"
+                    id="totp"
                     defaultValue={props.body && props.body.phone}
-                    placeholder={'شماره موبایل'}
-                />
-                <input
-                    className={' w-4/12 h-12 mt-5 text-center border bg-gray-50'}
-                    type="password"
-                    name="password"
-                    id="password"
-                    defaultValue={props.body && props.body.password}
-                    placeholder={'پسورد'}
+                    placeholder={'کد تایید 6 رقمی'}
                 />
                 <input
                     className={
                         'w-4/12 h-12 mt-5 text-center text-gray-700 bg-white hover:bg-gray-100 border rounded-lg cursor-pointer'
                     }
                     type="submit"
-                    value="ورود"
+                    value="تایید"
                 />
                 <div className={"w-4/12 h-auto mt-5"}>
                     {renderMesseges()}
@@ -98,5 +90,5 @@ export const Login = (props) => {
 };
 
 View.get().then((serverData) => {
-    View.render(Login, serverData);
+    View.render(TOTP, serverData);
 });

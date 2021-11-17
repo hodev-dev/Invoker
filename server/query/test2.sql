@@ -1,2 +1,2 @@
 SELECT *
-from session;
+from Users;
