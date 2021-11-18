@@ -62,7 +62,7 @@ web.post(
 );
 
 // user
-web.get('/user', UserMiddleware().userProtection, UserController().render.user);
-web.get('/totp', UserController().render.totp);
+web.get('/user', UserMiddleware().userProtection, UserMiddleware().totpProtection, UserController().render.user);
+web.get('/totp', UserMiddleware().userProtection, UserController().render.totp);
 
 export default web;

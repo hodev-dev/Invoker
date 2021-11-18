@@ -1,6 +1,6 @@
 import { Response, Request } from 'express';
 
-const UserMiddleware: IUserMiddleware = () => {
+const UserMiddleware = () => {
     const loginProtection = (request: Request | any, response: Response, next: any) => {
         const { user } = request.session;
         if (user === undefined) {
@@ -40,19 +40,27 @@ const UserMiddleware: IUserMiddleware = () => {
         }
     };
 
+    const totpProtection = (request: Request | any, response: Response, next: any) => {
+        const { user } = request.session;
+        if (user === undefined) {
+            return response.redirect('/login');
+        } else {
+            if (user.confirmed) {
+                next();
+            } else {
+                return response.redirect('/totp');
+            }
+        }
+    };
+
     return {
         loginProtection,
         adminProtection,
         userProtection,
+        totpProtection
     };
 };
 
-interface IUserMiddleware {
-    (): {
-        loginProtection: (Request, Response, any) => void;
-        adminProtection: (Request, Response, any) => void;
-        userProtection: (Request, Response, any) => void;
-    };
-}
+
 
 export default UserMiddleware;
