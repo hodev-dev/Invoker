@@ -33,6 +33,7 @@ const UserMiddleware = () => {
             return response.redirect('/login');
         } else {
             if (user.roles.includes('user')) {
+                console.log('run user')
                 next();
             } else {
                 return response.redirect('/');
@@ -53,11 +54,25 @@ const UserMiddleware = () => {
         }
     };
 
+    const totpProtectionIfNotExists = (request: Request | any, response: Response, next: any) => {
+        const { user } = request.session;
+        if (user === undefined) {
+            return response.redirect('/login');
+        } else {
+            if (user.confirmed) {
+                return response.redirect('/user');
+            } else {
+                next();
+            }
+        }
+    };
+
     return {
         loginProtection,
         adminProtection,
         userProtection,
-        totpProtection
+        totpProtection,
+        totpProtectionIfNotExists
     };
 };
 

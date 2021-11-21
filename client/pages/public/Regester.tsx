@@ -267,7 +267,7 @@ export const Regester = (props) => {
                     <a href="/login" className={'mt-5 mr-5 text-gray-400 hover:underline'}>
                         ورود به حساب کابربری
                     </a>
-                    <a href="/" className={'mt-5 mr-5 text-gray-400 hover:underline'}>
+                    <a href="/reset_password" className={'mt-5 mr-5 text-gray-400 hover:underline'}>
                         بازیابی رمز عبور
                     </a>
                 </div>

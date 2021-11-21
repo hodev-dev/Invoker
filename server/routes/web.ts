@@ -63,6 +63,13 @@ web.post(
 
 // user
 web.get('/user', UserMiddleware().userProtection, UserMiddleware().totpProtection, UserController().render.user);
-web.get('/totp', UserMiddleware().userProtection, UserController().render.totp);
+web.get('/totp', UserMiddleware().userProtection, UserMiddleware().totpProtectionIfNotExists, AuthController().render.totp);
+web.post('/confirm_totp', UserMiddleware().userProtection, AuthController().post.confirm_totp);
+web.get('/reset_password', AuthController().render.reset_password);
+web.post('/send_totp_to_phone', AuthController().post.send_totp_to_phone);
+web.get('/reset_password_totp', AuthController().render.reset_password_totp);
+web.post('/confirm_reset_password_totp', AuthController().post.confirm_reset_password_totp);
+web.get('/change_password/:totp', AuthController().render.change_password);
+web.post('/update_password/', AuthController().post.update_password);
 
 export default web;

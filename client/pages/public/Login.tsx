@@ -85,7 +85,7 @@ export const Login = (props) => {
                     <a href="/regester" className={'mt-5 mr-5 text-gray-400 hover:underline'}>
                         ایجاد حساب کاربری
                     </a>
-                    <a href="/" className={'mt-5 mr-5 text-gray-400 hover:underline'}>
+                    <a href="/reset_password" className={'mt-5 mr-5 text-gray-400 hover:underline'}>
                         بازیابی رمز عبور
                     </a>
                 </div>

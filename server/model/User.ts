@@ -38,6 +38,27 @@ var User = () => {
         }
     };
 
+    const update_password = async (phone: number, password: string) => {
+        try {
+            const queryRaw = await rawQuery.get('UpdatePassword');
+            const results = await pg.query({
+                name: 'UpdatePassword',
+                text: queryRaw,
+                values: [phone, password],
+            });
+            if (results.rowCount === 0) {
+                return false;
+            } else {
+                return true;
+            }
+        } catch (error) {
+            console.log(error);
+            return false;
+        } finally {
+            await pg.end();
+        }
+    };
+
     const findUserByEmailPassword = async (username, password) => {
         try {
             const queryRaw = await rawQuery.get('FindUserByEmailPassword');
@@ -174,6 +195,24 @@ var User = () => {
             await pg.end();
         }
     };
+
+    const confirm = async (userID) => {
+        try {
+            const queryRaw = await rawQuery.get('ConfirmUser');
+            const results = await pg.query({
+                name: 'ConfirmUser',
+                text: queryRaw,
+                values: [userID],
+            });
+            return results.rows;
+        } catch (error) {
+            console.log({ error });
+            return false;
+        } finally {
+            await pg.end();
+        }
+    };
+
     return {
         findById,
         exists,
@@ -185,6 +224,8 @@ var User = () => {
         getCollectionWithGifts,
         getAllAdminUsers,
         searchUserByUsernameOrEmail,
+        confirm,
+        update_password
     };
 };
 

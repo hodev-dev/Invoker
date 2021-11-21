@@ -90,7 +90,7 @@ export const TOTP = (props) => {
             <form
                 className={'flex flex-col items-center justify-center w-full h-screen shadow-xl'}
                 method="post"
-                action="/login"
+                action="/confirm_totp"
             >
                 <FiShield size={72} className={'p-2 text-blue-700 border-4 rounded-full '} />
                 <input
