@@ -80,7 +80,7 @@ export const Landing = ({ isLoggedIn, isAdmin, collectionsWithGifts }) => {
             return (
                 <GiftCard
                     onClick={() => handleSelectGift(gift, collection, index)}
-                    key={gift.price + index}
+                    key={collection.title + gift.price + index}
                     selected={select === index && collection.id === collectionID}
                     className={`mt-5 mr-10 hover:ring-4 hover:ring-black hover:cursor-pointer`}
                     type={gift.type}
@@ -95,7 +95,7 @@ export const Landing = ({ isLoggedIn, isAdmin, collectionsWithGifts }) => {
     const renderCollectionsWithGifts = () => {
         return collectionsWithGifts.map((collection, index) => {
             return (
-                <section key={collection.id * index} className={'flex flex-col flex-wrap'} dir={'rtl'}>
+                <section key={collection.title + collection.id * index} className={'flex flex-col flex-wrap'} dir={'rtl'}>
                     <GiftSeprator title={collection.title} country={collection.country} />
                     <div className={'flex flex-row flex-wrap w-full'}>{renderGifts(collection)}</div>
                 </section>
