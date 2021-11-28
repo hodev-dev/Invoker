@@ -21,6 +21,7 @@ export const GiftCard = (props) => {
     };
     return (
         <section
+            key={props.type + props.price}
             {...props}
             suppressHydrationWarning={true}
             className={
