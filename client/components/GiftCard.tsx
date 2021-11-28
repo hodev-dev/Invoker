@@ -32,13 +32,13 @@ export const GiftCard = (props) => {
         >
             {renderLogo()}
             <h1 className={'mt-5 font-sans text-xl font-semibold'}>{props.label}</h1>
-            <h1 className={'mt-5 text-4xl font-semibold'}>{props.price}</h1>
-            <h1 className={'mt-5 text-xl font-semibold text-center text-green-600 '}>
+            <h2 className={'mt-5 text-4xl font-semibold'}>{props.price}</h2>
+            <h3 className={'mt-5 text-xl font-semibold text-center text-green-600 '}>
                 {digitsEnToFa(addCommas(props.alter_price)) + ' ' + 'تومان'}
-            </h1>
-            <h1 className={'mt-5 text-xs font-medium text-center text-gray-500'}>
+            </h3>
+            <h5 className={'mt-5 text-xs font-medium text-center text-gray-500'}>
                 {numberToWords(props.alter_price) + ' ' + 'تومان'}
-            </h1>
+            </h5>
         </section>
     );
 };
