@@ -1,7 +1,6 @@
 const path = require("path");
 var glob = require("glob");
 var webpack = require("webpack");
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const { WebpackManifestPlugin } = require("webpack-manifest-plugin");
