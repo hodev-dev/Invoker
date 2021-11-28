@@ -1,9 +1,8 @@
 import { View } from '@core/View';
-import { useEffect, useState } from 'react';
-import { FaTicketAlt } from 'react-icons/fa';
+import { useState } from 'react';
 import { VscClose } from 'react-icons/vsc';
 import PasswordStrengthBar from 'react-password-strength-bar';
-import { FiCheckCircle, FiAlertCircle, FiUser } from "react-icons/fi";
+import { FiCheckCircle } from "react-icons/fi";
 import { phoneNumberValidator } from "@persian-tools/persian-tools";
 
 export const Regester = (props) => {

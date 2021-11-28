@@ -1,6 +1,7 @@
 const path = require("path");
 var glob = require("glob");
 var webpack = require("webpack");
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const { WebpackManifestPlugin } = require("webpack-manifest-plugin");
@@ -19,6 +20,7 @@ function normalizeName(name) {
 }
 
 module.exports = {
+  target: 'node',
   name: "client",
   entry: glob.sync("./client/**/*.tsx").reduce(function (obj, el) {
     obj[path.parse(el).name] = el;
@@ -63,11 +65,23 @@ module.exports = {
     ],
     minimize: true,
     splitChunks: {
+      chunks: 'async',
+      minSize: 20000,
+      minRemainingSize: 0,
+      minChunks: 1,
+      maxAsyncRequests: 30,
+      maxInitialRequests: 30,
+      enforceSizeThreshold: 50000,
       cacheGroups: {
-        commons: {
+        defaultVendors: {
           test: /[\\/]node_modules[\\/]/,
-          name: "runtime",
-          chunks: "all",
+          priority: -10,
+          reuseExistingChunk: true,
+        },
+        default: {
+          minChunks: 2,
+          priority: -20,
+          reuseExistingChunk: true,
         },
       },
     },
