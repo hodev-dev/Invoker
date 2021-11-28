@@ -1,6 +1,6 @@
 import { FaApple, FaPlaystation, FaSpotify, FaSteam } from 'react-icons/fa';
 import { addCommas, digitsEnToFa, numberToWords } from '@persian-tools/persian-tools';
-import { SiNetflix } from "react-icons/si";
+import { RiNetflixFill } from "react-icons/ri";
 
 export const GiftCard = (props) => {
     const renderLogo = () => {
@@ -14,7 +14,7 @@ export const GiftCard = (props) => {
             case 'PlayStation':
                 return <FaPlaystation size={64} className={'mt-5 text-blue-700 fill-current'} />;
             case 'Netflix':
-                return <SiNetflix size={64} className={'mt-5 text-red-700 fill-current'} />;
+                return <RiNetflixFill size={64} className={'mt-5 text-red-700 fill-current'} />;
             default:
                 return <h1>test</h1>;
         }
