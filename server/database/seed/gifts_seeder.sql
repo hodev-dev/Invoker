@@ -43,4 +43,9 @@ VALUES (DEFAULT, 'Apple', 'Apple Gift Card', 5),
     (DEFAULT, 'Spotify', 'Spotify Gift Card', 10),
     (DEFAULT, 'Spotify', 'Spotify Gift Card', 15),
     (DEFAULT, 'Spotify', 'Spotify Gift Card', 25),
-    (DEFAULT, 'Spotify', 'Spotify Gift Card', 50);
+    (DEFAULT, 'Spotify', 'Spotify Gift Card', 50),
+    (DEFAULT, 'Netflix', 'Neflix Gift Card', 5),
+    (DEFAULT, 'Netflix', 'Neflix Gift Card', 10),
+    (DEFAULT, 'Netflix', 'Neflix Gift Card', 15),
+    (DEFAULT, 'Netflix', 'Neflix Gift Card', 25),
+    (DEFAULT, 'Netflix', 'Neflix Gift Card', 50);

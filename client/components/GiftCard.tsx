@@ -1,5 +1,6 @@
 import { FaApple, FaPlaystation, FaSpotify, FaSteam } from 'react-icons/fa';
 import { addCommas, digitsEnToFa, numberToWords } from '@persian-tools/persian-tools';
+import { SiNetflix } from "react-icons/si";
 
 export const GiftCard = (props) => {
     const renderLogo = () => {
@@ -9,9 +10,11 @@ export const GiftCard = (props) => {
             case 'Steam':
                 return <FaSteam size={64} className={'mt-5 text-indigo-800 fill-current'} />;
             case 'Spotify':
-                return <FaSpotify size={64} className={'mt-5 text-green-400 fill-current'} />;
+                return <FaSpotify size={64} className={'mt-5 text-green-500 fill-current'} />;
             case 'PlayStation':
                 return <FaPlaystation size={64} className={'mt-5 text-blue-700 fill-current'} />;
+            case 'Netflix':
+                return <SiNetflix size={64} className={'mt-5 text-red-700 fill-current'} />;
             default:
                 return <h1>test</h1>;
         }
@@ -21,8 +24,7 @@ export const GiftCard = (props) => {
             {...props}
             suppressHydrationWarning={true}
             className={
-                `flex flex-col items-center w-1/6 bg-white  border  rounded-xl h-80 ${
-                    props.selected ? 'ring-4 ring-black' : ''
+                `flex flex-col items-center w-1/6 bg-white  border  rounded-xl h-80 ${props.selected ? 'ring-4 ring-black' : ''
                 }` +
                 ' ' +
                 props.className
