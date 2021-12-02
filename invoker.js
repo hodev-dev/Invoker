@@ -18,12 +18,12 @@ program
     .option('-s, --source <mode>', 'Which exec mode to use', 'default migration')
     .action(async (options) => {
         console.log('migration messege:', chalk.cyan(options.messege));
-        const migratePath = path.join(__dirname, 'server', 'database', 'migration', 'migrate.ts');
+        const migratePath = path.normalize(path.join(__dirname, 'server', 'database', 'migration', 'migrate.ts'));
         try {
             const ts = spawn(
                 `ts-node`,
                 ['-r', 'tsconfig-paths/register', migratePath, 'start_messege', options.messege, 'end_messege'],
-                { stdio: 'inherit' },
+                { stdio: 'inherit', shell: true },
             );
             ts.on('close', (code) => {
                 console.log(`child process exited with code ${code}`);
@@ -41,7 +41,7 @@ program
     .action(async (options) => {
         const seedPath = path.join(__dirname, 'server', 'database', 'seed', 'seeder.ts');
         try {
-            const ts = spawn(`ts-node`, ['-r', 'tsconfig-paths/register', seedPath], { stdio: 'inherit' });
+            const ts = spawn(`ts-node`, ['-r', 'tsconfig-paths/register', seedPath], { stdio: 'inherit', shell: true });
             ts.on('close', (code) => {
                 console.log(`child process exited with code ${code}`);
             });

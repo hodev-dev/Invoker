@@ -49,7 +49,7 @@ export const ChangePasswordView = (props) => {
                 <div className={"w-4/12 h-auto mt-5"}>
                 </div>
                 <div className={'flex flex-row '}>
-                    <a href="/regester" className={'mt-5 mr-5 text-gray-400 hover:underline'}>
+                    <a href="/register" className={'mt-5 mr-5 text-gray-400 hover:underline'}>
                         ایجاد حساب کاربری
                     </a>
                     <a href="/login" className={'mt-5 mr-5 text-gray-400 hover:underline'}>

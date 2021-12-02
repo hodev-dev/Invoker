@@ -5,7 +5,7 @@ import PasswordStrengthBar from 'react-password-strength-bar';
 import { FiCheckCircle } from "react-icons/fi";
 import { phoneNumberValidator } from "@persian-tools/persian-tools";
 
-export const Regester = (props) => {
+export const Register = (props) => {
     const [localMesseges, setLocalMesseges] = useState<any>([]);
     const [select, setSelect] = useState<any>([]);
     const [phone, setPhone] = useState<any>(props.body ? props.body.phone : '');
@@ -151,7 +151,7 @@ export const Regester = (props) => {
             <form
                 className={'flex flex-col items-center justify-center w-full min-h-screen h-auto shadow-xl'}
                 method="post"
-                action="/Regester"
+                action="/Register"
             >
                 <div className={"flex w-4/12 h-12 mt-2 text-center items-center justify-end border border-r-0 border-l-0 border-t-0"}>
                     <h1 className={" text-gray-500"}>ایجاد حساب کاربری</h1>
@@ -280,5 +280,5 @@ export const Regester = (props) => {
 };
 
 View.get().then((serverData) => {
-    View.render(Regester, serverData);
+    View.render(Register, serverData);
 });

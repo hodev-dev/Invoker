@@ -1,6 +1,6 @@
 import { ChangePasswordView } from '@client/pages/public/ChangePasswordView';
 import { Login } from '@client/pages/public/Login';
-import { Regester } from '@client/pages/public/Regester';
+import { Register } from '@client/pages/public/Register';
 import { ResetPasswordTOTPView } from '@client/pages/public/ResetPasswordTOTPView';
 import { ResetPasswordView } from '@client/pages/public/ResetPasswordView';
 import { TOTP } from '@client/pages/user/TOTP';
@@ -61,7 +61,7 @@ const AuthController = () => {
                 console.log(error);
             }
         },
-        regester: async (request: Request | any, response: Response) => {
+        register: async (request: Request | any, response: Response) => {
             const { phone, password } = request.body;
             const hashed_password = await bcrypt.hash(password, 2);
             try {
@@ -76,7 +76,7 @@ const AuthController = () => {
                             body: request.body
                         });
                     } catch {
-                        await Render.react(Regester, response, {
+                        await Render.react(Register, response, {
                             messages: [
                                 { type: 'E', label: 'خطایی پیش امد بعدا امتحان کنید' }
                             ],
@@ -84,7 +84,7 @@ const AuthController = () => {
                         });
                     }
                 } else {
-                    return await Render.react(Regester, response, {
+                    return await Render.react(Register, response, {
                         messages: [
                             { type: 'E', label: 'کاربری قبلا  با این شماره موبایل ثبت نام کرده است' }
                         ],
@@ -92,7 +92,7 @@ const AuthController = () => {
                     });
                 }
             } catch (error) {
-                await Render.react(Regester, response, {
+                await Render.react(Register, response, {
                     messages: [
                         { type: 'E', label: 'خطایی پیش امد بعدا امتحان کنید' }
                     ],
@@ -194,8 +194,8 @@ const AuthController = () => {
                 await Render.react(TOTP, response, { totpEndTimeout: request.session.totpEndTimeout });
             }
         },
-        regester: async (request: Request, response: Response) => {
-            await Render.react(Regester, response, []);
+        register: async (request: Request, response: Response) => {
+            await Render.react(Register, response, []);
         },
         reset_password: async (request: Request, response: Response) => {
             await Render.react(ResetPasswordView, response, []);

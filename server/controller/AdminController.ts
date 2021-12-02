@@ -1,4 +1,3 @@
-import { GiftSeprator } from '@client/components/GiftSeprator';
 import { AdminDashboardView } from '@client/pages/admin/AdminDashboardView';
 import { AdminManageAccountView } from '@client/pages/admin/AdminManageAccountView';
 import { AdminManageCollectionsView } from '@client/pages/admin/AdminManageCollectionsView';
@@ -36,12 +35,28 @@ const AdminController = () => {
         delete_gift: async (request: Request | any, response: Response) => {
             const { id } = request.params;
             const deleted = await Gift().delete_gift(Number(id));
-            return response.redirect('back');
+            return Render.redirect('/admin/manage_gifts', response, {
+                messages: [
+                    {
+                        type: 'S',
+                        label: 'با موفقیت حذف شد',
+                        body: 'گیفت کارت با موفقیت حذف شد',
+                    },
+                ],
+            });
         },
         add_gift: async (request: Request | any, response: Response) => {
             const { type, label, price } = request.body;
-            const deleted = await Gift().add_gift(type, label, price);
-            return response.redirect('back');
+            const add = await Gift().add_gift(type, label, price);
+            return Render.redirect('/admin/manage_gifts', response, {
+                messages: [
+                    {
+                        type: 'E',
+                        label: 'خطا در به روز رسانی',
+                        body: 'لطفا اطلاعات را به روز کرده و مجددا امتحان کنید',
+                    },
+                ],
+            });
         },
         add_collection: async (request: Request | any, response: Response) => {
             const { title, country } = request.body;
@@ -121,7 +136,9 @@ const AdminController = () => {
             });
         },
         gifts: async (request: Request | any, response: Response) => {
-            await Render.react(AdminManageGiftsView, response, []);
+            const gifts = await Gift().getAllGifts();
+            const { messages } = request.query;
+            await Render.react(AdminManageGiftsView, response, { gifts, messages });
         },
         currencies: async (request: Request | any, response: Response) => {
             const currencies = await Currency().get_all_currency();

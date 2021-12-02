@@ -1,3 +1,3 @@
 SELECT *
 FROM gifts
-ORDER BY type;
+ORDER BY type,created_at DESC,price;

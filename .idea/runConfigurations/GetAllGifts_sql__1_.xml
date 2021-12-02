@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="GetAllGifts.sql (1)" type="DatabaseScript" editBeforeRun="true" nameIsGenerated="true">
+    <script-file value="$PROJECT_DIR$/server/query/GetAllGifts.sql" />
+    <script-mode>FILE</script-mode>
+    <method v="2" />
+  </configuration>
+</component>

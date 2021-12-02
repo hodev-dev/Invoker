@@ -26,13 +26,13 @@ web.use(sesseionConfig);
 
 //post
 web.post('/login', AuthController().post.login);
-web.post('/regester', AuthController().post.regester);
+web.post('/register', AuthController().post.register);
 //get
 web.get('/logout', AuthController().get.logout);
 // render public
 web.get('/', StoreController().render.landing);
 web.get('/login', UserMiddleware().loginProtection, AuthController().render.login);
-web.get('/regester', UserMiddleware().loginProtection, AuthController().render.regester);
+web.get('/register', UserMiddleware().loginProtection, AuthController().render.register);
 
 // admin
 web.get('/admin', UserMiddleware().adminProtection, AdminController().render.admin);
@@ -51,7 +51,7 @@ web.post('/admin/delete_collection/:id', UserMiddleware().adminProtection, Admin
 web.post('/admin/update_collection/:id', UserMiddleware().adminProtection, AdminController().post.update_collection);
 web.get('/admin/get_gifts', UserMiddleware().adminProtection, AdminController().async.get_gifts);
 web.post('/admin/delete_gift/:id', UserMiddleware().adminProtection, AdminController().post.delete_gift);
-web.post('/admin/add_gift/', UserMiddleware().adminProtection, AdminController().post.add_collection);
+web.post('/admin/add_gift/', UserMiddleware().adminProtection, AdminController().post.add_gift);
 web.post('/admin/assign_gift/', UserMiddleware().adminProtection, AdminController().post.assign_collection_gift);
 web.post('/admin/add_currency/', UserMiddleware().adminProtection, AdminController().post.add_currency);
 web.post('/admin/delete_currency/:id', UserMiddleware().adminProtection, AdminController().post.delete_currency);

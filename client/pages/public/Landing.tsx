@@ -5,7 +5,7 @@ import { GiftCard } from '../../components/GiftCard';
 import { GiftSeprator } from '../../components/GiftSeprator';
 import { addCommas, digitsEnToFa, numberToWords } from '@persian-tools/persian-tools';
 import ReactCountryFlag from 'react-country-flag';
-import { getCountryName, isoCountries } from '@core/utility/useCountry';
+import { getCountryName } from '@core/utility/useCountry';
 
 export const Landing = ({ isLoggedIn, isAdmin, collectionsWithGifts }) => {
     const [Image, setImage] = useState('');
@@ -57,7 +57,7 @@ export const Landing = ({ isLoggedIn, isAdmin, collectionsWithGifts }) => {
             return (
                 <>
                     <li className={'ml-5'}>
-                        {isAdmin ? <a href="/admin">Dashboard</a> : <a href="/user">Dashboard</a>}
+                        {isAdmin ? <a href='/admin'>ناحیه کاربری</a> : <a href='/user'>ناحیه کاربری</a>}
                     </li>
                 </>
             );
@@ -65,10 +65,10 @@ export const Landing = ({ isLoggedIn, isAdmin, collectionsWithGifts }) => {
             return (
                 <>
                     <li className={'ml-5'}>
-                        <a href="/login">ورود</a>
+                        <a href='/login'>ورود</a>
                     </li>
                     <li className={'ml-5'}>
-                        <a href="/regester">ثبت نام</a>
+                        <a href='/register'>ثبت نام</a>
                     </li>
                 </>
             );
@@ -124,22 +124,22 @@ export const Landing = ({ isLoggedIn, isAdmin, collectionsWithGifts }) => {
                                 <select
                                     onChange={handleOption}
                                     className={'flex items-center justify-center w-8/12 h-10 ml-10 border bg-gray-50 '}
-                                    name="count"
-                                    id=""
+                                    name='count'
+                                    id=''
                                 >
-                                    <option className={'h-10 p-2 text-lg text-center'} value="1">
+                                    <option className={'h-10 p-2 text-lg text-center'} value='1'>
                                         1
                                     </option>
-                                    <option className={'h-10 p-2 text-lg text-center'} value="2">
+                                    <option className={'h-10 p-2 text-lg text-center'} value='2'>
                                         2
                                     </option>
-                                    <option className={'h-10 p-2 text-lg text-center'} value="3">
+                                    <option className={'h-10 p-2 text-lg text-center'} value='3'>
                                         3
                                     </option>
-                                    <option className={'h-10 p-2 text-lg text-center'} value="4">
+                                    <option className={'h-10 p-2 text-lg text-center'} value='4'>
                                         4
                                     </option>
-                                    <option className={'h-10 p-2 text-lg text-center'} value="5">
+                                    <option className={'h-10 p-2 text-lg text-center'} value='5'>
                                         5
                                     </option>
                                 </select>
@@ -150,7 +150,7 @@ export const Landing = ({ isLoggedIn, isAdmin, collectionsWithGifts }) => {
                                     className={
                                         ' flex justify-center items-center w-8/12 h-10 ml-10 text-center leading-none bg-gray-100 border'
                                     }
-                                    id="count"
+                                    id='count'
                                 >
                                     {product}
                                 </div>
@@ -161,7 +161,7 @@ export const Landing = ({ isLoggedIn, isAdmin, collectionsWithGifts }) => {
                                     className={
                                         'flex justify-center items-center  w-8/12 h-10 ml-10 text-center bg-gray-100 border'
                                     }
-                                    id="count"
+                                    id='count'
                                 >
                                     {region !== '' ? (
                                         <ReactCountryFlag
@@ -187,7 +187,7 @@ export const Landing = ({ isLoggedIn, isAdmin, collectionsWithGifts }) => {
                                     className={
                                         'flex justify-center items-center  w-8/12 h-10 ml-10 text-center bg-gray-100 border'
                                     }
-                                    id="count"
+                                    id='count'
                                 >
                                     {digitsEnToFa(addCommas(finalPrice)) + ' ' + 'تومان'}
                                 </div>
@@ -198,14 +198,14 @@ export const Landing = ({ isLoggedIn, isAdmin, collectionsWithGifts }) => {
                                     className={
                                         'flex justify-center items-center w-8/12 h-10 ml-10 text-center bg-gray-100 border'
                                     }
-                                    id="count"
+                                    id='count'
                                 >
                                     {numberToWords(finalPrice) + ' ' + 'تومان'}
                                 </div>
                             </div>
                             <div className={'flex items-center w-full h-16 mt-5'}>
                                 <h1 className={'w-4/12 text-gray-500'}>کد امنیتی</h1>
-                                <img className={'w-8/12 h-16 ml-10 text-center bg-white border'} src={Image} alt="" />
+                                <img className={'w-8/12 h-16 ml-10 text-center bg-white border'} src={Image} alt='' />
                             </div>
                             <div className={'flex items-center w-full h-10 mt-5'}>
                                 <h1 className={'w-4/12 text-gray-500'}></h1>
@@ -213,9 +213,9 @@ export const Landing = ({ isLoggedIn, isAdmin, collectionsWithGifts }) => {
                                     className={
                                         ' flex justify-center font-semibold items-center w-8/12 h-10 p-2  ml-10 text-sm text-center rounded-lg  border'
                                     }
-                                    type="text"
-                                    name="count"
-                                    id="count"
+                                    type='text'
+                                    name='count'
+                                    id='count'
                                     placeholder={'کد امنیتی'}
                                 />
                             </div>
@@ -225,9 +225,9 @@ export const Landing = ({ isLoggedIn, isAdmin, collectionsWithGifts }) => {
                                     className={
                                         ' flex justify-center font-semibold items-center w-8/12 h-10 p-2  ml-10 text-sm text-center rounded-lg text-white bg-green-500 border'
                                     }
-                                    type="submit"
-                                    name="count"
-                                    id="count"
+                                    type='submit'
+                                    name='count'
+                                    id='count'
                                     value={'پرداخت'}
                                     placeholder={'پرداخت نهایی'}
                                 />

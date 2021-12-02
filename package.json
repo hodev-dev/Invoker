@@ -69,6 +69,7 @@
     "pg": "^8.7.1",
     "preact": "^8.5.3",
     "preact-compat": "^3.19.0",
+    "qs": "^6.10.1",
     "react": "^18.0.0-alpha-1314299c7-20210901",
     "react-countdown": "^2.3.2",
     "react-country-flag": "^2.3.1",

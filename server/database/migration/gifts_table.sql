@@ -3,5 +3,6 @@ CREATE TABLE IF NOT EXISTS gifts(
     type VARCHAR(20),
     label VARCHAR(40),
     price INTEGER,
-    PRIMARY KEY(id)
+    PRIMARY KEY(id),
+    created_at timestamp default current_timestamp
 );
