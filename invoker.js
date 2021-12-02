@@ -1,13 +1,12 @@
+// import chalk from 'chalk';
+const chalk = require('chalk');
+const path = require('path');
+const fs = require('fs');
+const usePublish = require('./core/utility/usePublish.js');
+const spawn = require('child_process').spawn;
 const { Command } = require('commander');
 const program = new Command();
-const path = require('path');
-const { promisify } = require('util');
-const exec = promisify(require('child_process').exec);
-const chalk = require('chalk');
-const spawn = require('child_process').spawn;
-const fs = require('fs');
 const fsPromises = fs.promises;
-const usePublish = require('./core/utility/usePublish');
 const publish = usePublish();
 
 program
@@ -60,7 +59,7 @@ program
         const historyPath = path.join('server', 'database', 'migration', '.versions', 'version.json');
         try {
             const data = await fsPromises.readFile(historyPath, 'utf8');
-            console.log(JSON.parse(data, null, 4).reverse());
+            console.log(JSON.parse(data, null).reverse());
         } catch (error) {
             console.log(error);
         }

@@ -11,7 +11,6 @@
     "invoker": "./invoker.js"
   },
   "devDependencies": {
-    "@caporal/core": "^2.0.2",
     "@types/cookie-parser": "^1.4.2",
     "@types/express": "^4.17.13",
     "@types/express-session": "^1.17.4",
@@ -51,9 +50,8 @@
     "@persian-tools/persian-tools": "^3.0.1",
     "axios": "^0.23.0",
     "bcrypt": "^5.0.1",
-    "chalk": "^4.1.2",
+    "chalk": "^4.0.0",
     "cli-table": "^0.3.6",
-    "commander": "^2.20.3",
     "connect-pg-simple": "^7.0.0",
     "cookie-parser": "^1.4.5",
     "ejs": "^3.1.6",
@@ -63,6 +61,7 @@
     "immer": "^9.0.6",
     "immutable": "^4.0.0-rc.14",
     "js-cookie": "^3.0.1",
+    "lodash": "^4.17.21",
     "module-alias": "^2.2.2",
     "moment": "^2.29.1",
     "momentjs": "^2.0.0",
@@ -76,7 +75,6 @@
     "react-dom": "^18.0.0-alpha-1314299c7-20210901",
     "react-icons": "^4.3.1",
     "react-password-strength-bar": "^0.4.0",
-    "sqlite3": "^5.0.2",
     "ts-node": "^10.2.1",
     "uuid": "^3.4.0"
   }
