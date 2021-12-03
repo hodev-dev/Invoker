@@ -2,8 +2,7 @@ import useDatabase from '@config/database';
 import useMigration from '@core/database/migration/useMigration';
 import useRawQuery from '@core/database/query/useRawQuery';
 import useSequence from '@core/utility/useSequence';
-import { produceWithPatches } from 'immer';
-import { isPropertyAccessChain } from 'typescript';
+
 const chalk = require('chalk');
 
 const [pg] = useDatabase();
@@ -30,7 +29,7 @@ async function createSchema() {
             name: 'create',
             text: 'CREATE SCHEMA IF NOT EXISTS public;',
         });
-        console.log(`create schema :`, chalk.green('successfull'));
+        console.log(`create schema :`, chalk.green('successful'));
     } catch (error) {
         console.error(`create schema :`, chalk.red(error));
         throw error;
@@ -45,7 +44,7 @@ async function createTable(table: string, isBackup: boolean) {
         }
         const raw = await query.getMigrationQeury(table);
         await pg.query({ name: table, text: raw });
-        console.log(`migration ${table}:`, chalk.green('successfull'));
+        console.log(`migration ${table}:`, chalk.green('successful'));
     } catch (error) {
         console.error(`migration ${table}:`, chalk.red(error));
         throw error;
@@ -55,6 +54,7 @@ async function createTable(table: string, isBackup: boolean) {
 function* tasks() {
     yield () => dropSchema();
     yield () => createSchema();
+    yield () => createTable('session_table', false);
     yield () => createTable('users_table', false);
     yield () => createTable('roles_table', false);
     yield () => createTable('user_role_table', false);
@@ -65,7 +65,10 @@ function* tasks() {
     yield () => createTable('collection_gift_table', false);
     yield () => createTable('currencies_table', false);
     yield () => createTable('codes_table', false);
-    yield () => createTable('session_table', false);
+    yield () => createTable('tickets_table', false);
+    yield () => createTable('messages_table', false);
+    yield () => createTable('user_ticket_table', false);
+    yield () => createTable('ticket_message_table', false);
 }
 
 async function taskRunner() {
@@ -81,8 +84,9 @@ async function taskRunner() {
         process.exit();
     } finally {
         await pg.end();
-        process.exit();
     }
 }
 
-taskRunner();
+taskRunner().finally(() => {
+    process.exit();
+});

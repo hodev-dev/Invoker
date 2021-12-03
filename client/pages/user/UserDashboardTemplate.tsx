@@ -29,7 +29,7 @@ export const UserDashboardTemplate = (props: { select, children? }) => {
             <div className={'flex flex-row w-full '} dir={'rtl'}>
                 <section className={'w-3/12 min-h-screen border rounded-md shadow-sm bg-gray-50'}>
                     <MenuSeparator title={'امور مشتریان'} />
-                    <MenuItem element={renderSelect('support')} href={'/test'} title={'پشتیبانی'} />
+                    <MenuItem element={renderSelect('support')} href={'/user/support'} title={'پشتیبانی'} />
                 </section>
                 <section className={'w-9/12 min-h-screen border border-r-0 rounded-md shadow-sm bg-gray-50'}>
                     {props.children}

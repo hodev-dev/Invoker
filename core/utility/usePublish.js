@@ -14,7 +14,7 @@ const usePublish = () => {
                 console.log(chalk.yellow(`file ${name} already exists!`));
             } catch (error) {
                 await fsPromises.writeFile(destination + '.' + type, data);
-                console.log(chalk.green(`file ${name} created`));
+                console.log(chalk.green(`file ${name} created`), '>', destination);
             }
         } catch (error) {
             console.log(error);

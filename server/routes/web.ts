@@ -6,6 +6,7 @@ import StoreController from '@controller/StoreController';
 import useDatabase from '@config/database';
 import AdminController from '@controller/AdminController';
 import AuthController from '@controller/AuthController';
+import Ticket from '@server/model/Ticket';
 
 const [pgc, pgp] = useDatabase();
 var web = express.Router();
@@ -63,6 +64,7 @@ web.post(
 
 // user
 web.get('/user', UserMiddleware().userProtection, UserMiddleware().totpProtection, UserController().render.user);
+web.get('/user/support', UserMiddleware().userProtection, UserMiddleware().totpProtection, UserController().render.support);
 web.get('/totp', UserMiddleware().userProtection, UserMiddleware().totpProtectionIfNotExists, AuthController().render.totp);
 web.post('/confirm_totp', UserMiddleware().userProtection, AuthController().post.confirm_totp);
 web.get('/reset_password', AuthController().render.reset_password);
@@ -71,5 +73,11 @@ web.get('/reset_password_totp', AuthController().render.reset_password_totp);
 web.post('/confirm_reset_password_totp', AuthController().post.confirm_reset_password_totp);
 web.get('/change_password/:totp', AuthController().render.change_password);
 web.post('/update_password/', AuthController().post.update_password);
+
+// test
+web.get('/test', async (req, res) => {
+    const ticket = await Ticket().getAllTickets();
+    return res.json({ name: 'test' });
+});
 
 export default web;

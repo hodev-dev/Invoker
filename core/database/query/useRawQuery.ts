@@ -1,11 +1,14 @@
 import { promises as fs } from 'fs';
 import path from 'path';
-var useRawQuery = () => {
-    const get = async (path: string) => {
+
+let useRawQuery = () => {
+    const get = async (queryPath: Array<string> | string = '', fileName: string = '') => {
         try {
-            return await fs.readFile('./server/query/' + path + '.sql', 'utf8');
+            if (typeof queryPath === 'string') {
+                return await fs.readFile(path.normalize(path.join('./server/query/', queryPath + '.sql')), 'utf8');
+            }
+            return await fs.readFile(path.normalize(path.join('./server/query', ...queryPath, fileName + '.sql')), 'utf8');
         } catch (error: any) {
-            console.log(error);
             throw error;
         }
     };
@@ -13,7 +16,7 @@ var useRawQuery = () => {
         try {
             return await fs.readFile(
                 path.join('server', 'database', 'migration', migrationName) +
-                    '.sql',
+                '.sql',
                 'utf8',
             );
         } catch (error: any) {

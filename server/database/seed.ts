@@ -1,6 +1,7 @@
 import useDatabase from '@config/database';
 import useRawQuery from '@core/database/query/useRawQuery';
 import useSequence from '@core/utility/useSequence';
+
 const chalk = require('chalk');
 
 const [pg] = useDatabase();
@@ -9,7 +10,8 @@ const sequence = useSequence();
 
 async function truncate(table: string) {
     try {
-        const seedQuery = `Delete from ${table}`;
+        const seedQuery = `Delete
+                           from ${table}`;
         await pg.query({ name: table, text: seedQuery });
         console.log(`truncate ${table}:`, chalk.green('successfull'));
     } catch (error) {
@@ -45,6 +47,7 @@ function* tasks() {
     yield () => seedTable('collection_gift_seeder');
     yield () => seedTable('currencies_seeder');
     yield () => seedTable('codes_seeder');
+    yield () => seedTable('tickets_seeder');
 }
 
 async function taskRunner() {
@@ -60,8 +63,9 @@ async function taskRunner() {
         process.exit();
     } finally {
         await pg.end();
-        process.exit();
     }
 }
 
-taskRunner();
+taskRunner().finally(() => {
+    process.exit();
+});

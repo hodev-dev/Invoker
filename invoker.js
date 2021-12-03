@@ -17,7 +17,7 @@ program
     .option('-s, --source <mode>', 'Which exec mode to use', 'default migration')
     .action(async (options) => {
         console.log('migration messege:', chalk.cyan(options.messege));
-        const migratePath = path.normalize(path.join(__dirname, 'server', 'database', 'migration', 'migrate.ts'));
+        const migratePath = path.normalize(path.join(__dirname, 'server', 'database', 'migrate.ts'));
         try {
             const ts = spawn(
                 `ts-node`,
@@ -34,11 +34,27 @@ program
     });
 
 program
+    .command('factory')
+    .alias('migf')
+    .description('run factory.ts in server/database/factory')
+    .action(async (options) => {
+        const seedPath = path.join(__dirname, 'server', 'database', 'factory.ts');
+        try {
+            const ts = spawn(`ts-node`, ['-r', 'tsconfig-paths/register', seedPath], { stdio: 'inherit', shell: true });
+            ts.on('close', (code) => {
+                console.log(`child process exited with code ${code}`);
+            });
+        } catch (error) {
+            console.error(error);
+        }
+    });
+
+program
     .command('seed')
     .alias('migs')
-    .description('run seeder.ts in server/database/seed')
+    .description('run seed.ts in server/database/seed')
     .action(async (options) => {
-        const seedPath = path.join(__dirname, 'server', 'database', 'seed', 'seeder.ts');
+        const seedPath = path.join(__dirname, 'server', 'database', 'seed.ts');
         try {
             const ts = spawn(`ts-node`, ['-r', 'tsconfig-paths/register', seedPath], { stdio: 'inherit', shell: true });
             ts.on('close', (code) => {
@@ -153,7 +169,7 @@ program
 program
     .command('make:model')
     .arguments('<name>')
-    .alias('mkmod')
+    .alias('mkm')
     .description('make model in server/model directory')
     .action(async (name, options) => {
         try {
@@ -170,11 +186,34 @@ program
             console.log(error);
         }
     });
-
+program
+    .command('make:factory')
+    .arguments('<name>')
+    .alias('mkf')
+    .description('make factory in server/database/factory directory')
+    .action(async (name, options) => {
+        try {
+            const source = path.join(__dirname, 'core', 'template', 'factory.ts');
+            const destination = path.join(__dirname, 'server', 'database', 'factory', name + '_factory');
+            const replace = [
+                {
+                    key: 'FACTORY_NAME',
+                    value: name + '_factory',
+                },
+                {
+                    key: 'TABLE',
+                    value: name,
+                },
+            ];
+            await publish.makeTemplate(source, destination, replace, name, 'ts');
+        } catch (error) {
+            console.log(error);
+        }
+    });
 program
     .command('make:middleware')
     .arguments('<name>')
-    .alias('mkmid')
+    .alias('mkmi')
     .description('make model in server/model directory')
     .action(async (name, options) => {
         try {
