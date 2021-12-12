@@ -1,13 +1,9 @@
-import faker from "faker";
-
-faker.locale = "fa";
-
-let tickets_factory = () => {
+let user_ticket_factory = () => {
 
     const count = 100;
 
     const table = {
-        name: "tickets",
+        name: "user_ticket",
         columns: {
             id: {
                 quote: "none",
@@ -15,16 +11,16 @@ let tickets_factory = () => {
                     return "DEFAULT";
                 },
             },
-            title: {
+            user_id: {
                 quote: "single",
                 generate: () => {
-                    return faker.lorem.words();
+                    return Math.floor(Math.random() * 2) + 1;
                 },
             },
-            status: {
-                quote: "none",
-                generate: () => {
-                    return Math.floor(Math.random() * 3) + 1;
+            ticket_id: {
+                quote: "single",
+                generate: (index: number) => {
+                    return index;
                 },
             },
         },
@@ -36,6 +32,6 @@ let tickets_factory = () => {
     };
 };
 
-export default tickets_factory();
+export default user_ticket_factory();
 
 

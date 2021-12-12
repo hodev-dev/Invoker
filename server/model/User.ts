@@ -1,16 +1,17 @@
-import useDatabase from '@config/database';
-import useRawQuery from '@core/database/query/useRawQuery';
+import useRawQuery from "@core/database/query/useRawQuery";
+import Database from "@config/database";
 
-var User = () => {
-    const [pg] = useDatabase();
+const [pg] = Database();
+
+const User = () => {
     const rawQuery = useRawQuery();
 
     const findById = async () => {
         try {
-            const queryRaw = await rawQuery.get('FindUserById');
+            const queryString = await rawQuery.get("FindUserById");
             const results = await pg.query({
-                name: 'FindUserById',
-                text: queryRaw,
+                name: "FindUserById",
+                text: queryString,
                 values: [1],
             });
             return results.rows[0];
@@ -20,10 +21,10 @@ var User = () => {
     };
     const exists = async (phone: number) => {
         try {
-            const queryRaw = await rawQuery.get('UserExists');
+            const queryString = await rawQuery.get("UserExists");
             const results = await pg.query({
-                name: 'UserExists',
-                text: queryRaw,
+                name: "UserExists",
+                text: queryString,
                 values: [phone],
             });
             if (results.rowCount === 0) {
@@ -40,10 +41,10 @@ var User = () => {
 
     const update_password = async (phone: number, password: string) => {
         try {
-            const queryRaw = await rawQuery.get('UpdatePassword');
+            const queryString = await rawQuery.get("UpdatePassword");
             const results = await pg.query({
-                name: 'UpdatePassword',
-                text: queryRaw,
+                name: "UpdatePassword",
+                text: queryString,
                 values: [phone, password],
             });
             if (results.rowCount === 0) {
@@ -61,10 +62,10 @@ var User = () => {
 
     const findUserByEmailPassword = async (username, password) => {
         try {
-            const queryRaw = await rawQuery.get('FindUserByEmailPassword');
+            const queryString = await rawQuery.get("FindUserByEmailPassword");
             const results = await pg.query({
-                name: 'FindByUsernamePassword',
-                text: queryRaw,
+                name: "FindByUsernamePassword",
+                text: queryString,
                 values: [username, password],
             });
             return results.rows[0];
@@ -76,140 +77,129 @@ var User = () => {
         }
     };
     const findUserWithRolePermission = async (phone) => {
+        const client = await pg.connect();
         try {
-            const queryRaw = await rawQuery.get('FindUserWIithRolePermissin');
-            const results = await pg.query({
-                name: 'FindUserWIithRolePermissin',
-                text: queryRaw,
-                values: [phone],
-            });
+            const queryString = await rawQuery.get("FindUserWIithRolePermissin");
+            const results = await client.query(queryString, [phone]);
             return results.rows[0];
         } catch (error) {
-            return false;
             console.log({ error });
+            return false;
         } finally {
-            await pg.end();
+            await client.release();
         }
     };
     const getAllAdminUsers = async () => {
+        const client = await pg.connect();
         try {
-            const queryRaw = await rawQuery.get('GetAllAdminUsers');
-            const results = await pg.query({
-                name: 'GetAllAdminUsers',
-                text: queryRaw,
-                values: [],
-            });
+            const queryString = await rawQuery.get("GetAllAdminUsers");
+            const results = await client.query(queryString);
             return results.rows;
         } catch (error) {
             return false;
         } finally {
-            await pg.end();
+            await client.release();
         }
     };
     const searchUserByUsernameOrEmail = async (query) => {
+        const client = await pg.connect();
         try {
-            const queryRaw = await rawQuery.get('SearchUserByUsernameOrEmail');
-            const results = await pg.query({
-                name: 'SearchUserByUsernameOrEmail',
-                text: queryRaw,
-                values: [query],
-            });
+            const queryString = await rawQuery.get("SearchUserByUsernameOrEmail");
+            const results = await client.query(queryString, [query]);
             return results.rows;
         } catch (error) {
             console.log(error);
             return false;
         } finally {
-            await pg.end();
+            await client.release();
         }
     };
     const insertUser = async (username, email, password) => {
+        const client = await pg.connect();
         try {
-            const queryRaw = await rawQuery.get('InsertUsers');
-            const results = await pg.query({
-                name: 'InsertUsers',
-                text: queryRaw,
-                values: [username, email, password],
-            });
+            const queryString = await rawQuery.get("InsertUsers");
+            const results = await client.query(queryString, [username, email, password]);
             return results.rows[0];
         } catch (error) {
             console.log({ error });
             return false;
         } finally {
-            await pg.end();
+            await client.release();
         }
     };
     const assignRole = async (userID, roleID) => {
+        const client = await pg.connect();
         try {
-            const queryRaw = await rawQuery.get('AssignRole');
-            const results = await pg.query({
-                name: 'AssignRole',
-                text: queryRaw,
-                values: [userID, roleID],
-            });
+            const queryString = await rawQuery.get("AssignRole");
+            const results = await client.query(queryString, [userID, roleID]);
             return true;
         } catch (error) {
             console.log(error);
             return false;
         } finally {
-            await pg.end();
+            await client.end();
         }
     };
     const insertUserAndAssignRole = async (phone, password, roleID) => {
+        const client = await pg.connect();
         try {
-            await pg.query('BEGIN');
-            const insertQuery = await rawQuery.get('InsertUsers');
-            const insertResult = await pg.query({
-                name: 'InsertUsers',
+            await pg.query("BEGIN");
+            const insertQuery = await rawQuery.get("InsertUsers");
+            const insertResult = await client.query({
+                name: "InsertUsers",
                 text: insertQuery,
                 values: [phone, password],
             });
             const insert = insertResult.rows[0];
-            const assignUserQuery = await rawQuery.get('AssignRole');
-            const AssignQueryResult = await pg.query({
-                name: 'AssignRole',
-                text: assignUserQuery,
-                values: [insert.id, roleID],
-            });
-            await pg.query('COMMIT');
+            const assignUserQuery = await rawQuery.get("AssignRole");
+            const AssignQueryResult = await client.query(assignUserQuery, [insert.id, roleID]);
+            await client.query("COMMIT");
             return true;
         } catch (error) {
-            await pg.query('ROLLBACK');
+            await client.query("ROLLBACK");
             console.log(error);
             return false;
         } finally {
-            await pg.end();
+            await client.release();
         }
     };
     const getCollectionWithGifts = async () => {
+        const client = await pg.connect();
         try {
-            const queryRaw = await rawQuery.get('GetCollectionWithGifts');
-            const results = await pg.query({
-                name: 'GetCollectionWithGifts',
-                text: queryRaw,
-            });
+            const queryString = await rawQuery.get("GetCollectionWithGifts");
+            const results = await client.query(queryString);
             return results.rows;
         } catch (error) {
-            console.log({ error });
             return false;
         } finally {
-            await pg.end();
+            await client.release();
         }
     };
 
     const confirm = async (userID) => {
+        const client = await pg.connect();
         try {
-            const queryRaw = await rawQuery.get('ConfirmUser');
-            const results = await pg.query({
-                name: 'ConfirmUser',
-                text: queryRaw,
-                values: [userID],
-            });
+            const queryString = await rawQuery.get("ConfirmUser");
+            const results = await client.query(queryString, [userID]);
             return results.rows;
         } catch (error) {
             console.log({ error });
             return false;
         } finally {
-            await pg.end();
+            await client.release();
+        }
+    };
+
+    const tickets = async (id: number, offset: number, per_page: number) => {
+        const client = await pg.connect();
+        try {
+            const sql = await rawQuery.get(["user", "get"], "tickets");
+            const result = await client.query(sql, [id, offset, per_page]);
+            return result.rows[0];
+        } catch (error) {
+            console.log({ error });
+        } finally {
+            await client.release();
         }
     };
 
@@ -225,7 +215,8 @@ var User = () => {
         getAllAdminUsers,
         searchUserByUsernameOrEmail,
         confirm,
-        update_password
+        update_password,
+        tickets,
     };
 };
 

@@ -1,0 +1,6 @@
+SELECT (SELECT count(*) from %I) as total, count(t.*), json_agg(t.*) as %I
+FROM (
+         SELECT *
+         FROM %I
+         OFFSET %L LIMIT %L
+     ) AS t;

@@ -1,7 +1,6 @@
-import { View } from '@core/View';
-import React, { useEffect } from 'react';
-import '@client/css/index.css';
-import { AdminDashboardTemplateView } from './AdminDashboardTemplateView';
+import { View } from "@core/View";
+import React, { useEffect } from "react";
+import { AdminDashboardTemplateView } from "./AdminDashboardTemplateView";
 
 export const AdminManageAccountView = (props) => {
     useEffect(() => {
@@ -9,7 +8,7 @@ export const AdminManageAccountView = (props) => {
     }, [props]);
 
     return (
-        <AdminDashboardTemplateView select={'manage_account'}>
+        <AdminDashboardTemplateView select={"manage_account"}>
             <div>manage account</div>
         </AdminDashboardTemplateView>
     );

@@ -1,66 +1,55 @@
-import useDatabase from '@config/database';
-import useRawQuery from '@core/database/query/useRawQuery';
+import Database from "@config/database";
+import useRawQuery from "@core/database/query/useRawQuery";
+
+const [pg] = Database();
 
 var Gift = () => {
-    const [pg] = useDatabase();
     const rawQuery = useRawQuery();
 
     const getAllGifts = async () => {
+        const client = await pg.connect();
         try {
-            const queryRaw = await rawQuery.get('GetAllGifts');
-            const results = await pg.query({
-                name: 'GetAllGifts',
-                text: queryRaw,
-            });
+            const queryRaw = await rawQuery.get("GetAllGifts");
+            const results = await client.query(queryRaw);
             return results.rows;
         } catch (error) {
             console.log({ error });
             return false;
         } finally {
-            await pg.end();
+            await client.release();
         }
     };
 
     const delete_gift = async (id: number) => {
+        const client = await pg.connect();
         try {
-            await pg.query('BEGIN');
-            const queryRaw = await rawQuery.get('DeleteGiftFromCollectionGiftWithId');
-            const queryRaw2 = await rawQuery.get('DeleteGiftWithId');
-            await pg.query({
-                name: 'DeleteGiftFromCollectionGiftWithId',
-                text: queryRaw,
-                values: [id],
-            });
-            await pg.query({
-                name: 'DeleteGiftWithId',
-                text: queryRaw2,
-                values: [id],
-            });
-            await pg.query('COMMIT');
+            await client.query("BEGIN");
+            const queryRaw = await rawQuery.get("DeleteGiftFromCollectionGiftWithId");
+            const queryRaw2 = await rawQuery.get("DeleteGiftWithId");
+            await client.query(queryRaw, [id]);
+            await client.query(queryRaw2, [id]);
+            await client.query("COMMIT");
             return true;
         } catch (error) {
-            await pg.query('ROLLBACK');
+            await client.query("ROLLBACK");
             console.log({ error });
             return false;
         } finally {
-            await pg.end();
+            await client.release();
         }
     };
 
     const add_gift = async (type, label, price) => {
+        const client = await pg.connect();
         try {
-            const queryRaw = await rawQuery.get('AddGift');
-            await pg.query({
-                name: 'AddGift',
-                text: queryRaw,
-                values: [type, label, price],
-            });
+            const queryRaw = await rawQuery.get("AddGift");
+            await client.query(queryRaw, [type, label, price]);
             return true;
         } catch (error) {
             console.log({ error });
             return false;
         } finally {
-            await pg.end();
+            await client.release();
         }
     };
 

@@ -1,7 +1,6 @@
-import { View } from '@core/View';
-import React, { useEffect } from 'react';
-import '@client/css/index.css';
-import { AdminDashboardTemplateView } from './AdminDashboardTemplateView';
+import { View } from "@core/View";
+import React, { useEffect } from "react";
+import { AdminDashboardTemplateView } from "./AdminDashboardTemplateView";
 
 export const AdminPaymentsView = (props) => {
     useEffect(() => {
@@ -9,7 +8,7 @@ export const AdminPaymentsView = (props) => {
     }, [props]);
 
     return (
-        <AdminDashboardTemplateView select={'payments'}>
+        <AdminDashboardTemplateView select={"payments"}>
             <div>manage payments</div>
         </AdminDashboardTemplateView>
     );

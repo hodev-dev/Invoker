@@ -1,13 +1,13 @@
-import { View } from '@core/View';
-import { useEffect } from 'react';
-import '@client/css/index.css';
-import { AdminDashboardTemplateView } from './AdminDashboardTemplateView';
+import { View } from "@core/View";
+import { useEffect } from "react";
+import { AdminDashboardTemplateView } from "./AdminDashboardTemplateView";
 
 export const AdminDashboardView = (props) => {
-    useEffect(() => {}, [props]);
+    useEffect(() => {
+    }, [props]);
 
     return (
-        <AdminDashboardTemplateView select={'dashboard'}>
+        <AdminDashboardTemplateView select={"dashboard"}>
             <div>htest</div>
         </AdminDashboardTemplateView>
     );

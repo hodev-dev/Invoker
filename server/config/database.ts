@@ -1,32 +1,20 @@
-const { Pool, Client } = require('pg');
+const { Pool, Client } = require("pg");
 
-var useDatabase = () => {
+let Database = () => {
     const connectPG = () => {
-        const pg = new Client({
-            user: 'hodev2',
-            host: '127.0.0.1',
-            database: 'test',
-            password: '668523',
+        let pg = new Pool({
+            user: "hodev2",
+            host: "127.0.0.1",
+            database: "test",
+            password: "668523",
             port: 5432,
+            max: 20,
+            idleTimeoutMillis: 30000,
+            connectionTimeoutMillis: 2000,
         });
-        pg.connect();
         return pg;
     };
-
-    const connectPgPool = () => {
-        const pg = new Client({
-            user: 'hodev2',
-            host: '127.0.0.1',
-            database: 'test',
-            password: '668523',
-            port: 5432,
-        });
-        pg.connect();
-        return pg;
-    };
-
-    var connections = [connectPG(), connectPgPool()];
-    return connections;
+    return [connectPG()];
 };
 
-export default useDatabase;
+export default Database;

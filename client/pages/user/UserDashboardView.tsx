@@ -1,10 +1,9 @@
-import { View } from '@core/View';
-import '@client/css/index.css';
-import { UserDashboardTemplate } from '@client/pages/user/UserDashboardTemplate';
+import { View } from "@core/View";
+import { UserDashboardTemplate } from "@client/pages/user/UserDashboardTemplate";
 
 export const UserDashboardView = (props: any) => {
     return (
-        <UserDashboardTemplate select={'support'}>
+        <UserDashboardTemplate select={"support"}>
             <h1>test</h1>
         </UserDashboardTemplate>
     );

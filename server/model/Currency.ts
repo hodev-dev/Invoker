@@ -1,15 +1,15 @@
-import useDatabase from '@config/database';
-import useRawQuery from '@core/database/query/useRawQuery';
+import Database from "@config/database";
+import useRawQuery from "@core/database/query/useRawQuery";
 
 var Currency = () => {
-    const [pg] = useDatabase();
+    const [pg] = Database();
     const rawQuery = useRawQuery();
 
     const get_all_currency = async () => {
         try {
-            const queryRaw = await rawQuery.get('GetAllCurrencies');
+            const queryRaw = await rawQuery.get("GetAllCurrencies");
             const result = await pg.query({
-                name: 'GetAllCurrencies',
+                name: "GetAllCurrencies",
                 text: queryRaw,
                 values: [],
             });
@@ -24,9 +24,9 @@ var Currency = () => {
 
     const add_currency = async (country, value) => {
         try {
-            const queryRaw = await rawQuery.get('AddCurrency');
+            const queryRaw = await rawQuery.get("AddCurrency");
             const result = await pg.query({
-                name: 'AddCurrency',
+                name: "AddCurrency",
                 text: queryRaw,
                 values: [country, value],
             });
@@ -40,9 +40,9 @@ var Currency = () => {
 
     const delete_currency = async (id) => {
         try {
-            const queryRaw = await rawQuery.get('DeleteCurrency');
+            const queryRaw = await rawQuery.get("DeleteCurrency");
             const result = await pg.query({
-                name: 'DeleteCurrency',
+                name: "DeleteCurrency",
                 text: queryRaw,
                 values: [id],
             });

@@ -1,21 +1,21 @@
-import useDatabase from '@config/database';
-import useRawQuery from '@core/database/query/useRawQuery';
+import Database from "@config/database";
+import useRawQuery from "@core/database/query/useRawQuery";
 
 let Ticket = () => {
-    const [pg] = useDatabase();
+    const [pg] = Database();
     const rawQuery = useRawQuery();
 
-    const getAllTickets = async () => {
+    const userWithTicket = async () => {
         try {
-            const queryRaw = await rawQuery.get(['ticket', 'get'], 'test');
-            console.log(queryRaw);
+            const sql = await rawQuery.get(["ticket", "get"], "user_with_ticket");
+            return await pg.query(sql);
         } catch (error) {
             console.log({ error });
         }
     };
 
     return {
-        getAllTickets,
+        userWithTicket,
     };
 };
 

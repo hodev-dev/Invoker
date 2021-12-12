@@ -38,7 +38,6 @@ let useRawQuery = () => {
     const getWithPath = async (path: string) => {
         try {
             const data = await fs.readFile(path, 'utf8');
-            console.log({ data });
             return data;
         } catch (error: any) {
             console.log(error);

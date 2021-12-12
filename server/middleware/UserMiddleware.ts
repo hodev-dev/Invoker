@@ -1,4 +1,4 @@
-import { Response, Request } from 'express';
+import { Request, Response } from "express";
 
 const UserMiddleware = () => {
     const loginProtection = (request: Request | any, response: Response, next: any) => {
@@ -6,10 +6,10 @@ const UserMiddleware = () => {
         if (user === undefined) {
             next();
         } else {
-            if (user.roles.includes('admin')) {
-                return response.redirect('/admin');
+            if (user.roles.includes("admin")) {
+                return response.redirect("/admin");
             } else {
-                return response.redirect('/user');
+                return response.redirect("/user");
             }
         }
     };
@@ -17,12 +17,12 @@ const UserMiddleware = () => {
     const adminProtection = (request: Request | any, response: Response, next: any) => {
         const { user } = request.session;
         if (user === undefined) {
-            return response.redirect('/login');
+            return response.redirect("/login");
         } else {
-            if (user.roles.includes('admin')) {
+            if (user.roles.includes("admin")) {
                 next();
             } else {
-                return response.redirect('/');
+                return response.redirect("/");
             }
         }
     };
@@ -30,13 +30,12 @@ const UserMiddleware = () => {
     const userProtection = (request: Request | any, response: Response, next: any) => {
         const { user } = request.session;
         if (user === undefined) {
-            return response.redirect('/login');
+            return response.redirect("/login");
         } else {
-            if (user.roles.includes('user')) {
-                console.log('run user')
+            if (user.roles.includes("user")) {
                 next();
             } else {
-                return response.redirect('/');
+                return response.redirect("/");
             }
         }
     };
@@ -44,12 +43,12 @@ const UserMiddleware = () => {
     const totpProtection = (request: Request | any, response: Response, next: any) => {
         const { user } = request.session;
         if (user === undefined) {
-            return response.redirect('/login');
+            return response.redirect("/login");
         } else {
             if (user.confirmed) {
                 next();
             } else {
-                return response.redirect('/totp');
+                return response.redirect("/totp");
             }
         }
     };
@@ -57,10 +56,10 @@ const UserMiddleware = () => {
     const totpProtectionIfNotExists = (request: Request | any, response: Response, next: any) => {
         const { user } = request.session;
         if (user === undefined) {
-            return response.redirect('/login');
+            return response.redirect("/login");
         } else {
             if (user.confirmed) {
-                return response.redirect('/user');
+                return response.redirect("/user");
             } else {
                 next();
             }
@@ -72,10 +71,9 @@ const UserMiddleware = () => {
         adminProtection,
         userProtection,
         totpProtection,
-        totpProtectionIfNotExists
+        totpProtectionIfNotExists,
     };
 };
-
 
 
 export default UserMiddleware;
