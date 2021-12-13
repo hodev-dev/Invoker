@@ -1,4 +1,4 @@
-const { Pool, Client } = require("pg");
+const { Pool } = require("pg");
 
 let Database = () => {
     const connectPG = () => {
